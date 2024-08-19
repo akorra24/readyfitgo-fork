@@ -1,0 +1,8 @@
+runtime: python39
+
+entrypoint: gunicorn -b :$PORT main:app --timeout 120
+instance_class: F4  # Example: F2 class provides 256 MB to 1 GB of memory
+
+handlers:
+- url: /.*
+  script: auto
