@@ -1,186 +1,222 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/macro_calculator_page.dart';
-// import 'package:website/pages/macro_calculator_page.dart';
 import 'package:website/pages/meal_generator_page.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: [
-          Image.asset(
-            'images/home_page.jpg', // Make sure the path to the image is correct
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
+          Expanded(
+            child: Stack(
+              children: [
+                Image.asset(
+                  'images/steak.jpg', // Background image
+                  width: double.infinity,
+                  height: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  color:
+                      Colors.black.withOpacity(0.5), // Adjust overlay opacity
+                  width: double.infinity,
+                  height: double.infinity,
+                ),
+                Positioned(
+                  top: 40,
+                  right: 20,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '1025 Pacific Coast Hwy, Hermosa Beach, CA 90254',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontFamily: 'Rufina'),
+                      ),
+                      Text(
+                        '(310) 318-3188',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontFamily: 'Rufina'),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 30, // Adjust top padding to center logo better
+                  left: 20,
+                  child: Image.asset(
+                    'images/rfgg.png', // Path to the logo image
+                    width: 150, // Increase width to make the logo bigger
+                  ),
+                ),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Fit your budget.\nFit your lifestyle.',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 48, // Increase font size
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'Rufina', // Use Rufina font
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MealGenerator()),
+                              );
+                            },
+                            child: Container(
+                              width: 200, // Adjust width for larger buttons
+                              padding: const EdgeInsets.all(16),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                color: Colors
+                                    .transparent, // Make the background transparent
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2.0, // Add white border to match Figma
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Meal Generator',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize:
+                                        18, // Increase font size for buttons
+                                    fontFamily: 'Rufina', // Use Rufina font
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        MacroCalculatorPage()),
+                              );
+                            },
+                            child: Container(
+                              width: 200, // Adjust width for larger buttons
+                              padding: const EdgeInsets.all(16),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                color: Colors
+                                    .transparent, // Make the background transparent
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2.0, // Add white border to match Figma
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Macro Calculator',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize:
+                                        18, // Increase font size for buttons
+                                    fontFamily: 'Rufina', // Use Rufina font
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
-            color: Colors.black.withOpacity(0.7),
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          const Positioned(
-            top: 50,
-            right: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Text(
-                  '1025 Pacific Coast Hwy, Hermosa Beach, CA 90254',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Text(
-                  '(310) 318-3188',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            color: Color(
+                0xFF003300), // Dark green banner background (adjust color as needed)
+            padding: const EdgeInsets.all(
+                30), // Increase padding to make the banner taller
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
-                  'Your Personalised Nutrition Partner.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.greenAccent,
-                    fontSize: 48,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 50, right: 50),
-                  child: const Text(
-                    'Simply input your desired macros, number of meals, and days for the plan. \nOur AI system handles the rest, delivering a meal plan for each day that best matches your macros.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16.6,
-                      fontWeight: FontWeight.w400,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Ready Fit Go',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Rufina'),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 40),
-                // const SizedBox(height: 20),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MealGenerator()),
-                    );
-                  },
-                  child: SizedBox(
-                    width: 240, // Set the desired width here
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Get Started',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
+                    Text(
+                      '1025 Pacific Coast Hwy,\nHermosa Beach, CA 90254',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Rufina'),
                     ),
-                  ),
+                  ],
                 ),
-                SizedBox(
-                  height: 15,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MacroCalculatorPage()),
-                    );
-                  },
-                  child: SizedBox(
-                    width: 240, // Set the desired width here
-                    child: Container(
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.symmetric(horizontal: 25),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'Macro Calculator',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Contact',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Rufina'),
                     ),
-                  ),
+                    Text(
+                      '(310) 318-3188',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Rufina'),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          const Positioned(
-            bottom: 30,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Ready Fit Go',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                Text(
-                  '1025 Pacific Coast Hwy,\nHermosa Beach, CA 90254',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-          const Positioned(
-            bottom: 30,
-            right: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: const [
-                Text(
-                  'Contact',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                Text(
-                  '(310) 318-3188',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 30,
-            right: screenWidth / 2 - 40,
-            child: const Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Text(
-                  'Website',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                Text(
-                  'readyfitgo.com',
-                  style: TextStyle(color: Colors.white),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Website',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'Rufina'),
+                    ),
+                    Text(
+                      'readyfitgo.com',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: 'Rufina'),
+                    ),
+                  ],
                 ),
               ],
             ),
