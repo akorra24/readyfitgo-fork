@@ -31,6 +31,11 @@ class MacroDisplayWidget extends StatelessWidget {
     double carbsFraction = carbs / totalMacros;
     double fatFraction = fat / totalMacros;
 
+    double targetTotalMacros = targetProtein + targetFat + targetCarbs;
+    double targetProteinFraction = targetProtein / targetTotalMacros;
+    double targetCarbsFraction = targetCarbs / targetTotalMacros;
+    double targetFatFraction = targetFat / targetTotalMacros;
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Container(
@@ -51,15 +56,13 @@ class MacroDisplayWidget extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 17.5,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     children: <TextSpan>[
                       TextSpan(
                           text: '${calories.toStringAsFixed(0)} ',
                           style: TextStyle(color: Colors.green)),
-                      TextSpan(
-                          text: 'Calories (Total)',
-                          style: TextStyle(color: Colors.white)),
+                      TextSpan(text: 'Calories (Total)'),
                     ],
                   ),
                 )),
@@ -90,7 +93,7 @@ class MacroDisplayWidget extends StatelessWidget {
               'This bar displays the combined macros from all the recommended meals (listed below) that closely match your calculated macros.',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white,
+                color: Colors.grey,
               ),
             ),
             SizedBox(height: 16),
@@ -195,7 +198,143 @@ class MacroDisplayWidget extends StatelessWidget {
                 ),
               ],
             ),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 8, bottom: 8),
+            //   child: Text(
+            //     'Target',
+            //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+            //   ),
+            // ),
             SizedBox(height: 4),
+            Divider(
+              color: Colors.grey,
+            ),
+            SizedBox(height: 4),
+            RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  fontSize: 17.5,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                      text: '${targetCalories.toStringAsFixed(0)} ',
+                      style: TextStyle(color: Colors.green)),
+                  TextSpan(text: 'Calories (Target)'),
+                ],
+              ),
+            ),
+            SizedBox(height: 3),
+            Text(
+              'This bar represents your personalized daily macro goals calculated from your input information.',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.grey,
+              ),
+            ),
+            SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'PROTEIN',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'CARBS',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  'FAT',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 6),
+            Row(
+              children: [
+                Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: (targetProteinFraction * 1000).toInt(),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                            borderRadius: BorderRadius.horizontal(
+                              left: Radius.circular(10),
+                            ),
+                          ),
+                          height: 10,
+                        ),
+                      ),
+                      Expanded(
+                        flex: (targetCarbsFraction * 1000).toInt(),
+                        child: Container(
+                          color: Colors.orange,
+                          height: 10,
+                        ),
+                      ),
+                      Expanded(
+                        flex: (targetFatFraction * 1000).toInt(),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.yellow,
+                            borderRadius: BorderRadius.horizontal(
+                              right: Radius.circular(10),
+                            ),
+                          ),
+                          height: 10,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '${targetProtein.toStringAsFixed(0)} g',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  '${targetCarbs.toStringAsFixed(0)} g',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  '${targetFat.toStringAsFixed(0)} g',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

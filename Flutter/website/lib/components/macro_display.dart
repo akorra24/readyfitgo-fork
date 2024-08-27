@@ -87,7 +87,10 @@ class MacroBarDisplayWidget extends StatelessWidget {
             children: [
               Text(
                 value,
-                style: TextStyle(color: textColor, fontSize: 15),
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 15,
+                ),
               ),
               SizedBox(width: 4),
               Text(

@@ -5,7 +5,11 @@ class MealDetailCard extends StatelessWidget {
   final String imagePath;
   final Map<String, String> nutritionInfo;
   final String servingSize;
+  final Color textColor;
+
   final VoidCallback? onPressed;
+  final VoidCallback? onPressedBandS;
+
   final String buttonText;
   // final bool button;
 
@@ -15,7 +19,9 @@ class MealDetailCard extends StatelessWidget {
     required this.imagePath,
     required this.nutritionInfo,
     required this.servingSize,
+    required this.textColor,
     this.onPressed,
+    this.onPressedBandS,
     this.buttonText = 'Replace',
   }) : super(key: key);
 
@@ -27,7 +33,7 @@ class MealDetailCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.white, width: 1),
+          border: Border.all(color: textColor, width: 1),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
@@ -35,18 +41,19 @@ class MealDetailCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-                borderRadius:
-                    const BorderRadius.vertical(top: Radius.circular(8)),
-                child: Image.network(
-                  'http://localhost:3000/image-proxy?url=$imagePath',
-                  height: 160,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                  errorBuilder: (BuildContext context, Object exception,
-                      StackTrace? stackTrace) {
-                    return Text('Failed to load image');
-                  },
-                )),
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(8)),
+              child: Image.network(
+                'http://localhost:3000/image-proxy?url=$imagePath',
+                height: 160,
+                width: double.infinity,
+                fit: BoxFit.cover,
+                errorBuilder: (BuildContext context, Object exception,
+                    StackTrace? stackTrace) {
+                  return Text('Failed to load image');
+                },
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
@@ -56,10 +63,10 @@ class MealDetailCard extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: textColor),
                     ),
                   ),
                   const Divider(),
@@ -83,7 +90,31 @@ class MealDetailCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.green,
+                // borderRadius: BorderRadius.only(
+                //     bottomLeft: Radius.circular(8),
+                //     bottomRight: Radius.circular(8)),
+              ),
+              height: 50,
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: TextButton(
+                onPressed: onPressedBandS ?? () {},
+                child: Text(
+                  'Replace w/ Snack/Breakfast',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            Divider(
+              color: textColor,
+            ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.green,
@@ -95,10 +126,9 @@ class MealDetailCard extends StatelessWidget {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: TextButton(
-                onPressed: onPressed ??
-                    () {}, // Use the passed function or a default empty function
+                onPressed: onPressed ?? () {},
                 child: Text(
-                  buttonText, // Use the passed text or the default
+                  buttonText,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16,
@@ -119,11 +149,11 @@ class MealDetailCard extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: textColor),
         ),
         Text(
           value,
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: textColor),
         ),
       ],
     );

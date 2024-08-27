@@ -6,11 +6,13 @@ import 'dart:convert';
 class MealReplaceOptions extends StatelessWidget {
   final int currentMealId;
   final String jsonFilePath;
+  final bool breakfastSnack;
   final Function(int) onMealSelected;
 
   const MealReplaceOptions({
     Key? key,
     required this.currentMealId,
+    required this.breakfastSnack,
     required this.jsonFilePath,
     required this.onMealSelected,
   }) : super(key: key);
@@ -18,7 +20,27 @@ class MealReplaceOptions extends StatelessWidget {
   Future<List<int>> loadClosestMeals() async {
     String data = await rootBundle.loadString(jsonFilePath);
     Map<String, dynamic> jsonData = jsonDecode(data);
-    return List<int>.from(jsonData[currentMealId.toString()] ?? []);
+    List<int> mealIds =
+        List<int>.from(jsonData[currentMealId.toString()] ?? []);
+
+    // Load full meal data for filtering
+    String mealsData = await rootBundle.loadString('assets/rfg_data_zero.json');
+    List<dynamic> meals = jsonDecode(mealsData);
+
+    if (breakfastSnack) {
+      // Filter meal IDs based on whether the meal is a breakfast or snack
+      mealIds = mealIds.where((mealId) {
+        final meal = meals.firstWhere((meal) => meal['id'] == mealId,
+            orElse: () => null);
+        if (meal == null) return false;
+        final mealType = meal['Meal Type']?.trim().toLowerCase();
+        return mealType == 'breakfast' ||
+            mealType == 'snack' ||
+            mealType == 'breakfast and snack';
+      }).toList();
+    }
+
+    return mealIds;
   }
 
   Future<Map<String, dynamic>> fetchMealDetails(int mealId) async {
@@ -64,6 +86,7 @@ class MealReplaceOptions extends StatelessWidget {
                         return MealDetailCard(
                           title: meal['Menu Item'],
                           imagePath: meal['Images'],
+                          textColor: Colors.black,
                           nutritionInfo: {
                             "Calories": "${meal['Calories']} Kcal",
                             "Protein": "${meal['Protein']} g",

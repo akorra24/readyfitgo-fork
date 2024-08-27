@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:website/pages/daily_meal_page_2.dart';
 
 void main() {
   runApp(MaterialApp(home: MacroCalculatorPage()));
@@ -21,6 +22,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
   String _activityLevel =
       'Lightly active (light exercise less than 3 days per week)';
   String _fitnessGoal = 'Lose Weight';
+  String _dietaryPreference = 'None';
+  int _numberOfMeals = 3;
+  int _numberOfDays = 7;
 
   double _protein = 0.0;
   double _carbs = 0.0;
@@ -86,7 +90,6 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Image.asset(
             'images/hii.jpeg', // Background image
             width: double.infinity,
@@ -95,12 +98,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
             alignment:
                 Alignment(2.0, -0.46), // Adjust alignment to slightly higher
           ),
-
-          // Semi-transparent overlay
           Container(
             color: Colors.black.withOpacity(0.6),
           ),
-          // Content
           Center(
             child: SingleChildScrollView(
               child: Padding(
@@ -117,7 +117,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         'Macro Calculator',
                         style: TextStyle(
                           fontSize: 35,
@@ -125,8 +125,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      SizedBox(height: 10),
-                      Text(
+                      const SizedBox(height: 10),
+                      const Text(
                         'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
                         style: TextStyle(
                           color: Colors.white,
@@ -140,7 +140,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
+                            const Text(
                               'Body Composition',
                               style: TextStyle(
                                 color: Colors.white,
@@ -148,7 +148,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               children: [
                                 Expanded(
@@ -157,7 +157,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                     child: DropdownButtonFormField<String>(
                                       style: TextStyle(color: Colors.white),
                                       value: _sex,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         labelText: 'Sex',
                                         labelStyle:
                                             TextStyle(color: Colors.white),
@@ -194,7 +194,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                     child: TextFormField(
                                       style: TextStyle(color: Colors.white),
                                       controller: _ageController,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         labelText: 'Age',
                                         labelStyle:
                                             TextStyle(color: Colors.white),
@@ -224,17 +224,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Row(
                               children: [
                                 Expanded(
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 12.0),
                                     child: TextFormField(
-                                      style: TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                       cursorColor: Colors.white,
                                       controller: _heightController,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         labelText: 'Enter Height (inches)',
                                         labelStyle:
                                             TextStyle(color: Colors.white),
@@ -288,9 +289,6 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       keyboardType: TextInputType.number,
                                       validator: (value) {
                                         if (value == null || value.isEmpty) {
-                                          return 'Please enter weight';
-                                        }
-                                        if (double.tryParse(value) == null) {
                                           return 'Please enter a valid number';
                                         }
                                         return null;
@@ -301,7 +299,108 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               ],
                             ),
                             const SizedBox(height: 20),
-                            // const Divider(color: Colors.white),
+                            // New Dropdowns
+                            const Text(
+                              'Preferences',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            DropdownButtonFormField<String>(
+                              style: TextStyle(color: Colors.white),
+                              value: _dietaryPreference,
+                              decoration: const InputDecoration(
+                                labelText: 'Dietary Preference',
+                                labelStyle: TextStyle(color: Colors.white),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                              ),
+                              dropdownColor: Colors.grey[800],
+                              items: ['None', 'Vegetarian', 'Vegan']
+                                  .map((label) => DropdownMenuItem(
+                                        child: Text(label),
+                                        value: label,
+                                      ))
+                                  .toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  _dietaryPreference = value!;
+                                });
+                              },
+                            ),
+                            const SizedBox(height: 20),
+                            DropdownButtonFormField<int>(
+                              style: TextStyle(color: Colors.white),
+                              value: _numberOfMeals,
+                              decoration: const InputDecoration(
+                                labelText: 'Number of Meals per Day',
+                                labelStyle: TextStyle(color: Colors.white),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                              ),
+                              dropdownColor: Colors.grey[800],
+                              items: List.generate(6, (index) => index + 1)
+                                  .map((label) => DropdownMenuItem(
+                                        child: Text('$label'),
+                                        value: label,
+                                      ))
+                                  .toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  _numberOfMeals = value!;
+                                });
+                              },
+                            ),
+                            const SizedBox(height: 20),
+                            DropdownButtonFormField<int>(
+                              style: TextStyle(color: Colors.white),
+                              value: _numberOfDays,
+                              decoration: const InputDecoration(
+                                labelText: 'Number of Days',
+                                labelStyle: TextStyle(color: Colors.white),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color:
+                                          Color.fromARGB(185, 255, 255, 255)),
+                                ),
+                              ),
+                              dropdownColor: Colors.grey[800],
+                              items: List.generate(7, (index) => index + 1)
+                                  .map((label) => DropdownMenuItem(
+                                        child: Text('$label'),
+                                        value: label,
+                                      ))
+                                  .toList(),
+                              onChanged: (value) {
+                                setState(() {
+                                  _numberOfDays = value!;
+                                });
+                              },
+                            ),
                             const SizedBox(height: 20),
                             DropdownButtonFormField<String>(
                               style: TextStyle(color: Colors.white),
@@ -379,10 +478,38 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                       Center(
                         // This will center the button horizontally
                         child: GestureDetector(
-                          onTap: _isButtonEnabled ? _calculateMacros : null,
+                          onTap: _isButtonEnabled
+                              ? () {
+                                  // Ensure that all inputs are valid
+                                  if (_formKey.currentState?.validate() ??
+                                      false) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DailyMealPlanPage(
+                                          age:
+                                              int.tryParse(_ageController.text),
+                                          sex: _sex,
+                                          height: double.tryParse(
+                                              _heightController.text),
+                                          weight: double.tryParse(
+                                              _weightController.text),
+                                          activityLevel: _activityLevel,
+                                          fitnessGoal: _fitnessGoal,
+                                          dietaryPreference: _dietaryPreference,
+                                          numberOfMeals: _numberOfMeals,
+                                          numberOfDays: _numberOfDays,
+                                          calculateMacros:
+                                              true, // Assuming this flag triggers macro calculation
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                }
+                              : null,
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width *
-                                0.2, // Adjust the width to 80% of the screen width
+                                0.2, // Adjust the width
                             child: Container(
                               padding: const EdgeInsets.all(15),
                               margin:
@@ -394,12 +521,14 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Center(
-                                child: Text('Generate',
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15,
-                                    )),
+                                child: Text(
+                                  'Generate',
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15,
+                                  ),
+                                ),
                               ),
                             ),
                           ),

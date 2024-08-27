@@ -77,7 +77,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         macros = mealResponse['closest_meals'];
         mealDetails =
             List<Map<String, dynamic>>.from(mealResponse['meal_info']);
-        print(mealDetails);
+        updateMacroDisplay(); // Update macro display when meals are fetched
       });
     } else {
       throw Exception('Failed to load recommendations');
@@ -88,9 +88,34 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     });
   }
 
+  void updateMacroDisplay() {
+    double totalCalories = 0.0;
+    double totalCarbs = 0.0;
+    double totalProtein = 0.0;
+    double totalFat = 0.0;
+
+    mealDetails.forEach((meal) {
+      totalCalories += double.parse(meal['Calories'].toString());
+      totalCarbs += double.parse(meal['Carbs'].toString());
+      totalProtein += double.parse(meal['Protein'].toString());
+      totalFat += double.parse(meal['Fat'].toString());
+    });
+
+    setState(() {
+      macros = [totalCalories, totalCarbs, totalProtein, totalFat];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
+
+    if (isLoading || mealDetails.isEmpty || macros.isEmpty) {
+      return Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      );
+    }
+
     Map<String, dynamic> mappedMacros = mapMacrosToList(macros);
 
     return Scaffold(
@@ -111,167 +136,154 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
               height: double.infinity,
             ),
             // Main content
-            isLoading
-                ? Center(child: CircularProgressIndicator())
-                : SingleChildScrollView(
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 30),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 40, bottom: 8),
-                                child: const Text(
-                                  'Your Personalized Daily Meal Plan',
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Container(
-                                  padding: EdgeInsets.all(16),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  child: MacroDisplayWidget(
-                                    calories: mappedMacros['Calories'],
-                                    carbs: mappedMacros['Carbs'],
-                                    protein: mappedMacros['Protein'],
-                                    fat: mappedMacros['Fat'],
-                                    targetCalories: widget.calories,
-                                    targetCarbs: widget.carbs,
-                                    targetProtein: widget.protein,
-                                    targetFat: widget.fats,
-                                    onPressed: fetchRecommendedMeals,
-                                  ),
-                                ),
-                              ),
-                            ],
+                        const Padding(
+                          padding: const EdgeInsets.only(left: 40, bottom: 8),
+                          child: const Text(
+                            'Your Personalized Daily Meal Plan',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 19,
+                                fontWeight: FontWeight.w800),
                           ),
                         ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: mealDetails.map((meal) {
-                              return MealDetailCard(
-                                title: meal['Menu Item'],
-                                imagePath: meal['Images'],
-                                nutritionInfo: {
-                                  "Calories": "${meal['Calories']} Kcal",
-                                  "Protein": "${meal['Protein']} g",
-                                  "Carbs": "${meal['Carbs']} g",
-                                  "Fat": "${meal['Fat']} g",
-                                },
-                                servingSize: "Serving size information",
-                                buttonText: "Replace",
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return MealReplaceOptions(
-                                        currentMealId: meal['id'],
-                                        jsonFilePath:
-                                            'assets/sorted_distances.json',
-                                        onMealSelected: (selectedMealId) async {
-                                          // Fetch the details of the selected meal
-                                          String data =
-                                              await rootBundle.loadString(
-                                                  'assets/rfg_data_zero.json');
-                                          List<dynamic> meals =
-                                              jsonDecode(data);
-                                          var selectedMeal = meals.firstWhere(
-                                              (meal) =>
-                                                  meal['id'] == selectedMealId,
-                                              orElse: () => {});
-
-                                          // Update the mealDetails with the selected meal
-                                          setState(() {
-                                            mealDetails = mealDetails.map((m) {
-                                              if (m['id'] == meal['id']) {
-                                                return selectedMeal
-                                                    as Map<String, dynamic>;
-                                              }
-                                              return m;
-                                            }).toList();
-                                          });
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                              );
-                            }).toList(),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Container(
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: MacroDisplayWidget(
+                              calories: mappedMacros['Calories'],
+                              carbs: mappedMacros['Carbs'],
+                              protein: mappedMacros['Protein'],
+                              fat: mappedMacros['Fat'],
+                              targetCalories: widget.calories,
+                              targetCarbs: widget.carbs,
+                              targetProtein: widget.protein,
+                              targetFat: widget.fats,
+                              onPressed: fetchRecommendedMeals,
+                            ),
                           ),
                         ),
-                        const SizedBox(height: 30),
                       ],
                     ),
                   ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: mealDetails.map((meal) {
+                        return MealDetailCard(
+                          textColor: Colors.white,
+                          title: meal['Menu Item'],
+                          imagePath: meal['Images'],
+                          nutritionInfo: {
+                            "Calories": "${meal['Calories']} Kcal",
+                            "Protein": "${meal['Protein']} g",
+                            "Carbs": "${meal['Carbs']} g",
+                            "Fat": "${meal['Fat']} g",
+                          },
+                          servingSize: "Serving size information",
+                          buttonText: "Replace",
+                          onPressedBandS: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return MealReplaceOptions(
+                                  breakfastSnack: true,
+                                  currentMealId: meal['id'],
+                                  jsonFilePath: 'assets/sorted_distances.json',
+                                  onMealSelected: (selectedMealId) async {
+                                    // Fetch the details of the selected meal
+                                    String data = await rootBundle.loadString(
+                                        'assets/rfg_data_zero.json');
+                                    List<dynamic> meals = jsonDecode(data);
+                                    var selectedMeal = meals.firstWhere(
+                                        (meal) => meal['id'] == selectedMealId,
+                                        orElse: () => {});
+
+                                    // Update the mealDetails with the selected meal
+                                    setState(() {
+                                      mealDetails = mealDetails.map((m) {
+                                        if (m['id'] == meal['id']) {
+                                          return selectedMeal
+                                              as Map<String, dynamic>;
+                                        }
+                                        return m;
+                                      }).toList();
+
+                                      // Update the macros based on the new meal selection
+                                      updateMacroDisplay();
+                                    });
+                                  },
+                                );
+                              },
+                            );
+                          },
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return MealReplaceOptions(
+                                  breakfastSnack: false,
+                                  currentMealId: meal['id'],
+                                  jsonFilePath: 'assets/sorted_distances.json',
+                                  onMealSelected: (selectedMealId) async {
+                                    // Fetch the details of the selected meal
+                                    String data = await rootBundle.loadString(
+                                        'assets/rfg_data_zero.json');
+                                    List<dynamic> meals = jsonDecode(data);
+                                    var selectedMeal = meals.firstWhere(
+                                        (meal) => meal['id'] == selectedMealId,
+                                        orElse: () => {});
+
+                                    // Update the mealDetails with the selected meal
+                                    setState(() {
+                                      mealDetails = mealDetails.map((m) {
+                                        if (m['id'] == meal['id']) {
+                                          return selectedMeal
+                                              as Map<String, dynamic>;
+                                        }
+                                        return m;
+                                      }).toList();
+
+                                      // Update the macros based on the new meal selection
+                                      updateMacroDisplay();
+                                    });
+                                  },
+                                );
+                              },
+                            );
+                          },
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Widget buildMacroDetailsWidget(
-      Map<String, dynamic> macros, VoidCallback onRegenerate) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ...macros.entries.map(
-          (entry) => Text(
-            "${entry.key}: ${entry.value.toString()}g  ",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-          ),
-        ),
-        SizedBox(width: 20),
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 1),
-            child: GestureDetector(
-              onTap: onRegenerate,
-              child: SizedBox(
-                width: 130,
-                child: Container(
-                  padding: const EdgeInsets.all(10),
-                  margin: const EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Regenerate',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   Map<String, dynamic> mapMacrosToList(List<dynamic> macroValues) {
-    List<String> macroNames = ['Calories', 'Protein', 'Fat', 'Carbs'];
+    List<String> macroNames = ['Calories', 'Carbs', 'Protein', 'Fat'];
     Map<String, dynamic> macrosMap = {};
 
-    for (int i = 0; i < macroValues.length; i++) {
+    for (int i = 0; i < macroNames.length; i++) {
       macrosMap[macroNames[i]] = macroValues[i];
     }
 
