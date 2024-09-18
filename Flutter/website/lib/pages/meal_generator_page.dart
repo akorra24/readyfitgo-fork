@@ -144,7 +144,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                                           'Calories': double.parse(
                                               _caloriesController.text),
                                         },
-                                        dietaryPreference: 'n/a',
+                                        dietaryPreference: dietaryPreference,
                                         numberOfMeals: numberOfMeals,
                                         numberOfDays: numberOfDays,
                                         calculateMacros: false,

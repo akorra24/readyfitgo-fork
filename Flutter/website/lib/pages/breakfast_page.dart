@@ -65,7 +65,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         "Carbs": widget.carbs,
         "meal_count": widget.numberOfMeals,
         "selected_meal_id": "n/a",
-        "dietery": "n/a",
+        "dietery": widget.dietaryPreference,
       }),
     );
 
