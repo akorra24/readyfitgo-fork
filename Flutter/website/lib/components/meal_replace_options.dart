@@ -93,6 +93,7 @@ class MealReplaceOptions extends StatelessWidget {
                             "Carbs": "${meal['Carbs']} g",
                             "Fat": "${meal['Fat']} g",
                           },
+                          ingredients: meal["Ingredients"],
                           servingSize: "Serving size information",
                           buttonText: "Select",
                           onPressed: () {

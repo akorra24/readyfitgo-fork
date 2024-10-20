@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website/components/custom_footer.dart';
 import 'package:website/pages/daily_meal_page_2.dart';
+import 'package:website/pages/macro_calculator_page.dart';
 
 void main() {
   runApp(MaterialApp(home: MealGenerator()));
@@ -182,11 +183,11 @@ class _MealGeneratorState extends State<MealGenerator> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) => UserInputForm()),
-                            // );
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MacroCalculatorPage()),
+                            );
                           },
                           child: SizedBox(
                             width: 280, // Set the desired width here

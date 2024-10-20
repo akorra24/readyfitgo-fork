@@ -4,14 +4,14 @@ class MealDetailCard extends StatelessWidget {
   final String title;
   final String imagePath;
   final Map<String, String> nutritionInfo;
-  final String servingSize;
+  final String servingSize; // You can remove this if no longer needed
   final Color textColor;
+  final String ingredients;
 
   final VoidCallback? onPressed;
   final VoidCallback? onPressedBandS;
 
   final String buttonText;
-  // final bool button;
 
   const MealDetailCard({
     Key? key,
@@ -20,6 +20,7 @@ class MealDetailCard extends StatelessWidget {
     required this.nutritionInfo,
     required this.servingSize,
     required this.textColor,
+    required this.ingredients,
     this.onPressed,
     this.onPressedBandS,
     this.buttonText = 'Replace',
@@ -50,7 +51,7 @@ class MealDetailCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 errorBuilder: (BuildContext context, Object exception,
                     StackTrace? stackTrace) {
-                  return Text('Failed to load image');
+                  return const Text('Failed to load image');
                 },
               ),
             ),
@@ -76,35 +77,24 @@ class MealDetailCard extends StatelessWidget {
                           const Divider(),
                         ],
                       )),
-                  SizedBox(height: 8),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      "Serving: $servingSize",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 13,
-                      ),
-                    ),
-                  ),
+                  const SizedBox(height: 8),
+                  // Replacing Serving Size with Ingredients and hover/touch interaction
+                  _buildIngredientHover(context), // Pass the context here
                 ],
               ),
             ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.green,
-                // borderRadius: BorderRadius.only(
-                //     bottomLeft: Radius.circular(8),
-                //     bottomRight: Radius.circular(8)),
               ),
               height: 50,
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: TextButton(
                 onPressed: onPressedBandS ?? () {},
-                child: Text(
+                child: const Text(
                   'Replace w/ Snack/Breakfast',
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -118,7 +108,7 @@ class MealDetailCard extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                 color: Colors.green,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(8),
                     bottomRight: Radius.circular(8)),
               ),
@@ -157,5 +147,57 @@ class MealDetailCard extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  // Widget to handle hover/touch for ingredients
+  Widget _buildIngredientHover(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+          context: context, // Use the passed context here
+          builder: (context) => AlertDialog(
+            title: const Text('Ingredients'),
+            content: Container(
+              constraints: const BoxConstraints(maxWidth: 350), // Set max width
+              child: SingleChildScrollView(
+                child: Text(ingredients),
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('Close'),
+              ),
+            ],
+          ),
+        );
+      },
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: Align(
+          alignment: Alignment.center,
+          child: Tooltip(
+            message: 'Tap to view ingredients',
+            child: Text(
+              "Ingredients: ${_shortenIngredients(ingredients)}",
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 13,
+                  color: Colors.grey),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Shorten ingredients for preview
+  String _shortenIngredients(String ingredients) {
+    if (ingredients.length > 50) {
+      return '${ingredients.substring(0, 50)}...';
+    } else {
+      return ingredients;
+    }
   }
 }

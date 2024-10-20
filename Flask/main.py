@@ -49,7 +49,7 @@ def recommend():
 
         # if selected_meal_id == 'n/a':
         # Instantiate and use the HealthyFoodRecommender
-        csv_file_path = os.path.join(os.path.dirname(__file__), '../GeneticAlgorithm/rfg data.csv')
+        csv_file_path = os.path.join(os.path.dirname(__file__), '../GeneticAlgorithm/rfg_updated.csv')
 
         recommender = MealRecommender(csv_file_path, target, meal_count=meal_count, population_size=20, generation_limit=500, mutation_rate=0.4, k=1, dietery=dietery)
         closest_meals, closest_meal_ids, closest_distances, meal_info = recommender.meal_recommendation(target)

@@ -71,6 +71,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
 
     if (response.statusCode == 200) {
       var mealResponse = jsonDecode(response.body);
+      print(mealResponse);
 
       setState(() {
         mealIds = mealResponse['closest_meal_ids'];
@@ -183,6 +184,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: mealDetails.map((meal) {
+                        print("Ingredients: ${meal['Ingredients ']}");
                         return MealDetailCard(
                           textColor: Colors.white,
                           title: meal['Menu Item'],
@@ -193,6 +195,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                             "Carbs": "${meal['Carbs']} g",
                             "Fat": "${meal['Fat']} g",
                           },
+                          ingredients: meal['Ingredients'],
                           servingSize: "Serving size information",
                           buttonText: "Replace",
                           onPressedBandS: () {

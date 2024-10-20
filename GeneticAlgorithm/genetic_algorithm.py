@@ -39,7 +39,7 @@ class MealRecommender:
 
         # Convert the DataFrame to a list of dictionaries
 
-        json_file_path = os.path.join(os.path.dirname(__file__), '../GeneticAlgorithm/rfg_data_zero.json')
+        json_file_path = os.path.join(os.path.dirname(__file__), '../GeneticAlgorithm/rfg_updated.json')
 
         # Read the JSON file and convert to a dictionary
         with open(json_file_path, 'r') as file:
@@ -50,10 +50,11 @@ class MealRecommender:
             filtered_meals = []
 
             for meal in meal_list:
-                if dietery == 'Vegetarian' and meal.get("Vegan or/and  Vegetarian") == "Vegetarian":
+                if dietery == 'Vegetarian' and (meal.get("Vegan or/and Vegetarian") == "Vegetarian" or meal.get("Vegan or/and Vegetarian") == "Vegan and Vegetarian"):
                     filtered_meals.append(meal)
-                elif dietery == 'Vegan' and meal.get("Vegan or/and  Vegetarian") == "Vegan and Vegetarian":
+                elif dietery == 'Vegan' and meal.get("Vegan or/and Vegetarian") == "Vegan and Vegetarian":
                     filtered_meals.append(meal)
+            print('Filtered Meals', filtered_meals)
 
             return filtered_meals
         
