@@ -24,7 +24,7 @@ class MealReplaceOptions extends StatelessWidget {
         List<int>.from(jsonData[currentMealId.toString()] ?? []);
 
     // Load full meal data for filtering
-    String mealsData = await rootBundle.loadString('assets/rfg_data_zero.json');
+    String mealsData = await rootBundle.loadString('assets/rfg_updated.json');
     List<dynamic> meals = jsonDecode(mealsData);
 
     if (breakfastSnack) {
@@ -44,7 +44,7 @@ class MealReplaceOptions extends StatelessWidget {
   }
 
   Future<Map<String, dynamic>> fetchMealDetails(int mealId) async {
-    String data = await rootBundle.loadString('assets/rfg_data_zero.json');
+    String data = await rootBundle.loadString('assets/rfg_updated.json');
     List<dynamic> meals = jsonDecode(data);
     return meals.firstWhere((meal) => meal['id'] == mealId, orElse: () => {})
         as Map<String, dynamic>;

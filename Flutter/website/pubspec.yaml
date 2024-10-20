@@ -70,6 +70,7 @@ flutter:
     - images/turkey.png
     - images/salmon.png
     - assets/rfg_data_zero.json
+    - assets/rfg_updated.json
     - assets/sorted_distances.json
 
   fonts:
