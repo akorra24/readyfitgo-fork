@@ -124,7 +124,6 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         color: Color(0xFFFFF5E1),
         child: Stack(
           children: [
-            // Background image with reduced opacity
             Image.asset(
               'images/home_page.jpg', // Make sure the path to the image is correct
               width: double.infinity,
@@ -189,6 +188,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                           textColor: Colors.white,
                           title: meal['Menu Item'],
                           imagePath: meal['Images'],
+                          replaceCard: false,
                           nutritionInfo: {
                             "Calories": "${meal['Calories']} Kcal",
                             "Protein": "${meal['Protein']} g",
@@ -208,8 +208,8 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                   jsonFilePath: 'assets/sorted_distances.json',
                                   onMealSelected: (selectedMealId) async {
                                     // Fetch the details of the selected meal
-                                    String data = await rootBundle.loadString(
-                                        'assets/rfg_data_zero.json');
+                                    String data = await rootBundle
+                                        .loadString('assets/rfg_updated.json');
                                     List<dynamic> meals = jsonDecode(data);
                                     var selectedMeal = meals.firstWhere(
                                         (meal) => meal['id'] == selectedMealId,
@@ -243,8 +243,8 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                   jsonFilePath: 'assets/sorted_distances.json',
                                   onMealSelected: (selectedMealId) async {
                                     // Fetch the details of the selected meal
-                                    String data = await rootBundle.loadString(
-                                        'assets/rfg_data_zero.json');
+                                    String data = await rootBundle
+                                        .loadString('assets/rfg_updated.json');
                                     List<dynamic> meals = jsonDecode(data);
                                     var selectedMeal = meals.firstWhere(
                                         (meal) => meal['id'] == selectedMealId,

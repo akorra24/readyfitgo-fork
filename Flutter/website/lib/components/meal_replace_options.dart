@@ -83,10 +83,13 @@ class MealReplaceOptions extends StatelessWidget {
                         return Text('Error loading meal details');
                       } else {
                         final meal = snapshot.data!;
+                        print('Meal ID: $mealId');
+
                         return MealDetailCard(
                           title: meal['Menu Item'],
                           imagePath: meal['Images'],
                           textColor: Colors.black,
+                          replaceCard: true,
                           nutritionInfo: {
                             "Calories": "${meal['Calories']} Kcal",
                             "Protein": "${meal['Protein']} g",
@@ -97,6 +100,7 @@ class MealReplaceOptions extends StatelessWidget {
                           servingSize: "Serving size information",
                           buttonText: "Select",
                           onPressed: () {
+                            // print('Meal ID: $mealId');
                             onMealSelected(mealId);
                             Navigator.of(context).pop();
                           },

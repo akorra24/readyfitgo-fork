@@ -13,6 +13,9 @@ class DailyMealPlanPage extends StatefulWidget {
   final int numberOfMeals;
   final int numberOfDays;
   final bool calculateMacros;
+  final double proteinPercentage;
+  final double carbsPercentage;
+  final double fatPercentage;
 
   const DailyMealPlanPage({
     Key? key,
@@ -27,6 +30,9 @@ class DailyMealPlanPage extends StatefulWidget {
     required this.numberOfMeals,
     required this.numberOfDays,
     required this.calculateMacros,
+    this.proteinPercentage = 35,
+    this.carbsPercentage = 35,
+    this.fatPercentage = 30,
   }) : super(key: key);
 
   @override
@@ -123,15 +129,15 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
 
     dailyMacros = {
       'Protein (grams)': dailyCaloricNeeds *
-          (widget.selectedMacros?['Protein'] ?? 25.0) /
+          (widget.selectedMacros?['Protein'] ?? widget.proteinPercentage) /
           100 /
           4,
       'Carbs (grams)': dailyCaloricNeeds *
-          (widget.selectedMacros?['Carbohydrates'] ?? 50.0) /
+          (widget.selectedMacros?['Carbohydrates'] ?? widget.carbsPercentage) /
           100 /
           4,
       'Fats (grams)': dailyCaloricNeeds *
-          (widget.selectedMacros?['Fats'] ?? 25.0) /
+          (widget.selectedMacros?['Fats'] ?? widget.fatPercentage) /
           100 /
           9,
     };

@@ -13,10 +13,19 @@ class MacroCalculatorPage extends StatefulWidget {
 class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
   final _formKey = GlobalKey<FormState>();
   bool _isButtonEnabled = false;
+  bool _macrosCalculated = false;
+  String? _macroError;
 
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _heightController = TextEditingController();
   final TextEditingController _weightController = TextEditingController();
+
+  final TextEditingController _proteinPercentageController =
+      TextEditingController(text: '30');
+  final TextEditingController _carbsPercentageController =
+      TextEditingController(text: '40');
+  final TextEditingController _fatPercentageController =
+      TextEditingController(text: '30');
 
   String _sex = 'Male';
   String _activityLevel =
@@ -32,8 +41,27 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
   double _calories = 0.0;
 
   void _validateInputs() {
+    bool isValid = _formKey.currentState?.validate() ?? false;
+
+    // Validate that macro percentages sum to 100
+    double proteinPercentage =
+        double.tryParse(_proteinPercentageController.text) ?? 0;
+    double carbsPercentage =
+        double.tryParse(_carbsPercentageController.text) ?? 0;
+    double fatPercentage = double.tryParse(_fatPercentageController.text) ?? 0;
+
+    double totalPercentage =
+        proteinPercentage + carbsPercentage + fatPercentage;
+
+    if (totalPercentage != 100) {
+      isValid = false;
+      _macroError = 'Macro percentages must sum to 100%';
+    } else {
+      _macroError = null;
+    }
+
     setState(() {
-      _isButtonEnabled = _formKey.currentState?.validate() ?? false;
+      _isButtonEnabled = isValid;
     });
   }
 
@@ -73,15 +101,16 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
         bmr * activityLevels[_activityLevel]! + goalAdjustments[_fitnessGoal]!;
 
     // Macro distribution percentages
-    double carbsPercentage = 40.0;
-    double proteinPercentage = 30.0;
-    double fatPercentage = 30.0;
+    double carbsPercentage = double.parse(_carbsPercentageController.text);
+    double proteinPercentage = double.parse(_proteinPercentageController.text);
+    double fatPercentage = double.parse(_fatPercentageController.text);
 
     setState(() {
       _calories = dailyCalories;
-      _carbs = (dailyCalories * carbsPercentage) / 4 / 100;
-      _protein = (dailyCalories * proteinPercentage) / 4 / 100;
-      _fats = (dailyCalories * fatPercentage) / 9 / 100;
+      _carbs = (dailyCalories * carbsPercentage / 100) / 4;
+      _protein = (dailyCalories * proteinPercentage / 100) / 4;
+      _fats = (dailyCalories * fatPercentage / 100) / 9;
+      _macrosCalculated = true;
     });
   }
 
@@ -107,7 +136,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width *
-                      0.7, // 80% of screen width
+                      0.7, // 70% of screen width
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
@@ -471,6 +500,129 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 });
                               },
                             ),
+                            const SizedBox(height: 20),
+                            const Text(
+                              'Macro Proportions (should add up to 100%)',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 12.0),
+                                    child: TextFormField(
+                                      style: TextStyle(color: Colors.white),
+                                      controller: _proteinPercentageController,
+                                      decoration: const InputDecoration(
+                                        labelText: 'Protein (%)',
+                                        labelStyle:
+                                            TextStyle(color: Colors.white),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color.fromARGB(
+                                                  185, 255, 255, 255)),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color.fromARGB(
+                                                  185, 255, 255, 255)),
+                                        ),
+                                      ),
+                                      keyboardType: TextInputType.number,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Enter protein %';
+                                        }
+                                        if (double.tryParse(value) == null) {
+                                          return 'Enter a valid number';
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: TextFormField(
+                                    style: TextStyle(color: Colors.white),
+                                    controller: _carbsPercentageController,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Carbs (%)',
+                                      labelStyle:
+                                          TextStyle(color: Colors.white),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                                185, 255, 255, 255)),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                                185, 255, 255, 255)),
+                                      ),
+                                    ),
+                                    keyboardType: TextInputType.number,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Enter carbs %';
+                                      }
+                                      if (double.tryParse(value) == null) {
+                                        return 'Enter a valid number';
+                                      }
+                                      return null;
+                                    },
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 12.0),
+                                    child: TextFormField(
+                                      style: TextStyle(color: Colors.white),
+                                      controller: _fatPercentageController,
+                                      decoration: const InputDecoration(
+                                        labelText: 'Fat (%)',
+                                        labelStyle:
+                                            TextStyle(color: Colors.white),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color.fromARGB(
+                                                  185, 255, 255, 255)),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color.fromARGB(
+                                                  185, 255, 255, 255)),
+                                        ),
+                                      ),
+                                      keyboardType: TextInputType.number,
+                                      validator: (value) {
+                                        if (value == null || value.isEmpty) {
+                                          return 'Enter fat %';
+                                        }
+                                        if (double.tryParse(value) == null) {
+                                          return 'Enter a valid number';
+                                        }
+                                        return null;
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            if (_macroError != null)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 12.0),
+                                child: Text(
+                                  _macroError!,
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
                           ],
                         ),
                       ),
@@ -483,6 +635,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   // Ensure that all inputs are valid
                                   if (_formKey.currentState?.validate() ??
                                       false) {
+                                    _calculateMacros();
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -499,6 +652,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                           dietaryPreference: _dietaryPreference,
                                           numberOfMeals: _numberOfMeals,
                                           numberOfDays: _numberOfDays,
+                                          proteinPercentage: double.parse(
+                                              _proteinPercentageController
+                                                  .text),
+                                          carbsPercentage: double.parse(
+                                              _carbsPercentageController.text),
+                                          fatPercentage: double.parse(
+                                              _fatPercentageController.text),
                                           calculateMacros:
                                               true, // Assuming this flag triggers macro calculation
                                         ),
@@ -536,7 +696,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                       ),
                       const SizedBox(height: 20),
                       // Display Macros
-                      if (_isButtonEnabled) ...[
+                      if (_macrosCalculated) ...[
                         const Divider(
                             color: Color.fromARGB(130, 255, 255, 255)),
                         const SizedBox(height: 20),

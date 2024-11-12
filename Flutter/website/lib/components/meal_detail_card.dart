@@ -7,7 +7,7 @@ class MealDetailCard extends StatelessWidget {
   final String servingSize; // You can remove this if no longer needed
   final Color textColor;
   final String ingredients;
-
+  final bool replaceCard;
   final VoidCallback? onPressed;
   final VoidCallback? onPressedBandS;
 
@@ -16,6 +16,7 @@ class MealDetailCard extends StatelessWidget {
   const MealDetailCard({
     Key? key,
     required this.title,
+    required this.replaceCard,
     required this.imagePath,
     required this.nutritionInfo,
     required this.servingSize,
@@ -83,28 +84,32 @@ class MealDetailCard extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.green,
-              ),
-              height: 50,
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: TextButton(
-                onPressed: onPressedBandS ?? () {},
-                child: const Text(
-                  'Replace w/ Snack/Breakfast',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            replaceCard
+                ? Container()
+                : Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                    ),
+                    height: 50,
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: TextButton(
+                      onPressed: onPressedBandS ?? () {},
+                      child: const Text(
+                        'Replace w/ Snack/Breakfast',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-            Divider(
-              color: textColor,
-            ),
+            replaceCard
+                ? Container()
+                : Divider(
+                    color: textColor,
+                  ),
             Container(
               decoration: BoxDecoration(
                 color: Colors.green,
