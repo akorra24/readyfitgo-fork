@@ -68,48 +68,77 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
   void _calculateMacros() {
     if (!_isButtonEnabled) return;
 
-    double weight = double.parse(_weightController.text);
-    double height = double.parse(_heightController.text);
-    int age = int.parse(_ageController.text);
-
-    // BMR Calculation
-    double bmr;
-    if (_sex == 'Male') {
-      bmr = 4.536 * weight + 15.88 * height - 5 * age + 5;
-    } else {
-      bmr = 4.536 * weight + 15.88 * height - 5 * age - 161;
+    if (_ageController.text.isEmpty ||
+        _sex.isEmpty ||
+        _heightController.text.isEmpty ||
+        _weightController.text.isEmpty ||
+        _activityLevel.isEmpty ||
+        _fitnessGoal.isEmpty) {
+      // Handle the error case where essential parameters are missing
+      return;
     }
 
-    // Activity level multipliers
-    Map<String, double> activityLevels = {
-      'Sedentary': 1.2,
-      'Lightly active (light exercise less than 3 days per week)': 1.375,
-      'Moderately active (moderate exercise 3-5 days per week)': 1.55,
-      'Very active (intense exercise 6-7 days per week)': 1.725,
-      'Super active (very intense exercise or physical job)': 1.9,
-    };
+    double weight = double.parse(_weightController.text);
+    double age = double.parse(_ageController.text);
+    double height = double.parse(_heightController.text);
 
-    // Goal adjustment in calories
-    Map<String, double> goalAdjustments = {
-      'Lose Weight': -500,
-      'Maintain Weight': 0,
-      'Gain Weight': 500,
-    };
+    double multiplier;
+    switch (_activityLevel) {
+      case 'Lightly active (light exercise less than 3 days per week)':
+        if (_fitnessGoal == 'Lose Weight') {
+          multiplier = 11; // middle of the range 10-12
+        } else if (_fitnessGoal == 'Maintain Weight') {
+          multiplier = 13; // middle of the range 12-14
+        } else if (_fitnessGoal == 'Gain Weight') {
+          multiplier = 16; // middle of the range 16-18
+        } else if (_fitnessGoal == 'Body Recomposition') {
+          multiplier = 12; // slightly less than maintenance
+        } else {
+          multiplier = 13; // default to maintenance if goal is not specified
+        }
+        break;
+      case 'Moderately active (moderate exercise 3-5 days per week)':
+        if (_fitnessGoal == 'Lose Weight') {
+          multiplier = 13; // middle of the range 12-14
+        } else if (_fitnessGoal == 'Maintain Weight') {
+          multiplier = 15; // middle of the range 14-16
+        } else if (_fitnessGoal == 'Gain Weight') {
+          multiplier = 18; // middle of the range 18-20
+        } else if (_fitnessGoal == 'Body Recomposition') {
+          multiplier = 14; // slightly less than maintenance
+        } else {
+          multiplier = 15; // default to maintenance if goal is not specified
+        }
+        break;
+      case 'Very active (intense exercise 6-7 days per week)':
+        if (_fitnessGoal == 'Lose Weight') {
+          multiplier = 15; // middle of the range 14-16
+        } else if (_fitnessGoal == 'Maintain Weight') {
+          multiplier = 17; // middle of the range 16-18
+        } else if (_fitnessGoal == 'Gain Weight') {
+          multiplier = 20; // middle of the range 20-22
+        } else if (_fitnessGoal == 'Body Recomposition') {
+          multiplier = 16; // slightly less than maintenance
+        } else {
+          multiplier = 17; // default to maintenance if goal is not specified
+        }
+        break;
+      default:
+        multiplier =
+            13; // default to maintenance if activity level is not specified
+    }
 
-    // Daily caloric needs
-    double dailyCalories =
-        bmr * activityLevels[_activityLevel]! + goalAdjustments[_fitnessGoal]!;
+    double dailyCaloricNeeds = weight * multiplier;
 
-    // Macro distribution percentages
-    double carbsPercentage = double.parse(_carbsPercentageController.text);
     double proteinPercentage = double.parse(_proteinPercentageController.text);
+    double carbsPercentage = double.parse(_carbsPercentageController.text);
     double fatPercentage = double.parse(_fatPercentageController.text);
 
     setState(() {
-      _calories = dailyCalories;
-      _carbs = (dailyCalories * carbsPercentage / 100) / 4;
-      _protein = (dailyCalories * proteinPercentage / 100) / 4;
-      _fats = (dailyCalories * fatPercentage / 100) / 9;
+      _calories = dailyCaloricNeeds;
+      _protein = dailyCaloricNeeds * proteinPercentage / 100 / 4;
+      _carbs = dailyCaloricNeeds * carbsPercentage / 100 / 4;
+      _fats = dailyCaloricNeeds * fatPercentage / 100 / 9;
       _macrosCalculated = true;
     });
   }
@@ -124,8 +153,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
             width: double.infinity,
             height: double.infinity,
             fit: BoxFit.cover,
-            alignment:
-                Alignment(2.0, -0.46), // Adjust alignment to slightly higher
+            alignment: Alignment(2.0, -0.46), // Adjust alignment
           ),
           Container(
             color: Colors.black.withOpacity(0.6),
@@ -135,8 +163,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
-                  width: MediaQuery.of(context).size.width *
-                      0.7, // 70% of screen width
+                  width: MediaQuery.of(context).size.width * 0.7,
                   padding: EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.white),
@@ -450,9 +477,11 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               ),
                               dropdownColor: Colors.grey[800],
                               items: [
+                                'Sedentary',
                                 'Lightly active (light exercise less than 3 days per week)',
                                 'Moderately active (moderate exercise 3-5 days per week)',
                                 'Very active (intense exercise 6-7 days per week)',
+                                'Super active (very intense exercise or physical job)'
                               ]
                                   .map((label) => DropdownMenuItem(
                                         child: Text(label),
@@ -488,6 +517,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 'Lose Weight',
                                 'Maintain Weight',
                                 'Gain Weight',
+                                'Body Recomposition',
                               ]
                                   .map((label) => DropdownMenuItem(
                                         child: Text(label),
@@ -626,73 +656,119 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      Center(
-                        // This will center the button horizontally
-                        child: GestureDetector(
-                          onTap: _isButtonEnabled
-                              ? () {
-                                  // Ensure that all inputs are valid
-                                  if (_formKey.currentState?.validate() ??
-                                      false) {
-                                    _calculateMacros();
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => DailyMealPlanPage(
-                                          age:
-                                              int.tryParse(_ageController.text),
-                                          sex: _sex,
-                                          height: double.tryParse(
-                                              _heightController.text),
-                                          weight: double.tryParse(
-                                              _weightController.text),
-                                          activityLevel: _activityLevel,
-                                          fitnessGoal: _fitnessGoal,
-                                          dietaryPreference: _dietaryPreference,
-                                          numberOfMeals: _numberOfMeals,
-                                          numberOfDays: _numberOfDays,
-                                          proteinPercentage: double.parse(
-                                              _proteinPercentageController
-                                                  .text),
-                                          carbsPercentage: double.parse(
-                                              _carbsPercentageController.text),
-                                          fatPercentage: double.parse(
-                                              _fatPercentageController.text),
-                                          calculateMacros:
-                                              true, // Assuming this flag triggers macro calculation
-                                        ),
+                      const SizedBox(height: 30),
+                      // Calculate Macros Button
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Center(
+                            child: GestureDetector(
+                              onTap: _isButtonEnabled
+                                  ? () {
+                                      if (_formKey.currentState?.validate() ??
+                                          false) {
+                                        _calculateMacros();
+                                      }
+                                    }
+                                  : null,
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.2,
+                                child: Container(
+                                  padding: const EdgeInsets.all(15),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 25),
+                                  decoration: BoxDecoration(
+                                    color: _isButtonEnabled
+                                        ? Colors.white
+                                        : Colors.grey,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'Calculate Macros',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
                                       ),
-                                    );
-                                  }
-                                }
-                              : null,
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width *
-                                0.2, // Adjust the width
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 25),
-                              decoration: BoxDecoration(
-                                color: _isButtonEnabled
-                                    ? Colors.white
-                                    : Colors.grey,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Generate',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
+                          const SizedBox(height: 20),
+                          // Generate Button
+                          Center(
+                            child: GestureDetector(
+                              onTap: _isButtonEnabled
+                                  ? () {
+                                      if (_formKey.currentState?.validate() ??
+                                          false) {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                DailyMealPlanPage(
+                                              age: int.tryParse(
+                                                  _ageController.text),
+                                              sex: _sex,
+                                              height: double.tryParse(
+                                                  _heightController.text),
+                                              weight: double.tryParse(
+                                                  _weightController.text),
+                                              activityLevel: _activityLevel,
+                                              fitnessGoal: _fitnessGoal,
+                                              dietaryPreference:
+                                                  _dietaryPreference,
+                                              numberOfMeals: _numberOfMeals,
+                                              numberOfDays: _numberOfDays,
+                                              proteinPercentage: double.parse(
+                                                  _proteinPercentageController
+                                                      .text),
+                                              carbsPercentage: double.parse(
+                                                  _carbsPercentageController
+                                                      .text),
+                                              fatPercentage: double.parse(
+                                                  _fatPercentageController
+                                                      .text),
+                                              calculateMacros:
+                                                  true, // Assuming this flag triggers macro calculation
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    }
+                                  : null,
+                              child: SizedBox(
+                                width: MediaQuery.of(context).size.width *
+                                    0.2, // Adjust the width
+                                child: Container(
+                                  padding: const EdgeInsets.all(15),
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 25),
+                                  decoration: BoxDecoration(
+                                    color: _isButtonEnabled
+                                        ? Colors.white
+                                        : Colors.grey,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'Generate',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 20),
                       // Display Macros
