@@ -334,7 +334,7 @@ class HomePage extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "01",
+                              "02",
                               style: TextStyle(
                                 fontSize: 50,
                                 color: Colors.white.withOpacity(0.1),
@@ -355,7 +355,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 10),
                         // Main Title
                         Text(
-                          "Nutrition",
+                          "Gym",
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -395,7 +395,7 @@ class HomePage extends StatelessWidget {
                         Row(
                           children: [
                             Text(
-                              "01",
+                              "03",
                               style: TextStyle(
                                 fontSize: 50,
                                 color: Colors.white.withOpacity(0.1),
@@ -416,7 +416,7 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 10),
                         // Main Title
                         Text(
-                          "Nutrition",
+                          "Mindset & Discipline",
                           style: TextStyle(
                             fontSize: 28,
                             color: Colors.white,
@@ -453,6 +453,152 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              color: const Color(0xFF0B1D26), // Dark blue background color
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Left Column: About Section
+                      Expanded(
+                        flex: 2,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "MNTN",
+                              style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "Get out there & discover your next\nslope, mountain & destination!",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            Text(
+                              "Copyright © 2023 MNTN, Inc. Terms & Privacy",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white.withOpacity(0.6),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Middle Column: Blog Section
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "More on The Blog",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.amberAccent,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "About MNTN",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Contributors & Writers",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Write For Us",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Contact Us",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Privacy Policy",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Right Column: Company Section
+                      Expanded(
+                        flex: 1,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "More on MNTN",
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.amberAccent,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              "The Team",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Jobs",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              "Press",
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white.withOpacity(0.8),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
