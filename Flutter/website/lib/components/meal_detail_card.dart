@@ -46,7 +46,7 @@ class MealDetailCard extends StatelessWidget {
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(8)),
               child: Image.network(
-                'http://localhost:3000/image-proxy?url=$imagePath',
+                'http://localhost:5000/image-proxy?url=$imagePath',
                 height: 160,
                 width: double.infinity,
                 fit: BoxFit.cover,
