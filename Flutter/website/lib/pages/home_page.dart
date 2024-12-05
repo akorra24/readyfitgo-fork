@@ -6,217 +6,203 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          Expanded(
-            child: Stack(
-              children: [
-                Image.asset(
-                  'images/steak.jpg', // Background image
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
-                Container(
-                  color:
-                      Colors.black.withOpacity(0.5), // Adjust overlay opacity
-                  width: double.infinity,
-                  height: double.infinity,
-                ),
-                Positioned(
-                  top: 40,
-                  right: 20,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text(
-                        '1025 Pacific Coast Hwy, Hermosa Beach, CA 90254',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontFamily: 'Rufina'),
-                      ),
-                      Text(
-                        '(310) 318-3188',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontFamily: 'Rufina'),
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: 30, // Adjust top padding to center logo better
-                  left: 20,
-                  child: Image.asset(
-                    'images/rfgg.png', // Path to the logo image
-                    width: 150, // Increase width to make the logo bigger
-                  ),
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'Fit your budget.\nFit your lifestyle.',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 48, // Increase font size
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Rufina', // Use Rufina font
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MealGenerator()),
-                              );
-                            },
-                            child: Container(
-                              width: 200, // Adjust width for larger buttons
-                              padding: const EdgeInsets.all(16),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: Colors
-                                    .transparent, // Make the background transparent
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 2.0, // Add white border to match Figma
-                                ),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Meal Generator',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize:
-                                        18, // Increase font size for buttons
-                                    fontFamily: 'Rufina', // Use Rufina font
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        MacroCalculatorPage()),
-                              );
-                            },
-                            child: Container(
-                              width: 200, // Adjust width for larger buttons
-                              padding: const EdgeInsets.all(16),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: Colors
-                                    .transparent, // Make the background transparent
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  color: Colors.white,
-                                  width: 2.0, // Add white border to match Figma
-                                ),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Macro Calculator',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize:
-                                        18, // Increase font size for buttons
-                                    fontFamily: 'Rufina', // Use Rufina font
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+          // Background image
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/steak.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          // add shadow to the background image
+          Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.center,
+                colors: [Color(0x8C0B1D26), Colors.transparent],
+              ),
             ),
           ),
           Container(
-            color: Color(
-                0xFF003300), // Dark green banner background (adjust color as needed)
-            padding: const EdgeInsets.all(
-                30), // Increase padding to make the banner taller
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.bottomCenter,
+                end: Alignment.center,
+                colors: [Color(0xFF0B1D26), Colors.transparent],
+              ),
+            ),
+          ),
+          Column(
+            children: [
+              // Navigation Bar
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'images/logo.png',
+                      height: 50,
+                    ),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Home",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Calculate Macros",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "Meal Generator",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        OutlinedButton(
+                          onPressed: () {
+                            // Button press action here
+                          },
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.white, // Text color
+                            backgroundColor:
+                                Colors.transparent, // Background color
+                            side: const BorderSide(
+                              color: Colors.white, // Border color
+                              width: 1.0, // Border width
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  0), // Button corner radius
+                            ),
+                          ),
+                          child: const Text('Shop Now'),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Spacer(),
+              // Central Content
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Fit your budget.",
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "Fit your lifestyle.",
+                    style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      OutlinedButton(
+                        onPressed: () {
+                          // Button press action here
+                        },
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white, // Text color
+                          backgroundColor: Colors.black54, // Background color
+                          side: const BorderSide(
+                            color: Colors.white, // Border color
+                            width: 1.0, // Border width
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                5), // Button corner radius
+                          ),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Calculate Macros'),
+                            SizedBox(width: 10),
+                            Icon(Icons.arrow_forward),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 20),
+                      OutlinedButton(
+                        onPressed: () {
+                          // Button press action here
+                        },
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: Colors.white, // Text color
+                          backgroundColor: Colors.black54, // Background color
+                          side: const BorderSide(
+                            color: Colors.white, // Border color
+                            width: 1.0, // Border width
+                          ),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 20),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                5), // Button corner radius
+                          ),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Meal Generator'),
+                            SizedBox(width: 10),
+                            Icon(Icons.arrow_forward),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              Spacer(),
+            ],
+          ),
+          // Side Icons
+          Positioned(
+            left: 20,
+            top: 200,
+            child: Column(
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Ready Fit Go',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Rufina'),
-                    ),
-                    Text(
-                      '1025 Pacific Coast Hwy,\nHermosa Beach, CA 90254',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Rufina'),
-                    ),
-                  ],
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.facebook),
+                  color: Colors.white,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Contact',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Rufina'),
-                    ),
-                    Text(
-                      '(310) 318-3188',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Rufina'),
-                    ),
-                  ],
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.facebook),
+                  color: Colors.white,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Website',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontFamily: 'Rufina'),
-                    ),
-                    Text(
-                      'readyfitgo.com',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: 'Rufina'),
-                    ),
-                  ],
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.facebook),
+                  color: Colors.white,
                 ),
               ],
             ),
