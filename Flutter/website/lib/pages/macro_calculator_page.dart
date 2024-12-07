@@ -235,7 +235,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.black87, Colors.transparent],
+                colors: [Colors.black54, Colors.transparent],
               ),
             ),
           ),
@@ -244,7 +244,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
             left: MediaQuery.of(context).size.width * 0.05, // 10% from left
             right: MediaQuery.of(context).size.width * 0.05, // 10% from right
             child: Container(
-              color: Colors.black,
+              color: Colors.black87.withOpacity(0.5),
               height: MediaQuery.of(context).size.height * 0.8,
               width: MediaQuery.of(context).size.height * 0.8,
               child: Column(
@@ -259,14 +259,54 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 10),
                   const Text(
                     'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 12,
                     ),
                   ),
+                  const SizedBox(height: 10),
+                  Container(
+                    color: const Color(0xDE0C1E26),
+                    child: Form(
+                      key: _formKey,
+                      onChanged: _validateInputs,
+                      child: const Column(
+                        children: [
+                          Row(
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    'Body Composition',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        'Age',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -281,7 +321,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
       children: [
         Text(
           label,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -290,7 +330,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
         const SizedBox(height: 5),
         Text(
           '${value.toStringAsFixed(0)} $unit',
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
