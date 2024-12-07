@@ -290,26 +290,123 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      DropdownButtonFormField<String>(
-                                        items: const [
-                                          DropdownMenuItem(
-                                              value: 'Male',
-                                              child: Text('Male')),
-                                          DropdownMenuItem(
-                                              value: 'Female',
-                                              child: Text('Female')),
-                                        ],
-                                        onChanged: (value) {},
-                                        decoration: const InputDecoration(
-                                            labelText: 'Sex'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: DropdownButtonFormField<String>(
+                                          style: TextStyle(color: Colors.white),
+                                          value: _sex,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Sex',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          dropdownColor: Colors.grey[800],
+                                          items: ['Male', 'Female']
+                                              .map((label) => DropdownMenuItem(
+                                                    child: Text(label),
+                                                    value: label,
+                                                  ))
+                                              .toList(),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _sex = value!;
+                                            });
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Age'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: TextFormField(
+                                          style: const TextStyle(
+                                              color: Colors.white),
+                                          cursorColor: Colors.white,
+                                          controller: _heightController,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Height (inches)',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          keyboardType: TextInputType.number,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Please enter height';
+                                            }
+                                            if (double.tryParse(value) ==
+                                                null) {
+                                              return 'Please enter a valid number';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Height (inches)'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: DropdownButtonFormField<String>(
+                                          style: TextStyle(color: Colors.white),
+                                          value: _activityLevel,
+                                          isExpanded: true,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Activity level',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          dropdownColor: Colors.grey[800],
+                                          items: [
+                                            'Sedentary',
+                                            'Lightly active (light exercise less than 3 days per week)',
+                                            'Moderately active (moderate exercise 3-5 days per week)',
+                                            'Very active (intense exercise 6-7 days per week)',
+                                            'Super active (very intense exercise or physical job)'
+                                          ]
+                                              .map((label) => DropdownMenuItem(
+                                                    child: Text(
+                                                      label,
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                    value: label,
+                                                  ))
+                                              .toList(),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _activityLevel = value!;
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ],
                                   ),
