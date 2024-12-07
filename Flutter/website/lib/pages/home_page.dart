@@ -68,7 +68,14 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              MacroCalculatorPage()),
+                                    );
+                                  },
                                   child: const Text(
                                     "Calculate Macros",
                                     style: TextStyle(
@@ -76,7 +83,14 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              MealGenerator()),
+                                    );
+                                  },
                                   child: const Text(
                                     "Meal Generator",
                                     style: TextStyle(
@@ -134,7 +148,12 @@ class HomePage extends StatelessWidget {
                             children: [
                               OutlinedButton(
                                 onPressed: () {
-                                  // Button press action here
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            MacroCalculatorPage()),
+                                  );
                                 },
                                 style: OutlinedButton.styleFrom(
                                   foregroundColor: Colors.white, // Text color
@@ -163,7 +182,11 @@ class HomePage extends StatelessWidget {
                               SizedBox(width: 20),
                               OutlinedButton(
                                 onPressed: () {
-                                  // Button press action here
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MealGenerator()),
+                                  );
                                 },
                                 style: OutlinedButton.styleFrom(
                                   foregroundColor: Colors.white, // Text color
