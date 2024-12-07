@@ -583,10 +583,11 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                     style: TextStyle(
                                                         color: Colors.white),
                                                     value: _fitnessGoal,
+                                                    isExpanded: true,
                                                     decoration:
                                                         const InputDecoration(
                                                       labelText:
-                                                          'What are your fitness goals',
+                                                          'Fitness Goals',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
                                                       enabledBorder:
@@ -620,8 +621,12 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                     ]
                                                         .map((label) =>
                                                             DropdownMenuItem(
-                                                              child:
-                                                                  Text(label),
+                                                              child: Text(
+                                                                label,
+                                                                overflow:
+                                                                    TextOverflow
+                                                                        .ellipsis,
+                                                              ),
                                                               value: label,
                                                             ))
                                                         .toList(),
@@ -654,26 +659,118 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      DropdownButtonFormField<String>(
-                                        items: const [
-                                          DropdownMenuItem(
-                                              value: 'None',
-                                              child: Text('None')),
-                                          DropdownMenuItem(
-                                              value: 'Vegan',
-                                              child: Text('Vegan')),
-                                        ],
-                                        onChanged: (value) {},
-                                        decoration: const InputDecoration(
-                                            labelText: 'Dietary Restrictions'),
+                                      Padding(
+                                        padding:
+                                            EdgeInsets.symmetric(vertical: 10),
+                                        child: DropdownButtonFormField<String>(
+                                          style: TextStyle(color: Colors.white),
+                                          value: _dietaryPreference,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Dietary Preference',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          dropdownColor: Colors.grey[800],
+                                          items: ['None', 'Vegetarian', 'Vegan']
+                                              .map((label) => DropdownMenuItem(
+                                                    child: Text(label),
+                                                    value: label,
+                                                  ))
+                                              .toList(),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _dietaryPreference = value!;
+                                            });
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Meals per Day'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: DropdownButtonFormField<int>(
+                                          style: TextStyle(color: Colors.white),
+                                          value: _numberOfMeals,
+                                          decoration: const InputDecoration(
+                                            labelText:
+                                                'Number of Meals per Day',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          dropdownColor: Colors.grey[800],
+                                          items: List.generate(
+                                                  6, (index) => index + 1)
+                                              .map((label) => DropdownMenuItem(
+                                                    child: Text('$label'),
+                                                    value: label,
+                                                  ))
+                                              .toList(),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _numberOfMeals = value!;
+                                            });
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Days per Week'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: DropdownButtonFormField<int>(
+                                          style: TextStyle(color: Colors.white),
+                                          value: _numberOfDays,
+                                          isExpanded: true,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Number of Days',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          dropdownColor: Colors.grey[800],
+                                          items: List.generate(
+                                                  7, (index) => index + 1)
+                                              .map((label) => DropdownMenuItem(
+                                                    child: Text(
+                                                      '$label',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                    ),
+                                                    value: label,
+                                                  ))
+                                              .toList(),
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _numberOfDays = value!;
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -692,17 +789,112 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Protein %'),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 10),
+                                        child: TextFormField(
+                                          style: TextStyle(color: Colors.white),
+                                          controller:
+                                              _proteinPercentageController,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Protein (%)',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          keyboardType: TextInputType.number,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Enter protein %';
+                                            }
+                                            if (double.tryParse(value) ==
+                                                null) {
+                                              return 'Enter a valid number';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Carbs %'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: TextFormField(
+                                          style: TextStyle(color: Colors.white),
+                                          controller:
+                                              _carbsPercentageController,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Carbs (%)',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          keyboardType: TextInputType.number,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Enter carbs %';
+                                            }
+                                            if (double.tryParse(value) ==
+                                                null) {
+                                              return 'Enter a valid number';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
-                                      TextFormField(
-                                        decoration: const InputDecoration(
-                                            labelText: 'Fat %'),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(bottom: 10),
+                                        child: TextFormField(
+                                          style: TextStyle(color: Colors.white),
+                                          controller: _fatPercentageController,
+                                          decoration: const InputDecoration(
+                                            labelText: 'Fat (%)',
+                                            labelStyle:
+                                                TextStyle(color: Colors.white),
+                                            enabledBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                            focusedBorder: OutlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromARGB(
+                                                      185, 255, 255, 255)),
+                                            ),
+                                          ),
+                                          keyboardType: TextInputType.number,
+                                          validator: (value) {
+                                            if (value == null ||
+                                                value.isEmpty) {
+                                              return 'Enter fat %';
+                                            }
+                                            if (double.tryParse(value) ==
+                                                null) {
+                                              return 'Enter a valid number';
+                                            }
+                                            return null;
+                                          },
+                                        ),
                                       ),
                                     ],
                                   ),
@@ -772,7 +964,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 20),
+                          SizedBox(height: 15),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
