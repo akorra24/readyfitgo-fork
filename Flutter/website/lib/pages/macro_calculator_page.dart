@@ -227,6 +227,52 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           ),
         ],
       ),
+      Stack(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height * 0.9,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Colors.black87, Colors.transparent],
+              ),
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.02, // 10% from top
+            left: MediaQuery.of(context).size.width * 0.05, // 10% from left
+            right: MediaQuery.of(context).size.width * 0.05, // 10% from right
+            child: Container(
+              color: Colors.black,
+              height: MediaQuery.of(context).size.height * 0.8,
+              width: MediaQuery.of(context).size.height * 0.8,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Macro Calculator',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      )
     ])));
   }
 
