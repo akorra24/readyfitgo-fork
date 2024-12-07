@@ -227,92 +227,196 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           ),
         ],
       ),
-      Stack(
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height * 0.9,
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [Colors.black54, Colors.transparent],
-              ),
-            ),
+      // Macro Calculator Section
+      Container(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.black54, Colors.transparent],
           ),
-          Positioned(
-            top: MediaQuery.of(context).size.height * 0.02, // 10% from top
-            left: MediaQuery.of(context).size.width * 0.05, // 10% from left
-            right: MediaQuery.of(context).size.width * 0.05, // 10% from right
-            child: Container(
-              color: Colors.black87.withOpacity(0.5),
-              height: MediaQuery.of(context).size.height * 0.8,
-              width: MediaQuery.of(context).size.height * 0.8,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Macro Calculator',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.black.withOpacity(0.5),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              const Text(
+                'Macro Calculator',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white70),
+              ),
+              const SizedBox(height: 20),
+              // Body Composition Form
+              Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.black87,
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  const Text(
-                    'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Container(
-                    color: const Color(0xDE0C1E26),
-                    child: Form(
-                      key: _formKey,
-                      onChanged: _validateInputs,
-                      child: const Column(
-                        children: [
-                          Row(
-                            children: [
-                              Column(
-                                children: [
-                                  Text(
-                                    'Body Composition',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Row(
+                  child: Column(
+                    children: [
+                      Form(
+                        key: _formKey,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
-                                      Text(
-                                        'Age',
+                                      const Text(
+                                        'Body Composition',
                                         style: TextStyle(
+                                          fontSize: 18,
                                           color: Colors.white,
-                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
                                         ),
+                                      ),
+                                      DropdownButtonFormField<String>(
+                                        items: const [
+                                          DropdownMenuItem(
+                                              value: 'Male',
+                                              child: Text('Male')),
+                                          DropdownMenuItem(
+                                              value: 'Female',
+                                              child: Text('Female')),
+                                        ],
+                                        onChanged: (value) {},
+                                        decoration: const InputDecoration(
+                                            labelText: 'Sex'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Age'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Height (inches)'),
                                       ),
                                     ],
                                   ),
-                                ],
-                              )
-                            ],
-                          )
-                        ],
+                                ),
+                                const SizedBox(width: 20),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Meal Preferences',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      DropdownButtonFormField<String>(
+                                        items: const [
+                                          DropdownMenuItem(
+                                              value: 'None',
+                                              child: Text('None')),
+                                          DropdownMenuItem(
+                                              value: 'Vegan',
+                                              child: Text('Vegan')),
+                                        ],
+                                        onChanged: (value) {},
+                                        decoration: const InputDecoration(
+                                            labelText: 'Dietary Restrictions'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Meals per Day'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Days per Week'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                SizedBox(width: 20),
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const Text(
+                                        'Macro Proportions',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Protein %'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Carbs %'),
+                                      ),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                            labelText: 'Fat %'),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 20),
+                            ElevatedButton(
+                              onPressed: () {},
+                              child: const Text('Calculate Macros'),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )
-        ],
-      )
+                      const SizedBox(height: 20),
+                      // Daily Macros
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: const [
+                            Text('Calories: 2000',
+                                style: TextStyle(color: Colors.white)),
+                            Text('Protein: 160g',
+                                style: TextStyle(color: Colors.white)),
+                            Text('Carbs: 200g',
+                                style: TextStyle(color: Colors.white)),
+                            Text('Fats: 50g',
+                                style: TextStyle(color: Colors.white)),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+            ],
+          ),
+        ),
+      ),
     ])));
   }
 
