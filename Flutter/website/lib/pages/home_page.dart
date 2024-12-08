@@ -510,20 +510,20 @@ class HomePage extends StatelessWidget {
                           ),
                           SizedBox(height: 20),
                           // Bullet Points
-                          Column(
+                          const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                  "Reframe how you view your health and fitness:",
+                                  "If you're a beginner, start with this routine:",
                                   style: TextStyle(
                                     fontSize: 16,
                                     color: Colors.white,
                                     height: 1.5,
                                   )),
                               Padding(
-                                padding: const EdgeInsets.only(left: 20),
+                                padding: EdgeInsets.only(left: 20),
                                 child: Text(
-                                    "• There will come a time—probably sooner than you'd expect—when you won't be able to do squats, deadlifts, or push-ups. So, make the most of the years where you can. Lifting isn't a chore, it's a gift.",
+                                    "• Consistency is key: The main goal is to get started. Forget about finding the “perfect” routine. Worrying about the ideal routine before you even start is a waste of time. Perfect is the enemy of good.",
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,
@@ -531,10 +531,9 @@ class HomePage extends StatelessWidget {
                                     )),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 20, top: 20),
+                                padding: EdgeInsets.only(left: 20, top: 20),
                                 child: Text(
-                                    "• Master the art of showing up. To build a strong, healthy, and athletic body, you’ve got to go even when you don’t feel like it. Go when it’s raining. Go on your birthday. Just show up.",
+                                    "• Muscle growth comes from progressive overload: This means gradually increasing the challenge on your muscles by adding weight, reps, sets, or reducing rest time. If you’re not pushing yourself harder each time, you’re not building muscle.",
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,
@@ -542,10 +541,19 @@ class HomePage extends StatelessWidget {
                                     )),
                               ),
                               Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 20, top: 20),
+                                padding: EdgeInsets.only(left: 20, top: 20),
                                 child: Text(
-                                    "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself,\"What would a healthy person do?\"",
+                                    "• Track your progress: Write down your lifts, reps, weight, and sets. Recording this info will help you see progress and ensure you’re steadily overloading your muscles.",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    )),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 20, top: 20),
+                                child: Text(
+                                    "• Aim for 3 gym sessions a week: 3-5 is ideal, but even one session a week is better than nothing. Just start!",
                                     style: TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,
