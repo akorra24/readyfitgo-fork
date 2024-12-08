@@ -31,207 +31,311 @@ class _MealGeneratorState extends State<MealGenerator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: CustomAppBar(
-      //   title: '',
-      // ),
-      body: Stack(
+        body: SingleChildScrollView(
+            child: Column(children: [
+      Stack(
         children: [
-          // Background color
-          Image.asset(
-            'images/home_page.jpg', // Make sure the path to the image is correct
-            width: double.infinity,
-            height: double.infinity,
-            fit: BoxFit.cover,
-          ),
           Container(
-            color: Colors.black.withOpacity(0.7),
-            width: double.infinity,
-            height: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.1,
+            decoration: const BoxDecoration(
+              color: Color(0xFF0C1F27),
+            ),
           ),
-          // Content
-          Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.only(top: 30),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      children: <Widget>[
-                        const SizedBox(height: 30),
-                        const Align(
-                          alignment: Alignment.center,
-                          child: Text.rich(
-                            TextSpan(
-                              text: 'Enter Your',
-                              style: TextStyle(
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                              children: <TextSpan>[
-                                TextSpan(
-                                  text: ' Daily Macros',
-                                  style: TextStyle(
-                                      color: Colors.green,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.1,
+            child: Column(children: [
+              // Navigation Bar
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Image.asset(
+                      'images/logo.png',
+                      height: 50,
+                    ),
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text(
+                            "Home",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
                         ),
-                        const SizedBox(height: 40),
-                        Wrap(
-                          spacing: 20,
-                          runSpacing: 20,
-                          children: <Widget>[
-                            _buildTextField(_caloriesController, 'Calories'),
-                            _buildTextField(_carbsController, 'Carbs (g)'),
-                            _buildTextField(_proteinController, 'Protein (g)'),
-                            _buildTextField(_fatsController, 'Fats (g)'),
-                          ],
-                        ),
-                        const SizedBox(height: 40),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25, right: 25),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Expanded(
-                                  child: _buildDropdown(
-                                      'Dietary Preferences',
-                                      ['None', 'Vegetarian', 'Vegan'],
-                                      dietaryPreference, (String? newValue) {
-                                setState(() {
-                                  dietaryPreference = newValue!;
-                                });
-                              })),
-                              Expanded(
-                                  child: _buildDropdown(
-                                      'Number of Meals',
-                                      [1, 2, 3, 4, 5],
-                                      numberOfMeals, (int? newValue) {
-                                setState(() {
-                                  numberOfMeals = newValue!;
-                                });
-                              })),
-                              Expanded(
-                                  child: _buildDropdown(
-                                      'Number of Days',
-                                      [1, 2, 3, 4, 5, 6, 7],
-                                      numberOfDays, (int? newValue) {
-                                setState(() {
-                                  numberOfDays = newValue!;
-                                });
-                              })),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        GestureDetector(
-                          onTap: _isFormValid
-                              ? () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => DailyMealPlanPage(
-                                        selectedMacros: {
-                                          'Protein': double.parse(
-                                              _proteinController.text),
-                                          'Carbohydrates': double.parse(
-                                              _carbsController.text),
-                                          'Fats': double.parse(
-                                              _fatsController.text),
-                                          'Calories': double.parse(
-                                              _caloriesController.text),
-                                        },
-                                        dietaryPreference: dietaryPreference,
-                                        numberOfMeals: numberOfMeals,
-                                        numberOfDays: numberOfDays,
-                                        calculateMacros: false,
-                                      ),
-                                    ),
-                                  );
-                                }
-                              : null,
-                          child: SizedBox(
-                            width: 280, // Set the desired width here
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 25),
-                              decoration: BoxDecoration(
-                                color:
-                                    _isFormValid ? Colors.green : Colors.grey,
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Continue',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        GestureDetector(
-                          onTap: () {
+                        TextButton(
+                          onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => MacroCalculatorPage()),
                             );
                           },
-                          child: SizedBox(
-                            width: 280, // Set the desired width here
-                            child: Container(
-                              padding: const EdgeInsets.all(15),
-                              margin:
-                                  const EdgeInsets.symmetric(horizontal: 25),
-                              decoration: BoxDecoration(
-                                color: Colors.transparent, // Transparent fill
-                                border: Border.all(
-                                    color: Colors.green), // White border
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Don\'t know my Macros',
-                                  style: TextStyle(
-                                    color: Colors.green, // White text
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                  ),
-                                ),
-                              ),
-                            ),
+                          child: const Text(
+                            "Calculate Macros",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
                         ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MealGenerator()),
+                            );
+                          },
+                          child: const Text(
+                            "Meal Generator",
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                        OutlinedButton(
+                          onPressed: () {
+                            // Button press action here
+                          },
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.white, // Text color
+                            backgroundColor:
+                                Colors.transparent, // Background color
+                            side: const BorderSide(
+                              color: Colors.white, // Border color
+                              width: 1.0, // Border width
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                  0), // Button corner radius
+                            ),
+                          ),
+                          child: const Text('Shop Now'),
+                        )
                       ],
                     ),
-                  ),
+                  ],
                 ),
               ),
-              CustomFooter(),
-              SizedBox(
-                height: 10,
-              )
-            ],
+            ]),
           ),
         ],
       ),
-    );
+      // Macro Calculator Section
+      Container(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Colors.black54, Colors.transparent],
+          ),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: const Color(0xC90C1E26),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              const Text(
+                'Macro Calculator',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                'Macros are confusing. However, macros are a crucial part of your nutrition.\nThis tool will help you set up the roadmap for your dietary needs.',
+                textAlign: TextAlign.center,
+                style: TextStyle(color: Colors.white70),
+              ),
+              const SizedBox(height: 20),
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: const Color(0x940C1E26),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Column(
+                  children: [
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: <Widget>[
+                          const SizedBox(height: 30),
+                          const SizedBox(height: 40),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 25, right: 25),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Text('Enter Daily Macros',
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
+                                _buildTextField(
+                                    _caloriesController, 'Calories'),
+                                _buildTextField(_carbsController, 'Carbs (g)'),
+                                _buildTextField(
+                                    _proteinController, 'Protein (g)'),
+                                _buildTextField(_fatsController, 'Fats (g)'),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 40),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 25, right: 25),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text('Enter Daily Macros',
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold)),
+                                Expanded(
+                                    child: _buildDropdown(
+                                        'Dietary Preferences',
+                                        ['None', 'Vegetarian', 'Vegan'],
+                                        dietaryPreference, (String? newValue) {
+                                  setState(() {
+                                    dietaryPreference = newValue!;
+                                  });
+                                })),
+                                Expanded(
+                                    child: _buildDropdown(
+                                        'Number of Meals',
+                                        [1, 2, 3, 4, 5],
+                                        numberOfMeals, (int? newValue) {
+                                  setState(() {
+                                    numberOfMeals = newValue!;
+                                  });
+                                })),
+                                Expanded(
+                                    child: _buildDropdown(
+                                        'Number of Days',
+                                        [1, 2, 3, 4, 5, 6, 7],
+                                        numberOfDays, (int? newValue) {
+                                  setState(() {
+                                    numberOfDays = newValue!;
+                                  });
+                                })),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          GestureDetector(
+                            onTap: _isFormValid
+                                ? () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => DailyMealPlanPage(
+                                          selectedMacros: {
+                                            'Protein': double.parse(
+                                                _proteinController.text),
+                                            'Carbohydrates': double.parse(
+                                                _carbsController.text),
+                                            'Fats': double.parse(
+                                                _fatsController.text),
+                                            'Calories': double.parse(
+                                                _caloriesController.text),
+                                          },
+                                          dietaryPreference: dietaryPreference,
+                                          numberOfMeals: numberOfMeals,
+                                          numberOfDays: numberOfDays,
+                                          calculateMacros: false,
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                : null,
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MacroCalculatorPage()),
+                                      );
+                                    },
+                                    child: SizedBox(
+                                      width: 280, // Set the desired width here
+                                      child: Container(
+                                        padding: const EdgeInsets.all(15),
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 25),
+                                        decoration: BoxDecoration(
+                                          color: Colors
+                                              .transparent, // Transparent fill
+                                          border: Border.all(
+                                              color:
+                                                  Colors.green), // White border
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                        ),
+                                        child: const Center(
+                                          child: Text(
+                                            'Don\'t know my Macros',
+                                            style: TextStyle(
+                                              color: Colors.green, // White text
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 280, // Set the desired width here
+                                    child: Container(
+                                      padding: const EdgeInsets.all(15),
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 25),
+                                      decoration: BoxDecoration(
+                                        color: _isFormValid
+                                            ? Colors.green
+                                            : Colors.grey,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: const Center(
+                                        child: Text(
+                                          'Generate My Meals',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 15,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ]),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ])));
   }
 
   Widget _buildTextField(TextEditingController controller, String label) {
     return Container(
+      padding: EdgeInsets.all(25),
       width: 180,
       child: TextFormField(
         controller: controller,
