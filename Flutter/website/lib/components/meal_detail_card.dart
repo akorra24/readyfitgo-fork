@@ -24,7 +24,7 @@ class MealDetailCard extends StatelessWidget {
     required this.ingredients,
     this.onPressed,
     this.onPressedBandS,
-    this.buttonText = 'Replace',
+    this.buttonText = 'Replace with another Meal',
   }) : super(key: key);
 
   @override
@@ -35,11 +35,17 @@ class MealDetailCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: textColor, width: 1),
+          // border: Border.all(color: textColor, width: 1),
           borderRadius: BorderRadius.circular(8),
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [Colors.black54, Colors.white],
+          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
@@ -86,52 +92,56 @@ class MealDetailCard extends StatelessWidget {
             ),
             replaceCard
                 ? Container()
-                : Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                    ),
-                    height: 50,
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: TextButton(
-                      onPressed: onPressedBandS ?? () {},
-                      child: const Text(
-                        'Replace w/ Snack/Breakfast',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                : Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFF4DADB3),
+                          borderRadius: BorderRadius.circular(8)),
+                      height: 50,
+                      width: 200,
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: TextButton(
+                        onPressed: onPressedBandS ?? () {},
+                        child: const Text(
+                          'Replace with Breakfast/Snack',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
             replaceCard
                 ? Container()
-                : Divider(
-                    color: textColor,
+                : SizedBox(
+                    height: 15,
                   ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(8),
-                    bottomRight: Radius.circular(8)),
-              ),
-              height: 50,
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: TextButton(
-                onPressed: onPressed ?? () {},
-                child: Text(
-                  buttonText,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFFF8E3C),
+                    borderRadius: BorderRadius.circular(8)),
+                height: 50,
+                width: 200,
+                padding: const EdgeInsets.symmetric(vertical: 8),
+                child: TextButton(
+                  onPressed: onPressed ?? () {},
+                  child: Text(
+                    buttonText,
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
