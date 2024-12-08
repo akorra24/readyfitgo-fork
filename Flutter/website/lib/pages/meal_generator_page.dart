@@ -270,11 +270,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 25),
                                         decoration: BoxDecoration(
-                                          color: Colors
-                                              .transparent, // Transparent fill
-                                          border: Border.all(
-                                              color:
-                                                  Colors.green), // White border
+                                          color: const Color(0xFF0C1F27),
                                           borderRadius:
                                               BorderRadius.circular(8),
                                         ),
@@ -282,7 +278,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                                           child: Text(
                                             'Don\'t know my Macros',
                                             style: TextStyle(
-                                              color: Colors.green, // White text
+                                              color: Colors.white, // White text
                                               fontWeight: FontWeight.bold,
                                               fontSize: 15,
                                             ),
@@ -299,7 +295,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                                           horizontal: 25),
                                       decoration: BoxDecoration(
                                         color: _isFormValid
-                                            ? Colors.green
+                                            ? const Color(0xFF0C1F27)
                                             : Colors.grey,
                                         borderRadius: BorderRadius.circular(8),
                                       ),
