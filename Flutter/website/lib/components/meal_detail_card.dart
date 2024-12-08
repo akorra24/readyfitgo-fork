@@ -40,7 +40,7 @@ class MealDetailCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [Colors.black54, Colors.white],
+            colors: [Color(0xFF162D37), Colors.white],
           ),
         ),
         child: Column(
@@ -73,7 +73,7 @@ class MealDetailCard extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: textColor),
+                          color: Colors.white),
                     ),
                   ),
                   const Divider(),
@@ -155,11 +155,11 @@ class MealDetailCard extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: Colors.white),
         ),
         Text(
           value,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: Colors.white),
         ),
       ],
     );
