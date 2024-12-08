@@ -67,7 +67,7 @@ class MealReplaceOptions extends StatelessWidget {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 3, // Number of meal cards per row
-                  childAspectRatio: 0.64, // Adjust this to control card height
+                  childAspectRatio: 0.9, // Adjust this to control card height
                   crossAxisSpacing: 16,
                   mainAxisSpacing: 16,
                 ),
