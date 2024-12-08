@@ -30,7 +30,7 @@ class MealDetailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
           maxWidth: 300, maxHeight: 700), // Ensure consistent size
       child: Container(
         margin: const EdgeInsets.all(16),
@@ -45,7 +45,6 @@ class MealDetailCard extends StatelessWidget {
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
@@ -139,9 +138,11 @@ class MealDetailCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
-            )
+            replaceCard
+                ? Container()
+                : SizedBox(
+                    height: 20,
+                  ),
           ],
         ),
       ),
@@ -193,13 +194,22 @@ class MealDetailCard extends StatelessWidget {
           alignment: Alignment.center,
           child: Tooltip(
             message: 'Tap to view ingredients',
-            child: Text(
-              "Ingredients: ${_shortenIngredients(ingredients)}",
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13,
-                  color: Colors.grey),
-              textAlign: TextAlign.center,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(8)),
+              height: 50,
+              width: 200,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: Center(
+                child: Text(
+                  'View Ingredients',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
         ),
