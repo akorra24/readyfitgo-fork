@@ -123,94 +123,122 @@ class HomePage extends StatelessWidget {
                       ),
                       Spacer(),
                       // Central Content
-                      Column(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            "Fit your budget.",
-                            style: TextStyle(
-                              fontSize: 40,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "Fit your lifestyle.",
-                            style: TextStyle(
-                              fontSize: 40,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Row(
+                          Column(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              OutlinedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            MacroCalculatorPage()),
-                                  );
-                                },
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: Colors.white, // Text color
-                                  backgroundColor:
-                                      Colors.black54, // Background color
-                                  side: const BorderSide(
-                                    color: Colors.white, // Border color
-                                    width: 1.0, // Border width
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    "images/home_line.png",
+                                    width: 80,
                                   ),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 20),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        5), // Button corner radius
-                                  ),
-                                ),
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Calculate Macros'),
-                                    SizedBox(width: 10),
-                                    Icon(Icons.arrow_forward),
-                                  ],
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "Ready Fit Go",
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Color(0xFFFBD784),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Text(
+                                "Fit your budget.",
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              SizedBox(width: 20),
-                              OutlinedButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MealGenerator()),
-                                  );
-                                },
-                                style: OutlinedButton.styleFrom(
-                                  foregroundColor: Colors.white, // Text color
-                                  backgroundColor:
-                                      Colors.black54, // Background color
-                                  side: const BorderSide(
-                                    color: Colors.white, // Border color
-                                    width: 1.0, // Border width
-                                  ),
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 20),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        5), // Button corner radius
-                                  ),
+                              Text(
+                                "Fit your lifestyle.",
+                                style: TextStyle(
+                                  fontSize: 40,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                 ),
-                                child: const Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text('Meal Generator'),
-                                    SizedBox(width: 10),
-                                    Icon(Icons.arrow_forward),
-                                  ],
-                                ),
+                              ),
+                              SizedBox(height: 20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  OutlinedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MacroCalculatorPage()),
+                                      );
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      foregroundColor:
+                                          Colors.white, // Text color
+                                      backgroundColor:
+                                          Colors.black54, // Background color
+                                      side: const BorderSide(
+                                        color: Colors.white, // Border color
+                                        width: 1.0, // Border width
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 20),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            5), // Button corner radius
+                                      ),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text('Calculate Macros'),
+                                        SizedBox(width: 10),
+                                        Icon(Icons.arrow_forward),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(width: 20),
+                                  OutlinedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MealGenerator()),
+                                      );
+                                    },
+                                    style: OutlinedButton.styleFrom(
+                                      foregroundColor:
+                                          Colors.white, // Text color
+                                      backgroundColor:
+                                          Colors.black54, // Background color
+                                      side: const BorderSide(
+                                        color: Colors.white, // Border color
+                                        width: 1.0, // Border width
+                                      ),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 20, vertical: 20),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            5), // Button corner radius
+                                      ),
+                                    ),
+                                    child: const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text('Meal Generator'),
+                                        SizedBox(width: 10),
+                                        Icon(Icons.arrow_forward),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -255,53 +283,72 @@ class HomePage extends StatelessWidget {
                   // Text Section
                   Expanded(
                     flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Numbered Header
-                        Row(
-                          children: [
-                            Text(
-                              "01",
-                              style: TextStyle(
-                                fontSize: 50,
-                                color: Colors.white.withOpacity(0.1),
-                                fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 60),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Numbered Header
+                          Stack(
+                            children: [
+                              Text(
+                                "01",
+                                style: TextStyle(
+                                  fontSize: 100,
+                                  color: Colors.white.withOpacity(0.1),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "GET STARTED",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white.withOpacity(0.7),
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        // Main Title
-                        Text(
-                          "Nutrition",
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 60),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "images/home_line.png",
+                                          width: 80,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "GET STARTED",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Color(0xFFFBD784),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 10),
+                                    // Main Title
+                                    Text(
+                                      "Nutrition",
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        // Bullet Points
-                        Text(
-                          "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
-                          "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            height: 1.5,
+                          SizedBox(height: 20),
+                          // Bullet Points
+                          Text(
+                            "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
+                            "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
@@ -350,53 +397,72 @@ class HomePage extends StatelessWidget {
                   // Text Section
                   Expanded(
                     flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Numbered Header
-                        Row(
-                          children: [
-                            Text(
-                              "02",
-                              style: TextStyle(
-                                fontSize: 50,
-                                color: Colors.white.withOpacity(0.1),
-                                fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 60),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Numbered Header
+                          Stack(
+                            children: [
+                              Text(
+                                "02",
+                                style: TextStyle(
+                                  fontSize: 100,
+                                  color: Colors.white.withOpacity(0.1),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "GET STARTED",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white.withOpacity(0.7),
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        // Main Title
-                        Text(
-                          "Gym",
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 60),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "images/home_line.png",
+                                          width: 80,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "Fitness Essentials",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Color(0xFFFBD784),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 10),
+                                    // Main Title
+                                    Text(
+                                      "Gym",
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        // Bullet Points
-                        Text(
-                          "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
-                          "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            height: 1.5,
+                          SizedBox(height: 20),
+                          // Bullet Points
+                          Text(
+                            "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
+                            "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -411,53 +477,72 @@ class HomePage extends StatelessWidget {
                   // Text Section
                   Expanded(
                     flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Numbered Header
-                        Row(
-                          children: [
-                            Text(
-                              "03",
-                              style: TextStyle(
-                                fontSize: 50,
-                                color: Colors.white.withOpacity(0.1),
-                                fontWeight: FontWeight.bold,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 60),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Numbered Header
+                          Stack(
+                            children: [
+                              Text(
+                                "03",
+                                style: TextStyle(
+                                  fontSize: 100,
+                                  color: Colors.white.withOpacity(0.1),
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "GET STARTED",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.white.withOpacity(0.7),
-                                letterSpacing: 2,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 10),
-                        // Main Title
-                        Text(
-                          "Mindset & Discipline",
-                          style: TextStyle(
-                            fontSize: 28,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
+                              Padding(
+                                padding: const EdgeInsets.only(left: 60),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "images/home_line.png",
+                                          width: 80,
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          "The basics are the key",
+                                          style: TextStyle(
+                                            fontSize: 15,
+                                            color: Color(0xFFFBD784),
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(height: 10),
+                                    // Main Title
+                                    Text(
+                                      "Mindset & Discipline",
+                                      style: TextStyle(
+                                        fontSize: 40,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        // Bullet Points
-                        Text(
-                          "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
-                          "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            height: 1.5,
+                          SizedBox(height: 20),
+                          // Bullet Points
+                          Text(
+                            "1. Start monitoring your food intake for at least a month.\n   • You don’t have to do this forever.\n   • You’re doing this to get a rough idea of how many calories are in your food.\n"
+                            "\n2. Estimate your calories using the macro calculator.\n   • If you’re not already super lean (<12% body fat), start with a cut.\n   • This will fast-track your aesthetics progress by shedding fat.",
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              height: 1.5,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(width: 20),
