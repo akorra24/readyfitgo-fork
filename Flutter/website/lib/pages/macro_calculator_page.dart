@@ -272,6 +272,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     children: [
                       Form(
                         key: _formKey,
+                        onChanged: _validateInputs,
                         child: Column(
                           children: [
                             Row(
@@ -901,6 +902,14 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 ),
                               ],
                             ),
+                            if (_macroError != null)
+                              Padding(
+                                padding: const EdgeInsets.only(left: 12.0),
+                                child: Text(
+                                  _macroError!,
+                                  style: TextStyle(color: Colors.red),
+                                ),
+                              ),
                             const SizedBox(height: 20),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -910,9 +919,19 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       horizontal:
                                           10.0), // Add horizontal padding
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: _isButtonEnabled
+                                        ? () {
+                                            if (_formKey.currentState
+                                                    ?.validate() ??
+                                                false) {
+                                              _calculateMacros();
+                                            }
+                                          }
+                                        : null,
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFF0C1F27),
+                                      backgroundColor: _isButtonEnabled
+                                          ? const Color(0xFF0C1F27)
+                                          : Colors.grey,
                                       foregroundColor: Colors.white,
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 20, vertical: 15),
@@ -928,9 +947,52 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       horizontal:
                                           10.0), // Add horizontal padding
                                   child: ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: _isButtonEnabled
+                                        ? () {
+                                            if (_formKey.currentState
+                                                    ?.validate() ??
+                                                false) {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMealPlanPage(
+                                                    age: int.tryParse(
+                                                        _ageController.text),
+                                                    sex: _sex,
+                                                    height: double.tryParse(
+                                                        _heightController.text),
+                                                    weight: double.tryParse(
+                                                        _weightController.text),
+                                                    activityLevel:
+                                                        _activityLevel,
+                                                    fitnessGoal: _fitnessGoal,
+                                                    dietaryPreference:
+                                                        _dietaryPreference,
+                                                    numberOfMeals:
+                                                        _numberOfMeals,
+                                                    numberOfDays: _numberOfDays,
+                                                    proteinPercentage: double.parse(
+                                                        _proteinPercentageController
+                                                            .text),
+                                                    carbsPercentage: double.parse(
+                                                        _carbsPercentageController
+                                                            .text),
+                                                    fatPercentage: double.parse(
+                                                        _fatPercentageController
+                                                            .text),
+                                                    calculateMacros:
+                                                        true, // Assuming this flag triggers macro calculation
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          }
+                                        : null,
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFF0C1F27),
+                                      backgroundColor: _isButtonEnabled
+                                          ? const Color(0xFF0C1F27)
+                                          : Colors.grey,
                                       foregroundColor: Colors.white,
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 20, vertical: 15),
@@ -955,8 +1017,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(color: Colors.white, width: 1),
                         ),
-                        child: const Column(children: [
-                          Text(
+                        child: Column(children: [
+                          const Text(
                             'Daily Macros',
                             style: TextStyle(
                               fontSize: 18,
@@ -964,13 +1026,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          SizedBox(height: 15),
+                          const SizedBox(height: 15),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Calories',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -979,8 +1041,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    '2000',
-                                    style: TextStyle(
+                                    _macrosCalculated
+                                        ? '${_calories.toStringAsFixed(0)} cal'
+                                        : "",
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -990,7 +1054,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               ),
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Protein',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -999,8 +1063,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    '150g',
-                                    style: TextStyle(
+                                    _macrosCalculated
+                                        ? '${_protein.toStringAsFixed(0)} g'
+                                        : "",
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -1010,7 +1076,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               ),
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Carbs',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -1019,8 +1085,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    '200g',
-                                    style: TextStyle(
+                                    _macrosCalculated
+                                        ? '${_carbs.toStringAsFixed(0)} g'
+                                        : "",
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
@@ -1030,7 +1098,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                               ),
                               Column(
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Fats',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -1039,8 +1107,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   ),
                                   const SizedBox(height: 5),
                                   Text(
-                                    '50g',
-                                    style: TextStyle(
+                                    _macrosCalculated
+                                        ? '${_fats.toStringAsFixed(0)} g'
+                                        : "",
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
