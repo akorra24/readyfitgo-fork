@@ -153,7 +153,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
 
     return Scaffold(
       body: Container(
-        // color: Color(0xFFFFF5E1),
+        color: Color(0xFF0C1F27),
         child: Stack(
           children: [
             // Main content
@@ -164,8 +164,8 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
                   labelStyle:
                       TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                   controller: _tabController,
-                  indicatorColor: Colors.green,
-                  labelColor: Colors.green,
+                  indicatorColor: Colors.white,
+                  labelColor: Colors.white,
                   unselectedLabelColor: Colors.grey,
                   tabs: List<Widget>.generate(
                     widget.numberOfDays,
