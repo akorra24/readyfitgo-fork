@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/daily_meal_page_2.dart';
+import 'package:website/pages/meal_generator_page.dart';
 
 void main() {
   runApp(MaterialApp(home: MacroCalculatorPage()));
@@ -195,7 +196,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MealGenerator()),
+                            );
+                          },
                           child: const Text(
                             "Meal Generator",
                             style: TextStyle(color: Colors.white, fontSize: 18),
