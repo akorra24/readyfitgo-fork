@@ -224,7 +224,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
 
                                       // Regenerate Button
                                       OutlinedButton.icon(
-                                        onPressed: () {},
+                                        onPressed: fetchRecommendedMeals,
                                         icon: Icon(Icons.refresh,
                                             color: Colors.white),
                                         label: Text(
