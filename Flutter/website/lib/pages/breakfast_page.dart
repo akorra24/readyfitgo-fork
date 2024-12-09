@@ -92,6 +92,9 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
 
   // Send Email function
   Future<void> sendEmail(String email) async {
+    setState(() {
+      isLoading = true;
+    });
     final response = await http.post(
       Uri.parse(
           'https://script.google.com/macros/s/AKfycbw0S4624QX2mfFH6rgNBgyWaVWnEowUN2_yOXFETipShvpjaK_NwroM_8CNiYzsbFsg/exec'),
@@ -116,6 +119,9 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     } else {
       print('Failed to send email');
     }
+    setState(() {
+      isLoading = false;
+    });
   }
 
   void updateMacroDisplay() {
@@ -281,6 +287,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                                     onPressed: () {
                                                       if (_emailController
                                                           .text.isNotEmpty) {
+                                                        Navigator.pop(context);
                                                         sendEmail(
                                                                 _emailController
                                                                     .text)
@@ -293,8 +300,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                                                   'Email sent successfully!'),
                                                             ),
                                                           );
-                                                          Navigator.pop(
-                                                              context);
+
                                                           _emailController
                                                               .clear();
                                                         }).catchError((error) {
