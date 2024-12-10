@@ -254,19 +254,24 @@ class HomePage extends StatelessWidget {
                   top: 200,
                   child: Column(
                     children: [
+                      Image.asset(
+                        "images/follow.png",
+                        width: 15,
+                      ),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.facebook),
+                        icon: Image.asset(
+                          "images/instagram.png",
+                          width: 20,
+                        ),
                         color: Colors.white,
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: const Icon(Icons.facebook),
-                        color: Colors.white,
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.facebook),
+                        icon: Image.asset(
+                          "images/twitter.png",
+                          width: 20,
+                        ),
                         color: Colors.white,
                       ),
                     ],
