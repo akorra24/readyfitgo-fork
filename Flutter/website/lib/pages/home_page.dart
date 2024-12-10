@@ -140,6 +140,7 @@ class HomePage extends StatelessWidget {
                                   Text(
                                     "Ready Fit Go",
                                     style: TextStyle(
+                                      fontFamily: 'Rufina',
                                       fontSize: 20,
                                       color: Color(0xFFFBD784),
                                       fontWeight: FontWeight.bold,
@@ -150,6 +151,7 @@ class HomePage extends StatelessWidget {
                               Text(
                                 "Fit your budget.",
                                 style: TextStyle(
+                                  fontFamily: 'Rufina',
                                   fontSize: 40,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -158,6 +160,7 @@ class HomePage extends StatelessWidget {
                               Text(
                                 "Fit your lifestyle.",
                                 style: TextStyle(
+                                  fontFamily: 'Rufina',
                                   fontSize: 40,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -196,7 +199,10 @@ class HomePage extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text('Calculate Macros'),
+                                        Text('Calculate Macros',
+                                            style: TextStyle(
+                                              fontFamily: 'Rufina',
+                                            )),
                                         SizedBox(width: 10),
                                         Icon(Icons.arrow_forward),
                                       ],
@@ -232,7 +238,10 @@ class HomePage extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Text('Meal Generator'),
+                                        Text('Meal Generator',
+                                            style: TextStyle(
+                                              fontFamily: 'Rufina',
+                                            )),
                                         SizedBox(width: 10),
                                         Icon(Icons.arrow_forward),
                                       ],
@@ -299,6 +308,7 @@ class HomePage extends StatelessWidget {
                               Text(
                                 "01",
                                 style: TextStyle(
+                                  fontFamily: 'Rufina',
                                   fontSize: 100,
                                   color: Colors.white.withOpacity(0.1),
                                   fontWeight: FontWeight.bold,
@@ -319,6 +329,7 @@ class HomePage extends StatelessWidget {
                                         Text(
                                           "GET STARTED",
                                           style: TextStyle(
+                                            fontFamily: 'Rufina',
                                             fontSize: 15,
                                             color: Color(0xFFFBD784),
                                             fontWeight: FontWeight.bold,
@@ -331,6 +342,7 @@ class HomePage extends StatelessWidget {
                                     Text(
                                       "Nutrition",
                                       style: TextStyle(
+                                        fontFamily: 'Rufina',
                                         fontSize: 40,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -471,6 +483,7 @@ class HomePage extends StatelessWidget {
                               Text(
                                 "02",
                                 style: TextStyle(
+                                  fontFamily: 'Rufina',
                                   fontSize: 100,
                                   color: Colors.white.withOpacity(0.1),
                                   fontWeight: FontWeight.bold,
@@ -491,6 +504,7 @@ class HomePage extends StatelessWidget {
                                         Text(
                                           "Fitness Essentials",
                                           style: TextStyle(
+                                            fontFamily: 'Rufina',
                                             fontSize: 15,
                                             color: Color(0xFFFBD784),
                                             fontWeight: FontWeight.bold,
@@ -503,6 +517,7 @@ class HomePage extends StatelessWidget {
                                     Text(
                                       "Gym",
                                       style: TextStyle(
+                                        fontFamily: 'Rufina',
                                         fontSize: 40,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -594,6 +609,7 @@ class HomePage extends StatelessWidget {
                               Text(
                                 "03",
                                 style: TextStyle(
+                                  fontFamily: 'Rufina',
                                   fontSize: 100,
                                   color: Colors.white.withOpacity(0.1),
                                   fontWeight: FontWeight.bold,
@@ -614,6 +630,7 @@ class HomePage extends StatelessWidget {
                                         Text(
                                           "The basics are the key",
                                           style: TextStyle(
+                                            fontFamily: 'Rufina',
                                             fontSize: 15,
                                             color: Color(0xFFFBD784),
                                             fontWeight: FontWeight.bold,
@@ -626,6 +643,7 @@ class HomePage extends StatelessWidget {
                                     Text(
                                       "Mindset & Discipline",
                                       style: TextStyle(
+                                        fontFamily: 'Rufina',
                                         fontSize: 40,
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
@@ -725,6 +743,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "MNTN",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 24,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
@@ -734,6 +753,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Get out there & discover your next\nslope, mountain & destination!",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -742,6 +762,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Copyright © 2023 MNTN, Inc. Terms & Privacy",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 14,
                                 color: Colors.white.withOpacity(0.6),
                               ),
@@ -758,6 +779,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "More on The Blog",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 18,
                                 color: Colors.amberAccent,
                                 fontWeight: FontWeight.bold,
@@ -767,6 +789,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "About MNTN",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -775,6 +798,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Contributors & Writers",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -783,6 +807,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Write For Us",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -799,6 +824,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Privacy Policy",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -815,6 +841,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "More on MNTN",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 18,
                                 color: Colors.amberAccent,
                                 fontWeight: FontWeight.bold,
@@ -824,6 +851,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "The Team",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -832,6 +860,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Jobs",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
@@ -840,6 +869,7 @@ class HomePage extends StatelessWidget {
                             Text(
                               "Press",
                               style: TextStyle(
+                                fontFamily: 'Rufina',
                                 fontSize: 16,
                                 color: Colors.white.withOpacity(0.8),
                               ),
