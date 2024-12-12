@@ -948,7 +948,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   style: TextStyle(color: Colors.red),
                                 ),
                               ),
-                            const SizedBox(height: 20),
+                            const SizedBox(height: 10),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
@@ -1046,7 +1046,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       // Daily Macros
                       Container(
                         padding: const EdgeInsets.all(20),
