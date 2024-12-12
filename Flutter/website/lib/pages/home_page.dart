@@ -162,6 +162,7 @@ class HomePage extends StatelessWidget {
                                       fontSize: 20,
                                       color: Color(0xFFFBD784),
                                       fontWeight: FontWeight.bold,
+                                      letterSpacing: 5,
                                     ),
                                   )
                                 ],
@@ -170,7 +171,7 @@ class HomePage extends StatelessWidget {
                                 "Fit your budget.",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
-                                  fontSize: 40,
+                                  fontSize: 60,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -179,7 +180,7 @@ class HomePage extends StatelessWidget {
                                 "Fit your lifestyle.",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
-                                  fontSize: 40,
+                                  fontSize: 60,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
