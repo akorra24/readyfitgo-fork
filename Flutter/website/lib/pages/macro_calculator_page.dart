@@ -152,18 +152,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
       Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.125,
             decoration: const BoxDecoration(
               color: Color(0xFF0C1F27),
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.125,
             child: Column(children: [
               // Navigation Bar
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -36,18 +36,18 @@ class _MealGeneratorState extends State<MealGenerator> {
       Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.125,
             decoration: const BoxDecoration(
               color: Color(0xFF0C1F27),
             ),
           ),
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.1,
+            height: MediaQuery.of(context).size.height * 0.125,
             child: Column(children: [
               // Navigation Bar
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -162,7 +162,7 @@ class _MealGeneratorState extends State<MealGenerator> {
           ),
         ),
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(50),
           decoration: BoxDecoration(
             color: const Color(0xC90C1E26),
             borderRadius: BorderRadius.circular(10),
@@ -182,9 +182,9 @@ class _MealGeneratorState extends State<MealGenerator> {
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.white70),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Container(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
                   color: const Color(0x940C1E26),
                   borderRadius: BorderRadius.circular(10),
@@ -195,8 +195,6 @@ class _MealGeneratorState extends State<MealGenerator> {
                       key: _formKey,
                       child: Column(
                         children: <Widget>[
-                          const SizedBox(height: 30),
-                          const SizedBox(height: 40),
                           Padding(
                             padding: const EdgeInsets.only(left: 25, right: 25),
                             child: Row(
