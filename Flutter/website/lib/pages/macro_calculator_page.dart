@@ -173,39 +173,61 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     ),
                     Row(
                       children: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text(
-                            "Home",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 40),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text(
+                              "Home",
+                              style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MacroCalculatorPage()),
-                            );
-                          },
-                          child: const Text(
-                            "Calculate Macros",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 40),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        MacroCalculatorPage()),
+                              );
+                            },
+                            child: const Text(
+                              "Calculate Macros",
+                              style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
                           ),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MealGenerator()),
-                            );
-                          },
-                          child: const Text(
-                            "Meal Generator",
-                            style: TextStyle(color: Colors.white, fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 40),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MealGenerator()),
+                              );
+                            },
+                            child: const Text(
+                              "Meal Generator",
+                              style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 18),
+                            ),
                           ),
                         ),
                         OutlinedButton(
@@ -225,7 +247,16 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   0), // Button corner radius
                             ),
                           ),
-                          child: const Text('Shop Now'),
+                          child: const Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'Shop Now',
+                              style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                          ),
                         )
                       ],
                     ),
