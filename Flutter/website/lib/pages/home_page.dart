@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
                     gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.center,
-                      colors: [Color(0x8C0B1D26), Colors.transparent],
+                      colors: [Color(0xFF0B1D26), Colors.transparent],
                     ),
                   ),
                 ),
@@ -128,10 +128,9 @@ class HomePage extends StatelessWidget {
                                     child: const Text(
                                       'Shop Now',
                                       style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 18
-                                      ),
+                                          fontFamily: 'Satoshi',
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 18),
                                     ),
                                   ),
                                 )
@@ -221,6 +220,7 @@ class HomePage extends StatelessWidget {
                                         Text('Calculate Macros',
                                             style: TextStyle(
                                               fontFamily: 'Rufina',
+                                              fontWeight: FontWeight.bold,
                                             )),
                                         SizedBox(width: 10),
                                         Icon(Icons.arrow_forward),
@@ -260,6 +260,7 @@ class HomePage extends StatelessWidget {
                                         Text('Meal Generator',
                                             style: TextStyle(
                                               fontFamily: 'Rufina',
+                                              fontWeight: FontWeight.bold,
                                             )),
                                         SizedBox(width: 10),
                                         Icon(Icons.arrow_forward),
