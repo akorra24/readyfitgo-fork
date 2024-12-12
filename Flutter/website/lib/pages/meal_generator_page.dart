@@ -369,6 +369,8 @@ class _MealGeneratorState extends State<MealGenerator> {
           labelText: label,
           labelStyle:
               TextStyle(color: Colors.white), // Set label text color to white
+          filled: true,
+          fillColor: Color(0xFF112025),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide:
@@ -408,6 +410,8 @@ class _MealGeneratorState extends State<MealGenerator> {
           labelText: label,
           labelStyle: const TextStyle(
               color: Colors.white), // Set label text color to white
+          filled: true,
+          fillColor: Color(0xFF112025),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(

@@ -303,7 +303,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
               Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: const Color(0x940C1E26),
+                    color: const Color(0xFF172B32),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Column(
@@ -324,11 +324,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       const Text(
                                         'Body Composition',
                                         style: TextStyle(
+                                          fontFamily: 'Inter',
                                           fontSize: 18,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
+                                      const SizedBox(height: 10),
                                       Row(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -352,6 +354,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText: 'Sex',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -406,6 +411,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           'Height (inches)',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -460,6 +468,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           'Activity level',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -528,6 +539,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText: 'Age',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -580,6 +594,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           'Enter Weight (lbs)',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -629,6 +646,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           'Fitness Goals',
                                                       labelStyle: TextStyle(
                                                           color: Colors.white),
+                                                      filled: true,
+                                                      fillColor:
+                                                          Color(0xFF112025),
                                                       enabledBorder:
                                                           OutlineInputBorder(
                                                         borderSide: BorderSide(
@@ -693,11 +713,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       const Text(
                                         'Meal Preferences',
                                         style: TextStyle(
+                                          fontFamily: 'Inter',
                                           fontSize: 18,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
+                                      const SizedBox(height: 10),
                                       Padding(
                                         padding:
                                             EdgeInsets.symmetric(vertical: 10),
@@ -708,6 +730,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                             labelText: 'Dietary Preference',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
@@ -744,6 +768,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                 'Number of Meals per Day',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
@@ -781,6 +807,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                             labelText: 'Number of Days',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
@@ -823,11 +851,13 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                       const Text(
                                         'Macro Proportions',
                                         style: TextStyle(
+                                          fontFamily: 'Inter',
                                           fontSize: 18,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.bold,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
+                                      const SizedBox(height: 10),
                                       Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 10),
@@ -839,6 +869,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                             labelText: 'Protein (%)',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
@@ -875,6 +907,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                             labelText: 'Carbs (%)',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
@@ -910,6 +944,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                             labelText: 'Fat (%)',
                                             labelStyle:
                                                 TextStyle(color: Colors.white),
+                                            filled: true,
+                                            fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: Color.fromARGB(
