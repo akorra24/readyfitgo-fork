@@ -95,7 +95,7 @@ flutter:
         - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
     - family: Satoshi
       fonts:
-        - asset: assets/fonts/Satoshi-Variable.ttf
+        - asset: assets/fonts/Satoshi-Regular.ttf
     
     
 

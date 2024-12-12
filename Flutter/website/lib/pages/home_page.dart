@@ -64,7 +64,10 @@ class HomePage extends StatelessWidget {
                                   child: const Text(
                                     "Home",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
+                                        fontFamily: 'Satoshi',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 18),
                                   ),
                                 ),
                                 TextButton(
@@ -79,7 +82,10 @@ class HomePage extends StatelessWidget {
                                   child: const Text(
                                     "Calculate Macros",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
+                                        fontFamily: 'Satoshi',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 18),
                                   ),
                                 ),
                                 TextButton(
@@ -94,7 +100,10 @@ class HomePage extends StatelessWidget {
                                   child: const Text(
                                     "Meal Generator",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 18),
+                                        fontFamily: 'Satoshi',
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                        fontSize: 18),
                                   ),
                                 ),
                                 OutlinedButton(
@@ -114,7 +123,17 @@ class HomePage extends StatelessWidget {
                                           0), // Button corner radius
                                     ),
                                   ),
-                                  child: const Text('Shop Now'),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: const Text(
+                                      'Shop Now',
+                                      style: TextStyle(
+                                        fontFamily: 'Satoshi',
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18
+                                      ),
+                                    ),
+                                  ),
                                 )
                               ],
                             ),
