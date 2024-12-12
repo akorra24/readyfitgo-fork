@@ -823,7 +823,7 @@ class HomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20),
                             Text(
                               "Get out there & discover your next\nslope, mountain & destination!",
                               style: TextStyle(
@@ -832,7 +832,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 20),
+                            SizedBox(height: 120),
                             Text(
                               "Copyright © 2023 MNTN, Inc. Terms & Privacy",
                               style: TextStyle(
@@ -859,7 +859,7 @@ class HomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20),
                             Text(
                               "About MNTN",
                               style: TextStyle(
@@ -868,7 +868,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Contributors & Writers",
                               style: TextStyle(
@@ -877,7 +877,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Write For Us",
                               style: TextStyle(
@@ -886,7 +886,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Contact Us",
                               style: TextStyle(
@@ -894,7 +894,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Privacy Policy",
                               style: TextStyle(
@@ -921,7 +921,7 @@ class HomePage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 20),
                             Text(
                               "The Team",
                               style: TextStyle(
@@ -930,7 +930,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Jobs",
                               style: TextStyle(
@@ -939,7 +939,7 @@ class HomePage extends StatelessWidget {
                                 color: Colors.white.withOpacity(0.8),
                               ),
                             ),
-                            SizedBox(height: 5),
+                            SizedBox(height: 20),
                             Text(
                               "Press",
                               style: TextStyle(
