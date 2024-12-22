@@ -267,7 +267,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 60),
                           GestureDetector(
                             onTap: _isFormValid
                                 ? () {
@@ -357,7 +357,7 @@ class _MealGeneratorState extends State<MealGenerator> {
                                 ]),
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 60,
                           ),
                         ],
                       ),
