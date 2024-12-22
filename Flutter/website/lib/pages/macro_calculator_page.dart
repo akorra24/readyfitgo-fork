@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/daily_meal_page_2.dart';
+import 'package:website/pages/home_page.dart';
 import 'package:website/pages/meal_generator_page.dart';
 import 'dart:html' as html;
 
@@ -178,7 +179,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           padding: const EdgeInsets.only(right: 40),
                           child: TextButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => HomePage()),
+                              );
                             },
                             child: const Text(
                               "Home",
