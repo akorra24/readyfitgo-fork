@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/daily_meal_page_2.dart';
 import 'package:website/pages/meal_generator_page.dart';
+import 'dart:html' as html;
 
 void main() {
   runApp(MaterialApp(home: MacroCalculatorPage()));
@@ -247,14 +248,22 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                   0), // Button corner radius
                             ),
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Shop Now',
-                              style: TextStyle(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                html.window.open(
+                                    'https://readyfitgo.com/shop', '_blank');
+                              },
+                              child: Text(
+                                'Shop Now',
+                                style: TextStyle(
                                   fontFamily: 'Satoshi',
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 18),
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
                           ),
                         )

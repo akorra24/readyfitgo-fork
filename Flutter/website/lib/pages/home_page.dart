@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/macro_calculator_page.dart';
 import 'package:website/pages/meal_generator_page.dart';
+import 'dart:html' as html;
 
 class HomePage extends StatelessWidget {
   @override
@@ -132,14 +133,23 @@ class HomePage extends StatelessWidget {
                                           0), // Button corner radius
                                     ),
                                   ),
-                                  child: const Padding(
-                                    padding: EdgeInsets.all(8.0),
-                                    child: Text(
-                                      'Shop Now',
-                                      style: TextStyle(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        html.window.open(
+                                            'https://readyfitgo.com/shop',
+                                            '_blank');
+                                      },
+                                      child: Text(
+                                        'Shop Now',
+                                        style: TextStyle(
                                           fontFamily: 'Satoshi',
                                           fontWeight: FontWeight.bold,
-                                          fontSize: 18),
+                                          fontSize: 18,
+                                          color: Colors.white,
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 )
@@ -148,138 +158,143 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Spacer(),
+                      SizedBox(height: 150),
                       // Central Content
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Image.asset(
-                                    "images/home_line.png",
-                                    width: 80,
-                                  ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    "Ready Fit Go",
-                                    style: TextStyle(
-                                      fontFamily: 'Rufina',
-                                      fontSize: 20,
-                                      color: Color(0xFFFBD784),
-                                      fontWeight: FontWeight.bold,
-                                      letterSpacing: 5,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 400),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    Image.asset(
+                                      "images/home_line.png",
+                                      width: 80,
                                     ),
-                                  )
-                                ],
-                              ),
-                              Text(
-                                "Fit your budget.",
-                                style: TextStyle(
-                                  fontFamily: 'Rufina',
-                                  fontSize: 60,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                                    SizedBox(width: 10),
+                                    Text(
+                                      "Ready Fit Go",
+                                      style: TextStyle(
+                                        fontFamily: 'Rufina',
+                                        fontSize: 20,
+                                        color: Color(0xFFFBD784),
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 5,
+                                      ),
+                                    )
+                                  ],
                                 ),
-                              ),
-                              Text(
-                                "Fit your lifestyle.",
-                                style: TextStyle(
-                                  fontFamily: 'Rufina',
-                                  fontSize: 60,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                                Text(
+                                  "Fit your budget.",
+                                  style: TextStyle(
+                                    fontFamily: 'Rufina',
+                                    fontSize: 60,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 20),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  OutlinedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                MacroCalculatorPage()),
-                                      );
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                      foregroundColor:
-                                          Colors.white, // Text color
-                                      backgroundColor:
-                                          Colors.black54, // Background color
-                                      side: const BorderSide(
-                                        color: Colors.white, // Border color
-                                        width: 1.0, // Border width
-                                      ),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 20),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            5), // Button corner radius
-                                      ),
-                                    ),
-                                    child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text('Calculate Macros',
-                                            style: TextStyle(
-                                              fontFamily: 'Rufina',
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(width: 10),
-                                        Icon(Icons.arrow_forward),
-                                      ],
-                                    ),
+                                Text(
+                                  "Fit your lifestyle.",
+                                  style: TextStyle(
+                                    fontFamily: 'Rufina',
+                                    fontSize: 60,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  SizedBox(width: 20),
-                                  OutlinedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                MealGenerator()),
-                                      );
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                      foregroundColor:
-                                          Colors.white, // Text color
-                                      backgroundColor:
-                                          Colors.black54, // Background color
-                                      side: const BorderSide(
-                                        color: Colors.white, // Border color
-                                        width: 1.0, // Border width
+                                ),
+                                SizedBox(height: 20),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    OutlinedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MacroCalculatorPage()),
+                                        );
+                                      },
+                                      style: OutlinedButton.styleFrom(
+                                        foregroundColor:
+                                            Colors.white, // Text color
+                                        backgroundColor: Color.fromRGBO(12, 31,
+                                            39, 0.7), // Background color
+                                        side: const BorderSide(
+                                          color: Colors.white, // Border color
+                                          width: 1.0, // Border width
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 20),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              5), // Button corner radius
+                                        ),
                                       ),
-                                      padding: const EdgeInsets.symmetric(
-                                          horizontal: 20, vertical: 20),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            5), // Button corner radius
+                                      child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text('Calculate Macros',
+                                              style: TextStyle(
+                                                fontSize: 17,
+                                                fontFamily: 'RufinaBold',
+                                                fontWeight: FontWeight.w800,
+                                              )),
+                                          SizedBox(width: 10),
+                                          Icon(Icons.arrow_forward),
+                                        ],
                                       ),
                                     ),
-                                    child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text('Meal Generator',
-                                            style: TextStyle(
-                                              fontFamily: 'Rufina',
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                        SizedBox(width: 10),
-                                        Icon(Icons.arrow_forward),
-                                      ],
+                                    SizedBox(width: 20),
+                                    OutlinedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MealGenerator()),
+                                        );
+                                      },
+                                      style: OutlinedButton.styleFrom(
+                                        foregroundColor:
+                                            Colors.white, // Text color
+                                        backgroundColor: Color.fromRGBO(12, 31,
+                                            39, 0.7), // Background color
+                                        side: const BorderSide(
+                                          color: Colors.white, // Border color
+                                          width: 1.0, // Border width
+                                        ),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 20, vertical: 20),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              5), // Button corner radius
+                                        ),
+                                      ),
+                                      child: const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text('Meal Generator',
+                                              style: TextStyle(
+                                                fontSize: 17,
+                                                fontFamily: 'RufinaBold',
+                                                fontWeight: FontWeight.w800,
+                                              )),
+                                          SizedBox(width: 10),
+                                          Icon(Icons.arrow_forward),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -290,7 +305,7 @@ class HomePage extends StatelessWidget {
                 // Side Icons
                 Positioned(
                   left: 20,
-                  top: 200,
+                  top: 300,
                   child: Column(
                     children: [
                       Image.asset(
@@ -336,7 +351,7 @@ class HomePage extends StatelessWidget {
                           Stack(
                             children: [
                               Text(
-                                "01",
+                                "",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
                                   fontSize: 150,
@@ -530,7 +545,7 @@ class HomePage extends StatelessWidget {
                           Stack(
                             children: [
                               Text(
-                                "02",
+                                "",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
                                   fontSize: 150,
@@ -668,7 +683,7 @@ class HomePage extends StatelessWidget {
                           Stack(
                             children: [
                               Text(
-                                "03",
+                                "",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
                                   fontSize: 150,

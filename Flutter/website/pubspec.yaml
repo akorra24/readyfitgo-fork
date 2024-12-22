@@ -96,6 +96,9 @@ flutter:
     - family: Satoshi
       fonts:
         - asset: assets/fonts/Satoshi-Regular.ttf
+    - family: RufinaBold
+      fonts:
+        - asset: assets/fonts/Rufina-Bold.ttf
     
     
 
