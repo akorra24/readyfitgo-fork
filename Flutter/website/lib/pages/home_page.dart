@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:website/pages/macro_calculator_page.dart';
 import 'package:website/pages/meal_generator_page.dart';
@@ -881,7 +882,7 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(width: 20),
-                       InkWell(
+                      InkWell(
                         onTap: () {
                           html.window
                               .open('https://readyfitgo.com/shop', '_blank');
@@ -926,12 +927,43 @@ class HomePage extends StatelessWidget {
                           'images/rfg_logo.png',
                           height: 100,
                         ),
-                        Text(
-                          "2025 ReadyFitGo. Click Here for Business Inquiries. ",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 16,
-                            color: Colors.white.withOpacity(0.6),
+                        RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: "2025 ReadyFitGo. ",
+                                style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontSize: 16,
+                                  color: Colors.white.withOpacity(0.6),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              TextSpan(
+                                text: "Click Here",
+                                style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontSize: 16,
+                                  color: Color(0xFF8AEA8A), // Green color
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    html.window.open(
+                                        'https://readyfitgo.com/contact',
+                                        '_blank');
+                                  },
+                              ),
+                              TextSpan(
+                                text: " for Business Inquiries.",
+                                style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontSize: 16,
+                                  color: Colors.white.withOpacity(0.6),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Row(
@@ -947,7 +979,6 @@ class HomePage extends StatelessWidget {
                             ),
                           ],
                         )
-                    
                       ],
                     ),
                   )
