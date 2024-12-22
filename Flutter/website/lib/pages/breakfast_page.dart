@@ -111,6 +111,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         "dietery": widget.dietaryPreference,
         "email": email,
         "meal_info": mealDetails,
+        "dayIndex": widget.dayIndex + 1,
       }),
     );
 
