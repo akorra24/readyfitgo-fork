@@ -181,7 +181,8 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => HomePage()),
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()),
                               );
                             },
                             child: const Text(
@@ -360,13 +361,17 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       DropdownButtonFormField<
                                                           String>(
                                                     style: TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     value: _sex,
                                                     decoration:
                                                         const InputDecoration(
                                                       labelText: 'Sex',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -414,7 +419,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           bottom: 10),
                                                   child: TextFormField(
                                                     style: const TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     cursorColor: Colors.white,
                                                     controller:
                                                         _heightController,
@@ -423,7 +430,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText:
                                                           'Height (inches)',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -472,7 +481,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       DropdownButtonFormField<
                                                           String>(
                                                     style: TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     value: _activityLevel,
                                                     isExpanded: true,
                                                     decoration:
@@ -480,7 +491,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText:
                                                           'Activity level',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -545,13 +558,17 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       .symmetric(vertical: 10),
                                                   child: TextFormField(
                                                     style: TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     controller: _ageController,
                                                     decoration:
                                                         const InputDecoration(
                                                       labelText: 'Age',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -598,7 +615,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                           bottom: 10),
                                                   child: TextFormField(
                                                     style: TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     controller:
                                                         _weightController,
                                                     cursorColor: Colors.white,
@@ -606,7 +625,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText:
                                                           'Enter Weight (lbs)',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -650,7 +671,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       DropdownButtonFormField<
                                                           String>(
                                                     style: TextStyle(
-                                                        color: Colors.white),
+                                                      color: Colors.white,
+                                                      fontSize: 13,
+                                                    ),
                                                     value: _fitnessGoal,
                                                     isExpanded: true,
                                                     decoration:
@@ -658,7 +681,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                       labelText:
                                                           'Fitness Goals',
                                                       labelStyle: TextStyle(
-                                                          color: Colors.white),
+                                                        color: Colors.white,
+                                                        fontSize: 13,
+                                                      ),
                                                       filled: true,
                                                       fillColor:
                                                           Color(0xFF112025),
@@ -737,12 +762,17 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding:
                                             EdgeInsets.symmetric(vertical: 10),
                                         child: DropdownButtonFormField<String>(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           value: _dietaryPreference,
                                           decoration: const InputDecoration(
                                             labelText: 'Dietary Preference',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
@@ -774,13 +804,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding:
                                             const EdgeInsets.only(bottom: 10),
                                         child: DropdownButtonFormField<int>(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           value: _numberOfMeals,
                                           decoration: const InputDecoration(
                                             labelText:
                                                 'Number of Meals per Day',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
@@ -813,13 +848,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding:
                                             const EdgeInsets.only(bottom: 10),
                                         child: DropdownButtonFormField<int>(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           value: _numberOfDays,
                                           isExpanded: true,
                                           decoration: const InputDecoration(
                                             labelText: 'Number of Days',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
@@ -875,13 +915,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 10),
                                         child: TextFormField(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           controller:
                                               _proteinPercentageController,
                                           decoration: const InputDecoration(
                                             labelText: 'Protein (%)',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
@@ -913,13 +958,18 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding:
                                             const EdgeInsets.only(bottom: 10),
                                         child: TextFormField(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           controller:
                                               _carbsPercentageController,
                                           decoration: const InputDecoration(
                                             labelText: 'Carbs (%)',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(
@@ -951,12 +1001,17 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                         padding:
                                             const EdgeInsets.only(bottom: 10),
                                         child: TextFormField(
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 13,
+                                          ),
                                           controller: _fatPercentageController,
                                           decoration: const InputDecoration(
                                             labelText: 'Fat (%)',
-                                            labelStyle:
-                                                TextStyle(color: Colors.white),
+                                            labelStyle: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 13,
+                                            ),
                                             filled: true,
                                             fillColor: Color(0xFF112025),
                                             enabledBorder: OutlineInputBorder(

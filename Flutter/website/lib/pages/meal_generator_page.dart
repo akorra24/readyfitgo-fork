@@ -62,10 +62,11 @@ class _MealGeneratorState extends State<MealGenerator> {
                         Padding(
                           padding: const EdgeInsets.only(right: 40),
                           child: TextButton(
-                           onPressed: () {
+                            onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => HomePage()),
+                                MaterialPageRoute(
+                                    builder: (context) => HomePage()),
                               );
                             },
                             child: const Text(
@@ -377,11 +378,16 @@ class _MealGeneratorState extends State<MealGenerator> {
       width: 180,
       child: TextFormField(
         controller: controller,
-        style: TextStyle(color: Colors.white), // Set text color to white
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 13,
+        ), // Set text color to white
         decoration: InputDecoration(
           labelText: label,
-          labelStyle:
-              TextStyle(color: Colors.white), // Set label text color to white
+          labelStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 13,
+          ), // Set label text color to white
           filled: true,
           fillColor: Color(0xFF112025),
           enabledBorder: OutlineInputBorder(
