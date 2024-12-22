@@ -537,7 +537,7 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 50,right: 50),
+                      padding: const EdgeInsets.only(left: 50, right: 50),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -815,164 +815,304 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+            // Footer Section
             Container(
               color: const Color(0xFF0B1D26), // Dark blue background color
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    "Fresh. Convenient. Local.",
+                    style: TextStyle(
+                      fontFamily: 'Satoshi',
+                      fontSize: 35,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  SizedBox(height: 30),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 400),
+                    child: Text(
+                      "We're passionate about making healthy living easy with fresh, ready-to-eat meals designed to fit your lifestyle. Our meals are machine-sealed with nitrogen gas to stay fresh for up to 14 days—no freezing needed. Whether you're ordering for delivery or picking up in-store, our meals are made to fuel your goals without the hassle. From personalized coaching to flexible meal plans, we’re here to support your wellness journey every step of the way.",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Satoshi',
+                        fontSize: 16,
+                        color: Colors.white.withOpacity(0.8),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 50),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      // Left Column: About Section
-                      Expanded(
-                        flex: 2,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "MNTN",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 24,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                      InkWell(
+                        onTap: () {
+                          html.window
+                              .open('https://readyfitgo.com/shop', '_blank');
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                "images/Facebook.png",
+                                width: 30,
                               ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Get out there & discover your next\nslope, mountain & destination!",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
+                              SizedBox(width: 10),
+                              Text(
+                                'Facebook',
+                                style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 120),
-                            Text(
-                              "Copyright © 2023 MNTN, Inc. Terms & Privacy",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 14,
-                                color: Colors.white.withOpacity(0.6),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                      // Middle Column: Blog Section
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "More on The Blog",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 18,
-                                color: Colors.amberAccent,
-                                fontWeight: FontWeight.bold,
+                      SizedBox(width: 20),
+                       InkWell(
+                        onTap: () {
+                          html.window
+                              .open('https://readyfitgo.com/shop', '_blank');
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset(
+                                "images/Instagram_2.png",
+                                width: 30,
                               ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "About MNTN",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
+                              SizedBox(width: 10),
+                              Text(
+                                'Instagram',
+                                style: TextStyle(
+                                  fontFamily: 'Satoshi',
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Contributors & Writers",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Write For Us",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Contact Us",
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Privacy Policy",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // Right Column: Company Section
-                      Expanded(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "More on MNTN",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 18,
-                                color: Colors.amberAccent,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "The Team",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Jobs",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                            SizedBox(height: 20),
-                            Text(
-                              "Press",
-                              style: TextStyle(
-                                fontFamily: 'Rufina',
-                                fontSize: 16,
-                                color: Colors.white.withOpacity(0.8),
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 300),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Image.asset(
+                          'images/rfg_logo.png',
+                          height: 100,
+                        ),
+                        Text(
+                          "2025 ReadyFitGo. Click Here for Business Inquiries. ",
+                          style: TextStyle(
+                            fontFamily: 'Satoshi',
+                            fontSize: 16,
+                            color: Colors.white.withOpacity(0.6),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "images/Linkedin.png",
+                              width: 30,
+                            ),
+                            SizedBox(width: 10),
+                            Image.asset(
+                              "images/Twitter_2.png",
+                              width: 30,
+                            ),
+                          ],
+                        )
+                    
+                      ],
+                    ),
+                  )
                 ],
               ),
-            ),
+            )
+            // Old Footer Section
+            // Container(
+            //   color: const Color(0xFF0B1D26), // Dark blue background color
+            //   padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           // Left Column: About Section
+            //           Expanded(
+            //             flex: 2,
+            //             child: Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   "MNTN",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 24,
+            //                     color: Colors.white,
+            //                     fontWeight: FontWeight.bold,
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Get out there & discover your next\nslope, mountain & destination!",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 120),
+            //                 Text(
+            //                   "Copyright © 2023 MNTN, Inc. Terms & Privacy",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 14,
+            //                     color: Colors.white.withOpacity(0.6),
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           // Middle Column: Blog Section
+            //           Expanded(
+            //             flex: 1,
+            //             child: Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   "More on The Blog",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 18,
+            //                     color: Colors.amberAccent,
+            //                     fontWeight: FontWeight.bold,
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "About MNTN",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Contributors & Writers",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Write For Us",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Contact Us",
+            //                   style: TextStyle(
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Privacy Policy",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //           // Right Column: Company Section
+            //           Expanded(
+            //             flex: 1,
+            //             child: Column(
+            //               crossAxisAlignment: CrossAxisAlignment.start,
+            //               children: [
+            //                 Text(
+            //                   "More on MNTN",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 18,
+            //                     color: Colors.amberAccent,
+            //                     fontWeight: FontWeight.bold,
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "The Team",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Jobs",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //                 SizedBox(height: 20),
+            //                 Text(
+            //                   "Press",
+            //                   style: TextStyle(
+            //                     fontFamily: 'Rufina',
+            //                     fontSize: 16,
+            //                     color: Colors.white.withOpacity(0.8),
+            //                   ),
+            //                 ),
+            //               ],
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
