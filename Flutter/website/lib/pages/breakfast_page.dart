@@ -383,7 +383,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                         },
                                         ingredients: meal['Ingredients'],
                                         servingSize: "Serving size information",
-                                        buttonText: "Replace",
+                                        buttonText: "Replace with another Meal",
                                         onPressedBandS: () {
                                           showDialog(
                                             context: context,

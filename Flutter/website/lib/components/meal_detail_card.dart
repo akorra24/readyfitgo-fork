@@ -95,16 +95,15 @@ class MealDetailCard extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                           color: Color(0xFF4DADB3),
-                          borderRadius: BorderRadius.circular(8)),
-                      height: 50,
+                          borderRadius: BorderRadius.circular(50)),
+                      height: 35,
                       width: 200,
-                      padding: const EdgeInsets.symmetric(vertical: 8),
                       child: TextButton(
                         onPressed: onPressedBandS ?? () {},
                         child: const Text(
                           'Replace with Breakfast/Snack',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),
@@ -120,17 +119,16 @@ class MealDetailCard extends StatelessWidget {
             Center(
               child: Container(
                 decoration: BoxDecoration(
-                    color: Color(0xFFFF8E3C),
-                    borderRadius: BorderRadius.circular(8)),
-                height: 50,
+                    color:replaceCard? Color(0xFF68B268): Color(0xFFFF8E3C),
+                    borderRadius: BorderRadius.circular(50)),
+                height: 35,
                 width: 200,
-                padding: const EdgeInsets.symmetric(vertical: 8),
                 child: TextButton(
                   onPressed: onPressed ?? () {},
                   child: Text(
                     buttonText,
                     style: const TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
                     ),
@@ -196,10 +194,9 @@ class MealDetailCard extends StatelessWidget {
             message: 'Tap to view ingredients',
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(8)),
-              height: 50,
-              width: 200,
-              padding: const EdgeInsets.symmetric(vertical: 8),
+                  color: Colors.white, borderRadius: BorderRadius.circular(50)),
+              height: 35,
+              width: 150,
               child: Center(
                 child: Text(
                   'View Ingredients',
