@@ -537,7 +537,7 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 0),
+                      padding: const EdgeInsets.only(left: 50,right: 50),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -555,7 +555,7 @@ class HomePage extends StatelessWidget {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(left: 100, top: 60),
+                                    const EdgeInsets.only(left: 0, top: 40),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -594,7 +594,6 @@ class HomePage extends StatelessWidget {
                               )
                             ],
                           ),
-                          SizedBox(height: 20),
                           // Bullet Points
                           const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -657,6 +656,9 @@ class HomePage extends StatelessWidget {
                                     )),
                               ),
                             ],
+                          ),
+                          SizedBox(
+                            height: 50,
                           ),
                         ],
                       ),
