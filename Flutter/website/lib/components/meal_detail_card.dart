@@ -40,7 +40,9 @@ class MealDetailCard extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
-            colors: [Color(0xFF162D37), Colors.white],
+            colors: replaceCard
+                ? [Color(0xFF162D37), Color(0x6E162E38)]
+                : [Color(0xFF162D37), Color(0xFF42545C), Colors.white],
           ),
         ),
         child: Column(
@@ -119,7 +121,7 @@ class MealDetailCard extends StatelessWidget {
             Center(
               child: Container(
                 decoration: BoxDecoration(
-                    color:replaceCard? Color(0xFF68B268): Color(0xFFFF8E3C),
+                    color: replaceCard ? Color(0xFF68B268) : Color(0xFFFF8E3C),
                     borderRadius: BorderRadius.circular(50)),
                 height: 35,
                 width: 200,
