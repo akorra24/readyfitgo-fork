@@ -553,58 +553,42 @@ class HomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Numbered Header
-                          Stack(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    "images/home_line.png",
+                                    width: 80,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "FITNESS ESSENTIALS",
+                                    style: TextStyle(
+                                      fontFamily: 'Rufina',
+                                      fontSize: 15,
+                                      letterSpacing: 5,
+                                      color: Color(0xFFFBD784),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              // Main Title
                               Text(
-                                "",
+                                "Gym",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
-                                  fontSize: 150,
-                                  color: Colors.white.withOpacity(0.1),
+                                  fontSize: 40,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 0, top: 40),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "images/home_line.png",
-                                          width: 80,
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "FITNESS ESSENTIALS",
-                                          style: TextStyle(
-                                            fontFamily: 'Rufina',
-                                            fontSize: 15,
-                                            letterSpacing: 5,
-                                            color: Color(0xFFFBD784),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10),
-                                    // Main Title
-                                    Text(
-                                      "Gym",
-                                      style: TextStyle(
-                                        fontFamily: 'Rufina',
-                                        fontSize: 40,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
                             ],
                           ),
+                          SizedBox(height: 20),
                           // Bullet Points
                           const Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -688,72 +672,65 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 60),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.05),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Numbered Header
-                          Stack(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    "images/home_line.png",
+                                    width: 80,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "THE BASICS ARE THE KEY",
+                                    style: TextStyle(
+                                      fontFamily: 'Rufina',
+                                      fontSize: 15,
+                                      letterSpacing: 5,
+                                      color: Color(0xFFFBD784),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              // Main Title
                               Text(
-                                "",
+                                "Mindset & Discipline",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
-                                  fontSize: 150,
-                                  color: Colors.white.withOpacity(0.1),
+                                  fontSize: 40,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 80, top: 60),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "images/home_line.png",
-                                          width: 80,
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "THE BASICS ARE THE KEY",
-                                          style: TextStyle(
-                                            fontFamily: 'Rufina',
-                                            fontSize: 15,
-                                            letterSpacing: 5,
-                                            color: Color(0xFFFBD784),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10),
-                                    // Main Title
-                                    Text(
-                                      "Mindset & Discipline",
-                                      style: TextStyle(
-                                        fontFamily: 'Rufina',
-                                        fontSize: 40,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
                             ],
                           ),
                           SizedBox(height: 20),
                           // Bullet Points
-                          Padding(
-                            padding: const EdgeInsets.only(left: 80),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                    "Reframe how you view your health and fitness:",
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  "Reframe how you view your health and fitness:",
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    height: 1.5,
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text(
+                                    "• There will come a time—probably sooner than you'd expect—when you won't be able to do squats, deadlifts, or push-ups. So, make the most of the years where you can. Lifting isn't a chore, it's a gift.",
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
                                       fontWeight: FontWeight.w600,
@@ -761,46 +738,34 @@ class HomePage extends StatelessWidget {
                                       color: Colors.white,
                                       height: 1.5,
                                     )),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                      "• There will come a time—probably sooner than you'd expect—when you won't be able to do squats, deadlifts, or push-ups. So, make the most of the years where you can. Lifting isn't a chore, it's a gift.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 20, top: 20),
-                                  child: Text(
-                                      "• Master the art of showing up. To build a strong, healthy, and athletic body, you’ve got to go even when you don’t feel like it. Go when it’s raining. Go on your birthday. Just show up.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(left: 20, top: 20),
-                                  child: Text(
-                                      "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself,\"What would a healthy person do?\"",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, top: 20),
+                                child: Text(
+                                    "• Master the art of showing up. To build a strong, healthy, and athletic body, you’ve got to go even when you don’t feel like it. Go when it’s raining. Go on your birthday. Just show up.",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    )),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 20, top: 20),
+                                child: Text(
+                                    "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself,\"What would a healthy person do?\"",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    )),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -933,7 +898,7 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 50),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width*0.1),
+                        horizontal: MediaQuery.of(context).size.width * 0.1),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
