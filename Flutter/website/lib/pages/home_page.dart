@@ -232,92 +232,207 @@ class HomePage extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 20),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    OutlinedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  MacroCalculatorPage()),
-                                        );
-                                      },
-                                      style: OutlinedButton.styleFrom(
-                                        foregroundColor:
-                                            Colors.white, // Text color
-                                        backgroundColor: Color.fromRGBO(12, 31,
-                                            39, 0.7), // Background color
-                                        side: const BorderSide(
-                                          color: Colors.white, // Border color
-                                          width: 1.0, // Border width
+                                LayoutBuilder(builder: (context, constraints) {
+                                  if (MediaQuery.of(context).size.width < 700) {
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MacroCalculatorPage()),
+                                            );
+                                          },
+                                          style: OutlinedButton.styleFrom(
+                                            foregroundColor:
+                                                Colors.white, // Text color
+                                            backgroundColor: Color.fromRGBO(
+                                                12,
+                                                31,
+                                                39,
+                                                0.7), // Background color
+                                            side: const BorderSide(
+                                              color:
+                                                  Colors.white, // Border color
+                                              width: 1.0, // Border width
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20, vertical: 20),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      5), // Button corner radius
+                                            ),
+                                            minimumSize: Size(250, 50),
+                                          ),
+                                          child: const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text('Calculate Macros',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontFamily: 'RufinaBold',
+                                                    fontWeight: FontWeight.w800,
+                                                  )),
+                                              SizedBox(width: 10),
+                                              Icon(Icons.arrow_forward),
+                                            ],
+                                          ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 20),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Button corner radius
+                                        SizedBox(height: 20),
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MealGenerator()),
+                                            );
+                                          },
+                                          style: OutlinedButton.styleFrom(
+                                            foregroundColor:
+                                                Colors.white, // Text color
+                                            backgroundColor: Color.fromRGBO(
+                                                12,
+                                                31,
+                                                39,
+                                                0.7), // Background color
+                                            side: const BorderSide(
+                                              color:
+                                                  Colors.white, // Border color
+                                              width: 1.0, // Border width
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20, vertical: 20),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      5), // Button corner radius
+                                            ),
+                                            minimumSize: Size(250, 50),
+                                          ),
+                                          child: const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text('Meal Generator',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontFamily: 'RufinaBold',
+                                                    fontWeight: FontWeight.w800,
+                                                  )),
+                                              SizedBox(width: 10),
+                                              Icon(Icons.arrow_forward),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      child: const Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Calculate Macros',
-                                              style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'RufinaBold',
-                                                fontWeight: FontWeight.w800,
-                                              )),
-                                          SizedBox(width: 10),
-                                          Icon(Icons.arrow_forward),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(width: 20),
-                                    OutlinedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  MealGenerator()),
-                                        );
-                                      },
-                                      style: OutlinedButton.styleFrom(
-                                        foregroundColor:
-                                            Colors.white, // Text color
-                                        backgroundColor: Color.fromRGBO(12, 31,
-                                            39, 0.7), // Background color
-                                        side: const BorderSide(
-                                          color: Colors.white, // Border color
-                                          width: 1.0, // Border width
+                                      ],
+                                    );
+                                  } else {
+                                    return Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MacroCalculatorPage()),
+                                            );
+                                          },
+                                          style: OutlinedButton.styleFrom(
+                                            foregroundColor:
+                                                Colors.white, // Text color
+                                            backgroundColor: Color.fromRGBO(
+                                                12,
+                                                31,
+                                                39,
+                                                0.7), // Background color
+                                            side: const BorderSide(
+                                              color:
+                                                  Colors.white, // Border color
+                                              width: 1.0, // Border width
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20, vertical: 20),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      5), // Button corner radius
+                                            ),
+                                          ),
+                                          child: const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text('Calculate Macros',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontFamily: 'RufinaBold',
+                                                    fontWeight: FontWeight.w800,
+                                                  )),
+                                              SizedBox(width: 10),
+                                              Icon(Icons.arrow_forward),
+                                            ],
+                                          ),
                                         ),
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 20),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              5), // Button corner radius
+                                        SizedBox(width: 20),
+                                        OutlinedButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      MealGenerator()),
+                                            );
+                                          },
+                                          style: OutlinedButton.styleFrom(
+                                            foregroundColor:
+                                                Colors.white, // Text color
+                                            backgroundColor: Color.fromRGBO(
+                                                12,
+                                                31,
+                                                39,
+                                                0.7), // Background color
+                                            side: const BorderSide(
+                                              color:
+                                                  Colors.white, // Border color
+                                              width: 1.0, // Border width
+                                            ),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 20, vertical: 20),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(
+                                                      5), // Button corner radius
+                                            ),
+                                          ),
+                                          child: const Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text('Meal Generator',
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontFamily: 'RufinaBold',
+                                                    fontWeight: FontWeight.w800,
+                                                  )),
+                                              SizedBox(width: 10),
+                                              Icon(Icons.arrow_forward),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                      child: const Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Text('Meal Generator',
-                                              style: TextStyle(
-                                                fontSize: 17,
-                                                fontFamily: 'RufinaBold',
-                                                fontWeight: FontWeight.w800,
-                                              )),
-                                          SizedBox(width: 10),
-                                          Icon(Icons.arrow_forward),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
+                                      ],
+                                    );
+                                  }
+                                }),
                               ],
                             ),
                           ),
