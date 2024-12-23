@@ -843,7 +843,8 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 400),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width / 4),
                     child: Text(
                       "We're passionate about making healthy living easy with fresh, ready-to-eat meals designed to fit your lifestyle. Our meals are machine-sealed with nitrogen gas to stay fresh for up to 14 days—no freezing needed. Whether you're ordering for delivery or picking up in-store, our meals are made to fuel your goals without the hassle. From personalized coaching to flexible meal plans, we’re here to support your wellness journey every step of the way.",
                       textAlign: TextAlign.center,
@@ -931,7 +932,8 @@ class HomePage extends StatelessWidget {
                   ),
                   SizedBox(height: 50),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 300),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width*0.1),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
