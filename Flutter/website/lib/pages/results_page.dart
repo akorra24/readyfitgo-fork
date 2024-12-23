@@ -36,8 +36,23 @@ class _ResultsPageState extends State<ResultsPage> {
   void calculateMacros() {
     // Determine the multiplier based on activity level and fitness goal
     double multiplier;
+    print(widget.activityLevel);
     switch (widget.activityLevel) {
-      case 'Lightly active (light exercise less than 3 days per week)':
+      case 'Sedentary':
+        if (widget.fitnessGoal == 'Lose Weight') {
+          multiplier =
+              10; // or maybe 10, as it’s even below the Lightly Active 10–12 range
+        } else if (widget.fitnessGoal == 'Maintain Weight') {
+          multiplier = 12; // slightly lower than Lightly Active 12–14
+        } else if (widget.fitnessGoal == 'Gain Weight') {
+          multiplier = 14; // or 15, your choice
+        } else if (widget.fitnessGoal == 'Body Recomposition') {
+          multiplier = 11; // slightly less than your lose-weight number
+        } else {
+          multiplier = 12; // fallback
+        }
+        break;
+      case 'Lightly active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -50,7 +65,7 @@ class _ResultsPageState extends State<ResultsPage> {
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active (moderate exercise 3-5 days per week)':
+      case 'Moderately active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -63,7 +78,7 @@ class _ResultsPageState extends State<ResultsPage> {
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active (intense exercise 6-7 days per week)':
+      case 'Very active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -74,6 +89,20 @@ class _ResultsPageState extends State<ResultsPage> {
           multiplier = 16; // slightly less than maintenance
         } else {
           multiplier = 17; // default to maintenance if goal is not specified
+        }
+        break;
+      case 'Super active':
+        // If you want to handle super active similarly:
+        if (widget.fitnessGoal == 'Lose Weight') {
+          multiplier = 17; // e.g., a bit higher than Very Active’s 15
+        } else if (widget.fitnessGoal == 'Maintain Weight') {
+          multiplier = 19; // or maybe 20
+        } else if (widget.fitnessGoal == 'Gain Weight') {
+          multiplier = 22; // or 24, etc.
+        } else if (widget.fitnessGoal == 'Body Recomposition') {
+          multiplier = 18;
+        } else {
+          multiplier = 19;
         }
         break;
       default:

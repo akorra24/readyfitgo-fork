@@ -8,8 +8,8 @@
         "Protein": 44,
         "Carbs": 50,
         "Fat": 18,
-        "Sugars": 5,
-        "Sodium(mg)": 872,
+        "Sugar": 5,
+        "Sodium (mg)": 872,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), \nSausage chicken apple, Egg scrambled",
         "id": 0
     },
@@ -22,8 +22,8 @@
         "Protein": 32,
         "Carbs": 42,
         "Fat": 15,
-        "Sugars": 4,
-        "Sodium(mg)": 620,
+        "Sugar": 4,
+        "Sodium (mg)": 620,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), \nEgg scrambled, Sausage chicken apple",
         "id": 1
     },
@@ -36,8 +36,8 @@
         "Protein": 28,
         "Carbs": 42,
         "Fat": 10,
-        "Sugars": 1,
-        "Sodium(mg)": 269,
+        "Sugar": 1,
+        "Sodium (mg)": 269,
         "Ingredients": "Chicken Thighs* (Chicken Thigh, Water, Onions, Cilantro leaves, Garlic, Salt & Pepper Blend* (Sea Salt , Black Pepper)), \nTortillas, Pico de Gallo* (Red Tomatoes, Jalapeno, Cilantro fresh, Salt, Black Pepper), Lime",
         "id": 2
     },
@@ -50,8 +50,8 @@
         "Protein": 42,
         "Carbs": 28,
         "Fat": 30,
-        "Sugars": 15,
-        "Sodium(mg)": 860,
+        "Sugar": 15,
+        "Sodium (mg)": 860,
         "Ingredients": "Salad Mix* (Lettuce), Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Mango Salsa* (Mangos, Jalapeno, Bell Pepper ),Vinaigrette Dressing, Carrots, Almonds, Black Sesame Seed",
         "id": 3
     },
@@ -64,8 +64,8 @@
         "Protein": 35,
         "Carbs": 41,
         "Fat": 5,
-        "Sugars": 1,
-        "Sodium(mg)": 438,
+        "Sugar": 1,
+        "Sodium (mg)": 438,
         "Ingredients": "Chicken, Garlic Powder, Paprika, Onion Powder, Sea Salt , Black Pepper, Parsley, Brown Rice, Broccoli",
         "id": 4
     },
@@ -78,8 +78,8 @@
         "Protein": 26,
         "Carbs": 40,
         "Fat": 4,
-        "Sugars": 1,
-        "Sodium(mg)": 309,
+        "Sugar": 1,
+        "Sodium (mg)": 309,
         "Ingredients": "Brown Rice, Chicken, Garlic Powder, Paprika, Onion Powder, Sea Salt , Black Pepper, Parsley, Broccoli",
         "id": 5
     },
@@ -92,8 +92,8 @@
         "Protein": 43,
         "Carbs": 44,
         "Fat": 22,
-        "Sugars": 2,
-        "Sodium(mg)": 804,
+        "Sugar": 2,
+        "Sodium (mg)": 804,
         "Ingredients": "Salmon Citrus 6oz* (Salmon, Lemon Pepper , Dried dill weed), Brown Rice, Broccoli, Lemon",
         "id": 6
     },
@@ -106,10 +106,24 @@
         "Protein": 34,
         "Carbs": 44,
         "Fat": 17,
-        "Sugars": 2,
-        "Sodium(mg)": 613,
+        "Sugar": 2,
+        "Sodium (mg)": 613,
         "Ingredients": "Brown Rice, Salmon Citrus 6oz* (Salmon, Lemon Pepper , Dried dill weed), Broccoli, Lemon",
         "id": 7
+    },
+    {
+        "Images": "https://readyfitgo.com/assets/products/1686523361_995a0278_1_64864de161fd4-m.jpg",
+        "Vegan or/and Vegetarian": null,
+        "Meal Type": null,
+        "Menu Item": "BBQ Chicken Cauliflower Pizza (2 Servings/ Amount per serving)",
+        "Calories": 740,
+        "Protein": 58,
+        "Carbs": 73,
+        "Fat": 32,
+        "Sugar": 19,
+        "Sodium (mg)": 1580,
+        "Ingredients": "Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Salt & Pepper Blend* (Sea Salt , Black Pepper), \nCauliflower Pizza Crust, Cheddar Cheese, Barbecue Sauce, Green Onions",
+        "id": 8
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460658_bbq-chicken-1_62ac5332ee24c-m.jpg",
@@ -120,10 +134,10 @@
         "Protein": 38,
         "Carbs": 38,
         "Fat": 12,
-        "Sugars": 7,
-        "Sodium(mg)": 354,
+        "Sugar": 7,
+        "Sodium (mg)": 354,
         "Ingredients": "BBQ Chicken* (Chicken Thigh, Barbecue Sauce), Red Potatoes prepared* (Potatoes, Red Potato Seasoning* \n(Garlic Powder, Paprika, Sea Salt , Black Pepper)), Spinach",
-        "id": 8
+        "id": 9
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460658_bbq-chicken-1_62ac5332ee24c-m.jpg",
@@ -134,10 +148,10 @@
         "Protein": 28,
         "Carbs": 36,
         "Fat": 8,
-        "Sugars": 6,
-        "Sodium(mg)": 294,
+        "Sugar": 6,
+        "Sodium (mg)": 294,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), \nBBQ Chicken* (Chicken Thigh, Barbecue Sauce), Spinach",
-        "id": 9
+        "id": 10
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646605_13-imgl3821_6478ed0dda690-m.jpg",
@@ -148,10 +162,10 @@
         "Protein": 46,
         "Carbs": 16,
         "Fat": 22,
-        "Sugars": 4,
-        "Sodium(mg)": 347,
+        "Sugar": 4,
+        "Sodium (mg)": 347,
         "Ingredients": "Broccoli, Teriyaki Beef* (Beef, Teriyaki Sauce Gluten Free* (Water, Soy Sauce, Rice Vinegar , Dark Brown Sugar , \nGluten Free Flour , Garlic Powder, Ground ginger), Steak Seasoning )",
-        "id": 10
+        "id": 11
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461129_beyond-burger_62ac55094b1b7-m.jpg",
@@ -162,10 +176,10 @@
         "Protein": 31,
         "Carbs": 106,
         "Fat": 28,
-        "Sugars": 35,
-        "Sodium(mg)": 1500,
+        "Sugar": 35,
+        "Sodium (mg)": 1500,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), \nBeyond Burger Patty, UDI'S, Gluten Free Burger Bun, Barbecue Sauce, Vegan Cheese",
-        "id": 11
+        "id": 12
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460452_bison-breakfast-1_62ac526411612-m.jpg",
@@ -176,10 +190,10 @@
         "Protein": 38,
         "Carbs": 30,
         "Fat": 17,
-        "Sugars": 9,
-        "Sodium(mg)": 232,
+        "Sugar": 9,
+        "Sodium (mg)": 232,
         "Ingredients": "Sweet potato, Bison, ground, grass-fed, cooked, Egg",
-        "id": 12
+        "id": 13
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460652_blackened-salmon_62ac532c6ddd4-m.jpg",
@@ -190,10 +204,10 @@
         "Protein": 41,
         "Carbs": 13,
         "Fat": 22,
-        "Sugars": 5,
-        "Sodium(mg)": 559,
+        "Sugar": 5,
+        "Sodium (mg)": 559,
         "Ingredients": "Salmon, Blackened Seasoning* (Paprika, Onion Powder, Cayenne Pepper, Sea Salt , Black Pepper, Garlic Powder, Oregano, Parsley), \nCauliflower mashed* (Cauliflower, Unsweetened Almond Milk, Jalapeno, Sea Salt , Black Pepper, Garlic, Squash, Carrots, Sea Salt, Lemon",
-        "id": 13
+        "id": 14
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460652_blackened-salmon_62ac532c6ddd4-m.jpg",
@@ -204,10 +218,10 @@
         "Protein": 32,
         "Carbs": 13,
         "Fat": 17,
-        "Sugars": 6,
-        "Sodium(mg)": 539,
+        "Sugar": 6,
+        "Sodium (mg)": 539,
         "Ingredients": "Cauliflower, Unsweetened Almond Milk, Jalapeno, Sea Salt , Black Pepper, Garlic, Salmon, Blackened Seasoning* \n(Paprika, Onion Powder, Cayenne Pepper, Garlic Powder, Oregano, Parsley), Squash, Carrots, Sea Salt, Lemon",
-        "id": 14
+        "id": 15
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461122_blueberry-greek-yogurt-parfait_62ac55026cf4b-m.jpg",
@@ -218,10 +232,10 @@
         "Protein": 14,
         "Carbs": 29,
         "Fat": 7,
-        "Sugars": 16,
-        "Sodium(mg)": 62,
+        "Sugar": 16,
+        "Sodium (mg)": 62,
         "Ingredients": "Low Fat Vanilla Greek Yogurt, Blueberries, Granola",
-        "id": 15
+        "id": 16
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460438_braised-beef-polenta_62ac52560fc8c-m.jpg",
@@ -232,10 +246,10 @@
         "Protein": 30,
         "Carbs": 26,
         "Fat": 7,
-        "Sugars": 2,
-        "Sodium(mg)": 238,
+        "Sugar": 2,
+        "Sodium (mg)": 238,
         "Ingredients": "Roast Beef* (Beef Knuckle Tip, Water, Red Wine, Onions, Garlic, Sea Salt , Black Pepper, Allspice, Rosemary), Polenta, Spinach, Carrots",
-        "id": 16
+        "id": 17
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460438_braised-beef-polenta_62ac52560fc8c-m.jpg",
@@ -246,10 +260,10 @@
         "Protein": 22,
         "Carbs": 26,
         "Fat": 5,
-        "Sugars": 2,
-        "Sodium(mg)": 185,
+        "Sugar": 2,
+        "Sodium (mg)": 185,
         "Ingredients": "Polenta, Roast Beef* (Beef Knuckle Tip, Water, Red Wine, Onions, Garlic, Sea Salt , Black Pepper, Allspice, Rosemary), Spinach, Carrots",
-        "id": 17
+        "id": 18
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684518289_995a8455-2_6467b5917abc6-m.jpg",
@@ -260,10 +274,10 @@
         "Protein": 27,
         "Carbs": 42,
         "Fat": 29,
-        "Sugars": 6,
-        "Sodium(mg)": 1098,
+        "Sugar": 6,
+        "Sodium (mg)": 1098,
         "Ingredients": "Egg scrambled, Potatoes, Cured Pork Bacon, Pico de Gallo* (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper), Cheddar Cheese), \nRed Salsa* (Jalapeno Peppers, Lemon Juice, Whole--wheat Tortillas",
-        "id": 18
+        "id": 19
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461116_breakfast-tacos_62ac54fc2215b-m.jpg",
@@ -274,10 +288,10 @@
         "Protein": 33,
         "Carbs": 32,
         "Fat": 25,
-        "Sugars": 4,
-        "Sodium(mg)": 1017,
+        "Sugar": 4,
+        "Sodium (mg)": 1017,
         "Ingredients": "Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper), Egg cooked, scrambled, Red Salsa* \n(Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Tortillas, Red Tomatoes, Cheddar Cheese)",
-        "id": 19
+        "id": 20
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461116_breakfast-tacos_62ac54fc2215b-m.jpg",
@@ -288,10 +302,10 @@
         "Protein": 22,
         "Carbs": 22,
         "Fat": 17,
-        "Sugars": 4,
-        "Sodium(mg)": 765,
+        "Sugar": 4,
+        "Sodium (mg)": 765,
         "Ingredients": "Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper), Egg cooked, scrambled, Red Salsa* \n(Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Tortillas, Red Tomatoes, Cheddar Cheese)",
-        "id": 20
+        "id": 21
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461109_buffalo-chicken-mashed-cauliflower_62ac54f5ad456-m.jpg",
@@ -302,10 +316,10 @@
         "Protein": 33,
         "Carbs": 7,
         "Fat": 12,
-        "Sugars": 4,
-        "Sodium(mg)": 754,
+        "Sugar": 4,
+        "Sodium (mg)": 754,
         "Ingredients": "Cauliflower mashed* (Cauliflower, Unsweetened Almond Milk, Jalapeno, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic), \nBuffalo Chicken* (Chicken Thigh, Buffalo Sauce )",
-        "id": 21
+        "id": 22
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461109_buffalo-chicken-mashed-cauliflower_62ac54f5ad456-m.jpg",
@@ -316,10 +330,10 @@
         "Protein": 23,
         "Carbs": 5,
         "Fat": 8,
-        "Sugars": 3,
-        "Sodium(mg)": 537,
+        "Sugar": 3,
+        "Sodium (mg)": 537,
         "Ingredients": "Cauliflower mashed* (Cauliflower, Unsweetened Almond Milk, Jalapeno, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic), \nBuffalo Chicken* (Chicken Thigh, Buffalo Sauce )",
-        "id": 22
+        "id": 23
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685332329_995a3507_64742169ab7fd-m.jpg",
@@ -330,10 +344,10 @@
         "Protein": 56,
         "Carbs": 28,
         "Fat": 41,
-        "Sugars": 4,
-        "Sodium(mg)": 1663,
+        "Sugar": 4,
+        "Sodium (mg)": 1663,
         "Ingredients": "Buffalo Chicken* (Chicken Thigh, Buffalo Sauce ), Spinach, Whole--wheat Tortillas, Ranch Dressing",
-        "id": 23
+        "id": 24
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1686263221_25-imgl3873_648255b5a93ea-m.jpg",
@@ -344,10 +358,10 @@
         "Protein": 47,
         "Carbs": 18,
         "Fat": 10,
-        "Sugars": 7,
-        "Sodium(mg)": 219,
+        "Sugar": 7,
+        "Sodium (mg)": 219,
         "Ingredients": "California Chili* (Chicken Thighs* (Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Salt & Pepper Blend* (Sea Salt , Black Pepper)), \nPotatoes, Carrots, Green Snap Beans, Zucchini Summer Squash, Red Tomatoes, Peppers, hot chile, sun-dried, Cooking Wine, Baby Carrots, Red Potatoes",
-        "id": 24
+        "id": 25
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685312685_995a4744-2_6473d4ad122ce-m.jpg",
@@ -358,10 +372,10 @@
         "Protein": 49,
         "Carbs": 54,
         "Fat": 16,
-        "Sugars": 6,
-        "Sodium(mg)": 837,
+        "Sugar": 6,
+        "Sodium (mg)": 837,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper, Garlic Powder)), \nChicken Parmesan* (Chicken, Yellow Mustard, Nola Spice Blend* (Paprika, Onion Powder)), Broccoli, Parsley",
-        "id": 25
+        "id": 26
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685312685_995a4744-2_6473d4ad122ce-m.jpg",
@@ -372,10 +386,10 @@
         "Protein": 38,
         "Carbs": 44,
         "Fat": 13,
-        "Sugars": 5,
-        "Sodium(mg)": 701,
+        "Sugar": 5,
+        "Sodium (mg)": 701,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper), Garlic Powder)), \nChicken Parmesan* (Chicken, Yellow Mustard, Nola Spice Blend* (Paprika, Onion Powder)), Broccoli, Parsley",
-        "id": 26
+        "id": 27
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1686206830_18-imgl3841_6481796ec1224-m.jpg",
@@ -386,10 +400,10 @@
         "Protein": 23,
         "Carbs": 15,
         "Fat": 6,
-        "Sugars": 7,
-        "Sodium(mg)": 395,
+        "Sugar": 7,
+        "Sodium (mg)": 395,
         "Ingredients": "Chicken Salad* (Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), \nCelery, Craisins , Low Fat Vanilla Greek Yogurt, Mayonnaise ), Baby Carrots, Crackers, saltines, fat-free, low-sodium",
-        "id": 27
+        "id": 28
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460705_chicken-crunch-salad_62ac5361986ff-m.jpg",
@@ -400,10 +414,10 @@
         "Protein": 38,
         "Carbs": 26,
         "Fat": 32,
-        "Sugars": 14,
-        "Sodium(mg)": 850,
+        "Sugar": 14,
+        "Sodium (mg)": 850,
         "Ingredients": "Salad Mix* (Lettuce), Chicken Salad* (Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Celery, Craisins , Low Fat Vanilla Greek Yogurt, Mayonnaise ), Balsamic Vinaigrette Dressing , Almonds, Lemon",
-        "id": 28
+        "id": 29
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320419_995a0311_6473f2e3c8e3b-m.jpg",
@@ -414,10 +428,10 @@
         "Protein": 39,
         "Carbs": 68,
         "Fat": 23,
-        "Sugars": 11,
-        "Sodium(mg)": 1131,
+        "Sugar": 11,
+        "Sodium (mg)": 1131,
         "Ingredients": "Curry Mix vegan* (Coconut milk, canned, Baby Carrots, Tomato Puree, Thai Curry Paste , Agave Syrup, Sea Salt , Black Pepper), Brown Rice, Basic Chicken* \n(Chicken, Garlic Powder, Paprika, Onion Powder, Black Pepper), Parsley)",
-        "id": 29
+        "id": 30
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320419_995a0311_6473f2e3c8e3b-m.jpg",
@@ -428,10 +442,10 @@
         "Protein": 27,
         "Carbs": 47,
         "Fat": 17,
-        "Sugars": 8,
-        "Sodium(mg)": 826,
+        "Sugar": 8,
+        "Sodium (mg)": 826,
         "Ingredients": "Curry Mix vegan* (Coconut milk, canned, Baby Carrots, Tomato Puree, Thai Curry Paste , Agave Syrup, Sea Salt , Black Pepper), Brown Rice, Basic Chicken* \n(Chicken, Garlic Powder, Paprika, Onion Powder, Black Pepper), Parsley)",
-        "id": 30
+        "id": 31
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461061_smart-chicken-enchiladas-2_62ac54c528bf3-m.jpg",
@@ -442,10 +456,10 @@
         "Protein": 29,
         "Carbs": 52,
         "Fat": 10,
-        "Sugars": 3,
-        "Sodium(mg)": 527,
+        "Sugar": 3,
+        "Sodium (mg)": 527,
         "Ingredients": "Salsa Chicken* (Chicken Thighs* (Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Sea Salt, Black Pepper), \nRed Salsa* (Red Tomatoes, Jalapeno Peppers, Cilantro, Lemon Juice), Spanish Salsa, Rice* (Brown Rice, Tortillas, Cheddar Cheese)",
-        "id": 31
+        "id": 32
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461054_fajita-smart-chicken-bowl-3_62ac54be73d48-m.jpg",
@@ -456,10 +470,10 @@
         "Protein": 56,
         "Carbs": 65,
         "Fat": 13,
-        "Sugars": 3,
-        "Sodium(mg)": 942,
+        "Sugar": 3,
+        "Sodium (mg)": 942,
         "Ingredients": "Brown Rice, Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt, Black Pepper)), \nBlack Beans, Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Diced Bell Pepper Mix* (Bellpepper, Red Bell Pepper, Extra Virgin Olive Oil), Cheddar Cheese",
-        "id": 32
+        "id": 33
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461054_fajita-smart-chicken-bowl-3_62ac54be73d48-m.jpg",
@@ -470,10 +484,10 @@
         "Protein": 42,
         "Carbs": 53,
         "Fat": 11,
-        "Sugars": 3,
-        "Sodium(mg)": 768,
+        "Sugar": 3,
+        "Sodium (mg)": 768,
         "Ingredients": "Brown Rice, Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt, Black Pepper)), \nBlack Beans, Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Diced Bell Pepper Mix* (Bellpepper, Red Bell Pepper, Extra Virgin Olive Oil), Cheddar Cheese",
-        "id": 33
+        "id": 34
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461103_chicken-fried-rice_62ac54ef24eab-m.jpg",
@@ -484,10 +498,10 @@
         "Protein": 37,
         "Carbs": 49,
         "Fat": 17,
-        "Sugars": 2,
-        "Sodium(mg)": 466,
+        "Sugar": 2,
+        "Sodium (mg)": 466,
         "Ingredients": "Fried Rice* (Brown Rice, Egg, whole, cooked, scrambled, Bellpepper , Peas and carrots, frozen, boiled, drained, without salt, Soy Sauce), \nChicken Thighs* (Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Salt & Pepper Blend* (Sea Salt , Black Pepper))",
-        "id": 34
+        "id": 35
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461103_chicken-fried-rice_62ac54ef24eab-m.jpg",
@@ -498,10 +512,10 @@
         "Protein": 27,
         "Carbs": 38,
         "Fat": 13,
-        "Sugars": 1,
-        "Sodium(mg)": 345,
+        "Sugar": 1,
+        "Sodium (mg)": 345,
         "Ingredients": "Fried Rice* (Brown Rice, Egg, whole, cooked, scrambled, Bellpepper , Peas and carrots, frozen, boiled, drained, without salt, Soy Sauce), \nChicken Thighs* (Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Salt & Pepper Blend* (Sea Salt , Black Pepper))",
-        "id": 35
+        "id": 36
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461162_chicken-parm_62ac552aee3b3-m.jpg",
@@ -512,10 +526,10 @@
         "Protein": 47,
         "Carbs": 49,
         "Fat": 16,
-        "Sugars": 5,
-        "Sodium(mg)": 808,
+        "Sugar": 5,
+        "Sodium (mg)": 808,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper), Garlic Powder), \nChicken Parmesan* (Chicken, Yellow Mustard, Nola Spice Blend* (Paprika, Onion Powder)), Parsley",
-        "id": 36
+        "id": 37
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461162_chicken-parm_62ac552aee3b3-m.jpg",
@@ -526,10 +540,10 @@
         "Protein": 36,
         "Carbs": 38,
         "Fat": 13,
-        "Sugars": 4,
-        "Sodium(mg)": 670,
+        "Sugar": 4,
+        "Sodium (mg)": 670,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper), Garlic Powder)), \nChicken Parmesan* (Chicken, Yellow Mustard, Nola Spice Blend* (Paprika, Onion Powder)), Parsley",
-        "id": 37
+        "id": 38
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460897_the-chicken-scrambler_62ac542112c49-m.jpg",
@@ -540,10 +554,10 @@
         "Protein": 47,
         "Carbs": 6,
         "Fat": 18,
-        "Sugars": 2,
-        "Sodium(mg)": 569,
+        "Sugar": 2,
+        "Sodium (mg)": 569,
         "Ingredients": "Chicken Parmesan* (Chicken, Grated Parmesan Cheese, Yellow Mustard, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Egg scrambled, Bellpepper, \nParmesan Cheese, Parsley",
-        "id": 38
+        "id": 39
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460897_the-chicken-scrambler_62ac542112c49-m.jpg",
@@ -554,10 +568,10 @@
         "Protein": 37,
         "Carbs": 5,
         "Fat": 17,
-        "Sugars": 2,
-        "Sodium(mg)": 512,
+        "Sugar": 2,
+        "Sodium (mg)": 512,
         "Ingredients": "Chicken Parmesan* (Chicken, Grated Parmesan Cheese, Yellow Mustard, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Egg scrambled, Bellpepper, \nParmesan Cheese, Parsley",
-        "id": 39
+        "id": 40
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461048_southwest-chicken-stuffed-pepper-3_62ac54b817087-m.jpg",
@@ -568,10 +582,10 @@
         "Protein": 27,
         "Carbs": 43,
         "Fat": 12,
-        "Sugars": 5,
-        "Sodium(mg)": 429,
+        "Sugar": 5,
+        "Sodium (mg)": 429,
         "Ingredients": "Brown Rice, Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Salsa Chicken* (Chicken Thigh, Water, Coriander leaves, Garlic, Sea Salt, Black Pepper), \nPico de Gallo* (Red Bell Pepper, Lime)), Beans, black turtle, mature seeds, cooked, boiled, Cheddar Cheese, Corn",
-        "id": 40
+        "id": 41
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320407_995a0314_6473f2d785b5b-m.jpg",
@@ -582,10 +596,10 @@
         "Protein": 39,
         "Carbs": 61,
         "Fat": 17,
-        "Sugars": 6,
-        "Sodium(mg)": 551,
+        "Sugar": 6,
+        "Sodium (mg)": 551,
         "Ingredients": "Brown Rice, Masala Mix Vegan* (Coconut milk, Tomato Puree, Cauliflower, Onions, Red Bell Pepper, Garlic Powder, Agave Syrup, Sauce Curry Tikka Masala, Sea Salt, Cumin, Ginger, Coriander, Turmeric, Paprika),\n Basic Chicken* (Chicken, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley)",
-        "id": 41
+        "id": 42
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320407_995a0314_6473f2d785b5b-m.jpg",
@@ -596,10 +610,10 @@
         "Protein": 27,
         "Carbs": 41,
         "Fat": 11,
-        "Sugars": 4,
-        "Sodium(mg)": 381,
+        "Sugar": 4,
+        "Sodium (mg)": 381,
         "Ingredients": "Brown Rice, Masala Mix Vegan* (Coconut milk, Tomato Puree, Cauliflower, Onions, Red Bell Pepper, Garlic Powder, Agave Syrup, Sauce Curry Tikka Masala, Sea Salt, Cumin, Ginger, Coriander, Turmeric, Paprika), \nBasic Chicken* (Chicken, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley)",
-        "id": 42
+        "id": 43
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1704049844_995a4807-2_1_6591bcb4dc076-m.jpg",
@@ -610,10 +624,10 @@
         "Protein": 41,
         "Carbs": 31,
         "Fat": 31,
-        "Sugars": 5,
-        "Sodium(mg)": 605,
-        "Ingredients": "None",
-        "id": 43
+        "Sugar": 5,
+        "Sodium (mg)": 605,
+        "Ingredients": "Steak, Spinach, Red Potato, Red Bell Pepper, Garlic, Red Wine Vinegar, Parsley, Oregano, Olive Oil",
+        "id": 44
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1704049844_995a4807-2_1_6591bcb4dc076-m.jpg",
@@ -624,10 +638,10 @@
         "Protein": 29,
         "Carbs": 28,
         "Fat": 23,
-        "Sugars": 4,
-        "Sodium(mg)": 432,
-        "Ingredients": "None",
-        "id": 44
+        "Sugar": 4,
+        "Sodium (mg)": 432,
+        "Ingredients": "Steak, Spinach, Red Potato, Red Bell Pepper, Garlic, Red Wine Vinegar, Parsley, Oregano, Olive Oil",
+        "id": 45
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461096_cilantro-lime-turkey_62ac54e8a7382-m.jpg",
@@ -638,10 +652,10 @@
         "Protein": 23,
         "Carbs": 36,
         "Fat": 11,
-        "Sugars": 1,
-        "Sodium(mg)": 350,
+        "Sugar": 1,
+        "Sodium (mg)": 350,
         "Ingredients": "Cilantro Turkey* (Ground Turkey 90/10 , Water, Lime juice, Cilantro, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic Powder), Brown Rice, Lime",
-        "id": 45
+        "id": 46
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461096_cilantro-lime-turkey_62ac54e8a7382-m.jpg",
@@ -652,10 +666,10 @@
         "Protein": 17,
         "Carbs": 36,
         "Fat": 8,
-        "Sugars": 1,
-        "Sodium(mg)": 250,
+        "Sugar": 1,
+        "Sodium (mg)": 250,
         "Ingredients": "Brown Rice, Cilantro Turkey* (Ground Turkey 90/10 , Water, Lime juice, Cilantro, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic Powder), Lime",
-        "id": 46
+        "id": 47
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461156_steak-eggs_62ac552474c9a-m.jpg",
@@ -666,10 +680,10 @@
         "Protein": 48,
         "Carbs": 33,
         "Fat": 20,
-        "Sugars": 6,
-        "Sodium(mg)": 661,
+        "Sugar": 6,
+        "Sodium (mg)": 661,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt, Black Pepper)), Steak (Tri Tip) Diced* \n(Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Gluten Free Flour, Ground ginger), Steak Seasoning), Egg, whole, cooked, scrambled",
-        "id": 47
+        "id": 48
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461156_steak-eggs_62ac552474c9a-m.jpg",
@@ -680,10 +694,10 @@
         "Protein": 38,
         "Carbs": 32,
         "Fat": 17,
-        "Sugars": 5,
-        "Sodium(mg)": 535,
+        "Sugar": 5,
+        "Sodium (mg)": 535,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt, Black Pepper)), Steak (Tri Tip) Diced* \n(Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Gluten Free Flour, Ground ginger), Steak Seasoning), Egg, whole, cooked, scrambled",
-        "id": 48
+        "id": 49
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685645703_29-imgl3894_6478e987399f7-m.jpg",
@@ -694,10 +708,10 @@
         "Protein": 15,
         "Carbs": 65,
         "Fat": 25,
-        "Sugars": 46,
-        "Sodium(mg)": 102,
+        "Sugar": 46,
+        "Sodium (mg)": 102,
         "Ingredients": "Coconut Flakes, Coconut milk, Honey, Dried Cranberries, Peanut Butter, Oats, Protein Powder , Vanilla extract",
-        "id": 49
+        "id": 50
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460609_cranberry-almond-salad_62ac53010cb6a-m.jpg",
@@ -708,10 +722,10 @@
         "Protein": 45,
         "Carbs": 41,
         "Fat": 35,
-        "Sugars": 27,
-        "Sodium(mg)": 1170,
+        "Sugar": 27,
+        "Sodium (mg)": 1170,
         "Ingredients": "Salad Mix* (Green Leaf Lettuce, Lettuce), Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Balsamic Vinaigrette Dressing, Craisins, Feta Cheese, Almonds",
-        "id": 50
+        "id": 51
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460609_cranberry-almond-salad_62ac53010cb6a-m.jpg",
@@ -722,10 +736,10 @@
         "Protein": 38,
         "Carbs": 46,
         "Fat": 5,
-        "Sugars": 33,
-        "Sodium(mg)": 519,
+        "Sugar": 33,
+        "Sodium (mg)": 519,
         "Ingredients": "Salad Mix* (Lettuce), Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Craisins",
-        "id": 51
+        "id": 52
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460615_cranberry-side-salad_62ac530785b77-m.jpg",
@@ -736,10 +750,10 @@
         "Protein": 6,
         "Carbs": 31,
         "Fat": 23,
-        "Sugars": 25,
-        "Sodium(mg)": 680,
+        "Sugar": 25,
+        "Sodium (mg)": 680,
         "Ingredients": "Salad Mix* (Lettuce), Balsamic Vinaigrette Dressing, Craisins, Feta Cheese",
-        "id": 52
+        "id": 53
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460922_steak-snack-tacos-3_62ac543a53dce-m.jpg",
@@ -750,10 +764,10 @@
         "Protein": 22,
         "Carbs": 20,
         "Fat": 6,
-        "Sugars": 1,
-        "Sodium(mg)": 113,
+        "Sugar": 1,
+        "Sodium (mg)": 113,
         "Ingredients": "Beef Knuckle Tip, Tortillas, Pico de Gallo* (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper), Lime",
-        "id": 53
+        "id": 54
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460787_dill-salmon_62ac53b30ec72-m.jpg",
@@ -764,10 +778,10 @@
         "Protein": 42,
         "Carbs": 41,
         "Fat": 29,
-        "Sugars": 1,
-        "Sodium(mg)": 870,
+        "Sugar": 1,
+        "Sodium (mg)": 870,
         "Ingredients": "Salmon Citrus 6oz* (Salmon, Lemon Pepper , Dried dill weed), Brown Rice, Broccoli, Dill Sauce* (Mayonnaise , Lemon Juice, Dried dill weed, Sea Salt , Black Pepper)",
-        "id": 54
+        "id": 55
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460787_dill-salmon_62ac53b30ec72-m.jpg",
@@ -778,10 +792,10 @@
         "Protein": 32,
         "Carbs": 35,
         "Fat": 24,
-        "Sugars": 1,
-        "Sodium(mg)": 610,
+        "Sugar": 1,
+        "Sodium (mg)": 610,
         "Ingredients": "Brown Rice, Salmon Citrus 4.5oz* (Salmon, Lemon Pepper , Dried dill weed), Broccoli, Dill Sauce* (Mayonnaise , Lemon Juice, Dried dill weed, Sea Salt , Black Pepper)",
-        "id": 55
+        "id": 56
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461014_fajita-steak-bowl-3_62ac5496a8f43-m.jpg",
@@ -792,10 +806,10 @@
         "Protein": 48,
         "Carbs": 65,
         "Fat": 16,
-        "Sugars": 5,
-        "Sodium(mg)": 790,
+        "Sugar": 5,
+        "Sodium (mg)": 790,
         "Ingredients": "Brown Rice, Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (\nWater, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Garlic Powder, Gluten Free Flour, Ground ginger), Steak Seasoning), Black Beans, Red Salsa* \n(Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), Diced Bell Pepper Mix* (Bellpepper, Red Bell Pepper, Extra Virgin Olive Oil), Cheddar Cheese",
-        "id": 56
+        "id": 57
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461014_fajita-steak-bowl-3_62ac5496a8f43-m.jpg",
@@ -806,10 +820,10 @@
         "Protein": 13,
         "Carbs": 51,
         "Fat": 7,
-        "Sugars": 3,
-        "Sodium(mg)": 378,
+        "Sugar": 3,
+        "Sodium (mg)": 378,
         "Ingredients": "Brown Rice, Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, \nRice Vinegar, Garlic Powder, Gluten Free Flour, Ground ginger), Steak Seasoning), Black Beans, Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice), \nDiced Bell Pepper Mix* (Bellpepper, Red Bell Pepper, Extra Virgin Olive Oil), Cheddar Cheese",
-        "id": 57
+        "id": 58
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460877_fit-energy-bar_62ac540d31eee-m.jpg",
@@ -820,10 +834,10 @@
         "Protein": 19,
         "Carbs": 55,
         "Fat": 33,
-        "Sugars": 39,
-        "Sodium(mg)": 252,
+        "Sugar": 39,
+        "Sodium (mg)": 252,
         "Ingredients": "Fit Energy Bar* (Peanut Butter, Granola, Honey, Cranberries dried, Coconut Oil), Blueberries, Greek Yogurt, Strawberries",
-        "id": 58
+        "id": 59
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646281_11-imgl3814_6478ebc97cded-m.jpg",
@@ -834,10 +848,10 @@
         "Protein": 40,
         "Carbs": 41,
         "Fat": 29,
-        "Sugars": 3,
-        "Sodium(mg)": 1080,
+        "Sugar": 3,
+        "Sodium (mg)": 1080,
         "Ingredients": "Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Brown Rice, Egg scrambled, Pico de Gallo* (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper), Cheddar Cheese",
-        "id": 59
+        "id": 60
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646281_11-imgl3814_6478ebc97cded-m.jpg",
@@ -848,10 +862,10 @@
         "Protein": 32,
         "Carbs": 32,
         "Fat": 25,
-        "Sugars": 2,
-        "Sodium(mg)": 840,
+        "Sugar": 2,
+        "Sodium (mg)": 840,
         "Ingredients": "Nola Turkey* (Ground Turkey, Nola Spice Blend (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Egg scrambled, Brown Rice, Cheddar Cheese, Pico de Gallo custom (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper)",
-        "id": 60
+        "id": 61
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684529747_995a3443_1_6467e25315a66-m.jpg",
@@ -862,10 +876,10 @@
         "Protein": 25,
         "Carbs": 50,
         "Fat": 23,
-        "Sugars": 9,
-        "Sodium(mg)": 598,
+        "Sugar": 9,
+        "Sodium (mg)": 598,
         "Ingredients": "Sweet Potatoes & Peppers* (Sweet potato, Diced Bell Pepper Mix* (Bellpepper , Red Bell Pepper , Extra Virgin Olive Oil , Sea Salt , Black Pepper)), \nHam and Cheese Sandwich only* (English Wheat Muffin, Egg, Cheddar Cheese)",
-        "id": 61
+        "id": 62
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460940_the-basic-meal-salmon-2_62ac544cd190d-m.jpg",
@@ -876,10 +890,10 @@
         "Protein": 43,
         "Carbs": 34,
         "Fat": 22,
-        "Sugars": 28,
-        "Sodium(mg)": 1389,
+        "Sugar": 28,
+        "Sodium (mg)": 1389,
         "Ingredients": "Salmon, Cauliflower mashed* (Cauliflower, Unsweetened Almond Milk, Jalapeno, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic), Green Snap Beans, \nHoney Garlic Sauce* (Honey, Soy Sauce, Onions, Garlic, Ginger root)",
-        "id": 62
+        "id": 63
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460940_the-basic-meal-salmon-2_62ac544cd190d-m.jpg",
@@ -890,10 +904,10 @@
         "Protein": 33,
         "Carbs": 24,
         "Fat": 17,
-        "Sugars": 17,
-        "Sodium(mg)": 778,
+        "Sugar": 17,
+        "Sodium (mg)": 778,
         "Ingredients": "Salmon, Cauliflower mashed* (Cauliflower, Unsweetened Almond Milk, Jalapeno, Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic), Green Snap Beans, \nHoney Garlic Sauce* (Honey, Soy Sauce, Onions, Garlic, Ginger root)",
-        "id": 63
+        "id": 64
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460940_the-basic-meal-salmon-2_62ac544cd190d-m.jpg",
@@ -904,10 +918,10 @@
         "Protein": 43,
         "Carbs": 40,
         "Fat": 22,
-        "Sugars": 14,
-        "Sodium(mg)": 225,
+        "Sugar": 14,
+        "Sodium (mg)": 225,
         "Ingredients": "Salmon, Green Snap Beans, Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), Honey Mustard* (Honey, Yellow Mustard)",
-        "id": 64
+        "id": 65
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460940_the-basic-meal-salmon-2_62ac544cd190d-m.jpg",
@@ -918,10 +932,10 @@
         "Protein": 33,
         "Carbs": 40,
         "Fat": 16,
-        "Sugars": 14,
-        "Sodium(mg)": 199,
+        "Sugar": 14,
+        "Sodium (mg)": 199,
         "Ingredients": "Salmon, Green Snap Beans, Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), Honey Mustard* (Honey, Yellow Mustard)",
-        "id": 65
+        "id": 66
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460928_its-a-wrap-3_62ac544066ecd-m.jpg",
@@ -932,10 +946,10 @@
         "Protein": 55,
         "Carbs": 70,
         "Fat": 16,
-        "Sugars": 31,
-        "Sodium(mg)": 1008,
+        "Sugar": 31,
+        "Sodium (mg)": 1008,
         "Ingredients": "Chicken Salad* (Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Celery, Craisins ,\n Low Fat Vanilla Greek Yogurt, Mayonnaise ), Grapes, Spinach Tortilla",
-        "id": 66
+        "id": 67
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460421_jalapeno-chicken_62ac5245b18e4-m.jpg",
@@ -946,10 +960,10 @@
         "Protein": 43,
         "Carbs": 42,
         "Fat": 21,
-        "Sugars": 1,
-        "Sodium(mg)": 324,
+        "Sugar": 1,
+        "Sodium (mg)": 324,
         "Ingredients": "Brown Rice, Jalapeno Chicken* (Chicken Thigh, Jalapeno Peppers), Cheddar Cheese",
-        "id": 67
+        "id": 68
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460421_jalapeno-chicken_62ac5245b18e4-m.jpg",
@@ -960,10 +974,10 @@
         "Protein": 32,
         "Carbs": 28,
         "Fat": 18,
-        "Sugars": 1,
-        "Sodium(mg)": 282,
+        "Sugar": 1,
+        "Sodium (mg)": 282,
         "Ingredients": "Brown Rice, Jalapeno Chicken* (Chicken Thigh, Jalapeno Peppers), Cheddar Cheese",
-        "id": 68
+        "id": 69
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1695070667_koreanbeef_6508b9cb63459-m.jpg",
@@ -974,10 +988,10 @@
         "Protein": 42,
         "Carbs": 53,
         "Fat": 20,
-        "Sugars": 10,
-        "Sodium(mg)": 801,
+        "Sugar": 10,
+        "Sodium (mg)": 801,
         "Ingredients": "White Rice, Korean Beef* (Beef, Soy Sauce, Brown Sugar, Sauce, hot chili, Sriracha, Ginger root, Garlic), Egg, Carrots, Cucumber",
-        "id": 69
+        "id": 70
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1695070667_koreanbeef_6508b9cb63459-m.jpg",
@@ -988,10 +1002,10 @@
         "Protein": 32,
         "Carbs": 43,
         "Fat": 16,
-        "Sugars": 8,
-        "Sodium(mg)": 595,
+        "Sugar": 8,
+        "Sodium (mg)": 595,
         "Ingredients": "White Rice, Korean Beef* (Beef, Soy Sauce, Brown Sugar, Sauce, hot chili, Sriracha, Ginger root, Garlic), Egg, Carrots, Cucumber",
-        "id": 70
+        "id": 71
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460967_lean-lemon-turkey-3_62ac54678f695-m.jpg",
@@ -1002,10 +1016,10 @@
         "Protein": 29,
         "Carbs": 50,
         "Fat": 14,
-        "Sugars": 2,
-        "Sodium(mg)": 400,
+        "Sugar": 2,
+        "Sodium (mg)": 400,
         "Ingredients": "Brown Rice, Lemon Turkey* (Ground Turkey 90/10 , Lemon Juice, Lemon Pepper ), Asparagus, Lemon",
-        "id": 71
+        "id": 72
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460967_lean-lemon-turkey-3_62ac54678f695-m.jpg",
@@ -1016,10 +1030,10 @@
         "Protein": 21,
         "Carbs": 39,
         "Fat": 10,
-        "Sugars": 2,
-        "Sodium(mg)": 280,
+        "Sugar": 2,
+        "Sodium (mg)": 280,
         "Ingredients": "Brown Rice, Lemon Turkey* (Ground Turkey 90/10 , Lemon Juice, Lemon Pepper ), Asparagus, Lemon",
-        "id": 72
+        "id": 73
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460813_lemon-pepper-chicken_62ac53cd5f7e8-m.jpg",
@@ -1030,10 +1044,10 @@
         "Protein": 38,
         "Carbs": 33,
         "Fat": 9,
-        "Sugars": 3,
-        "Sodium(mg)": 463,
+        "Sugar": 3,
+        "Sodium (mg)": 463,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), Lemon Pepper Chicken* \n(Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Lemon Juice, Lemon Pepper), Spinach",
-        "id": 73
+        "id": 74
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460813_lemon-pepper-chicken_62ac53cd5f7e8-m.jpg",
@@ -1044,10 +1058,10 @@
         "Protein": 29,
         "Carbs": 33,
         "Fat": 6,
-        "Sugars": 3,
-        "Sodium(mg)": 371,
+        "Sugar": 3,
+        "Sodium (mg)": 371,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt , Black Pepper)), Lemon Pepper Chicken*\n (Chicken Thigh, Water, Onions, Coriander leaves, Garlic, Lemon Juice, Lemon Pepper), Spinach",
-        "id": 74
+        "id": 75
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460980_look-good-naked-chicken-2_62ac547491a85-m.jpg",
@@ -1058,10 +1072,10 @@
         "Protein": 33,
         "Carbs": 14,
         "Fat": 4,
-        "Sugars": 4,
-        "Sodium(mg)": 942,
+        "Sugar": 4,
+        "Sodium (mg)": 942,
         "Ingredients": "Seasoned Vegetable Mix* (Squash, Carrots, Sea Salt ), Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Sea Salt , Black Pepper), Parsley)",
-        "id": 75
+        "id": 76
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460980_look-good-naked-chicken-2_62ac547491a85-m.jpg",
@@ -1072,10 +1086,10 @@
         "Protein": 23,
         "Carbs": 10,
         "Fat": 3,
-        "Sugars": 3,
-        "Sodium(mg)": 667,
+        "Sugar": 3,
+        "Sodium (mg)": 667,
         "Ingredients": "Seasoned Vegetable Mix* (Squash, Carrots, Sea Salt ), Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Sea Salt , Black Pepper), Parsley)",
-        "id": 76
+        "id": 77
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1715113905_mediterraneanbowl_663a8fb19ce51-m.jpg",
@@ -1086,10 +1100,10 @@
         "Protein": 41,
         "Carbs": 63,
         "Fat": 8,
-        "Sugars": 5,
-        "Sodium(mg)": 469,
+        "Sugar": 5,
+        "Sodium (mg)": 469,
         "Ingredients": "Brown Rice, Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley), \nHummus* (Chickpeas, Extra Virgin Olive Oil , Tahini Paste , Garlic, Cumin seed), Cucumber, Cherry Tomato, Pickled Onions* (Rice Vinegar, Onions, Lemon Juice, Agave Syrup, Pickling Spice)",
-        "id": 77
+        "id": 78
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1715113905_mediterraneanbowl_663a8fb19ce51-m.jpg",
@@ -1100,10 +1114,10 @@
         "Protein": 31,
         "Carbs": 62,
         "Fat": 7,
-        "Sugars": 5,
-        "Sodium(mg)": 340,
+        "Sugar": 5,
+        "Sodium (mg)": 340,
         "Ingredients": "Brown Rice, Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley), \nHummus* (Chickpeas, Extra Virgin Olive Oil , Tahini Paste , Garlic, Cumin seed), Cucumber, Cherry Tomato, Pickled Onions* (Rice Vinegar, Onions, Lemon Juice, Agave Syrup, Pickling Spice)",
-        "id": 78
+        "id": 79
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685049866_995a0824_646fd20ad4a49-m.jpg",
@@ -1114,10 +1128,10 @@
         "Protein": 24,
         "Carbs": 54,
         "Fat": 9,
-        "Sugars": 24,
-        "Sodium(mg)": 119,
+        "Sugar": 24,
+        "Sodium (mg)": 119,
         "Ingredients": "Overnight Oat Mix* (Unsweetened Almond Milk, Cereals, QUAKER, Quick Oats, Dry, Honey, Vanilla Protein Powder , Flaxseeds, Vanilla extract), Low Fat Vanilla Greek Yogurt, Blueberries, Strawberries",
-        "id": 79
+        "id": 80
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685049866_995a0824_646fd20ad4a49-m.jpg",
@@ -1128,10 +1142,10 @@
         "Protein": 21,
         "Carbs": 50,
         "Fat": 9,
-        "Sugars": 21,
-        "Sodium(mg)": 108,
+        "Sugar": 21,
+        "Sodium (mg)": 108,
         "Ingredients": "Overnight Oat Mix* (Unsweetened Almond Milk, Cereals, QUAKER, Quick Oats, Dry, Honey, Vanilla Protein Powder , Flaxseeds, Vanilla extract), Low Fat Vanilla Greek Yogurt, Frozen Blueberries, Strawberries",
-        "id": 80
+        "id": 81
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1682708304_995a5073_644c1750c366f-m.jpg",
@@ -1142,10 +1156,10 @@
         "Protein": 14,
         "Carbs": 25,
         "Fat": 7,
-        "Sugars": 20,
-        "Sodium(mg)": 55,
+        "Sugar": 20,
+        "Sodium (mg)": 55,
         "Ingredients": "Low Fat Vanilla Greek Yogurt, Peaches, Granola",
-        "id": 81
+        "id": 82
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684529275_995a8346-2_6467e07b1dd9a-m.jpg",
@@ -1156,10 +1170,10 @@
         "Protein": 22,
         "Carbs": 44,
         "Fat": 32,
-        "Sugars": 23,
-        "Sodium(mg)": 37,
+        "Sugar": 23,
+        "Sodium (mg)": 37,
         "Ingredients": "Coconut milk, Peanut Butter, Chocolate Chips , Oats, Protein Powder , Honey, Flaxseeds , Vanilla extract, Cinnamon",
-        "id": 82
+        "id": 83
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461000_raspberry-greek-yogo-parfait-2_62ac5488f184f-m.jpg",
@@ -1170,10 +1184,10 @@
         "Protein": 15,
         "Carbs": 28,
         "Fat": 8,
-        "Sugars": 20,
-        "Sodium(mg)": 63,
+        "Sugar": 20,
+        "Sodium (mg)": 63,
         "Ingredients": "Low Fat Vanilla Greek Yogurt, Raspberries, Granola",
-        "id": 83
+        "id": 84
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461083_salmon-alfredo_62ac54dbc878c-m.jpg",
@@ -1184,10 +1198,10 @@
         "Protein": 52,
         "Carbs": 52,
         "Fat": 32,
-        "Sugars": 6,
-        "Sodium(mg)": 784,
+        "Sugar": 6,
+        "Sodium (mg)": 784,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper, Garlic Powder)), \nSalmon Teriyaki 6oz* (Salmon, Teriyaki Sauce Gluten Free* (Water, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Ground ginger, Honey)), Lemon, Parsley",
-        "id": 84
+        "id": 85
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461083_salmon-alfredo_62ac54dbc878c-m.jpg",
@@ -1198,10 +1212,10 @@
         "Protein": 40,
         "Carbs": 42,
         "Fat": 25,
-        "Sugars": 5,
-        "Sodium(mg)": 668,
+        "Sugar": 5,
+        "Sodium (mg)": 668,
         "Ingredients": "Penne Pasta Alfredo GF* (Gluten-free Pasta, Alfredo Sauce Gluten Free* (Milk, Grated Parmesan Cheese, Unsalted Butter, Gluten Free Flour, Sea Salt, Black Pepper, Garlic Powder)), \nSalmon Teriyaki 6oz* (Salmon, Teriyaki Sauce Gluten Free* (Water, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Ground ginger, Honey)), Lemon, Parsley",
-        "id": 85
+        "id": 86
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460712_salmon-salad_62ac536824ae5-m.jpg",
@@ -1212,10 +1226,10 @@
         "Protein": 35,
         "Carbs": 19,
         "Fat": 40,
-        "Sugars": 9,
-        "Sodium(mg)": 530,
+        "Sugar": 9,
+        "Sodium (mg)": 530,
         "Ingredients": "Salad Mix* (Lettuce), Salmon Blackened 4.5oz* (Salmon, Blackened Seasoning* (Paprika, Onion Powder, Cayenne Pepper, Sea Salt , Black Pepper, Garlic Powder, Oregano, Parsley)), Sweet Onions, Balsamic Vinaigrette Dressing,  Almonds",
-        "id": 86
+        "id": 87
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460773_sheperds-pie_62ac53a553688-m.jpg",
@@ -1226,10 +1240,10 @@
         "Protein": 32,
         "Carbs": 41,
         "Fat": 19,
-        "Sugars": 6,
-        "Sodium(mg)": 1030,
+        "Sugar": 6,
+        "Sodium (mg)": 1030,
         "Ingredients": "Mashed Potatoes* (Red Potatoes, Unsweetened Almond Milk, Unsalted Butter, Salt & Pepper Blend* (Sea Salt , Black Pepper)), Nola Turkey* (Ground Turkey 90/10 , Nola Spice Blend* (Paprika, Garlic Powder, Sea Salt , Onion Powder, Black Pepper)), Peas and Carrots, Cheddar Cheese",
-        "id": 87
+        "id": 88
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460773_sheperds-pie_62ac53a553688-m.jpg",
@@ -1240,10 +1254,10 @@
         "Protein": 24,
         "Carbs": 31,
         "Fat": 15,
-        "Sugars": 5,
-        "Sodium(mg)": 760,
+        "Sugar": 5,
+        "Sodium (mg)": 760,
         "Ingredients": "Mashed Potatoes* (Red Potatoes, Unsweetened Almond Milk, Unsalted Butter, Salt & Pepper Blend* (Sea Salt , Black Pepper)), Nola Turkey* (Ground Turkey 90/10 , Nola Spice Blend* (Paprika, Garlic Powder, Sea Salt , Onion Powder, Black Pepper)), Peas and carrots, Cheddar Cheese",
-        "id": 88
+        "id": 89
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646715_12-imgl3819_6478ed7b539a8-m.jpg",
@@ -1254,10 +1268,10 @@
         "Protein": 55,
         "Carbs": 53,
         "Fat": 10,
-        "Sugars": 2,
-        "Sodium(mg)": 615,
+        "Sugar": 2,
+        "Sodium (mg)": 615,
         "Ingredients": "Fried Rice* (Brown Rice, Egg, whole, cooked, scrambled, Bellpepper , Peas and carrots, frozen, boiled, drained, without salt, Soy Sauce), \nShrimp for Tacos* (Shrimps, Lemon Juice, Paprika, Garlic Powder), Sausage, chicken or turkey, Italian style,  lower sodium",
-        "id": 89
+        "id": 90
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646715_12-imgl3819_6478ed7b539a8-m.jpg",
@@ -1268,10 +1282,10 @@
         "Protein": 42,
         "Carbs": 41,
         "Fat": 8,
-        "Sugars": 2,
-        "Sodium(mg)": 517,
+        "Sugar": 2,
+        "Sodium (mg)": 517,
         "Ingredients": "Fried Rice* (Brown Rice, Egg, whole, cooked, scrambled, Bellpepper , Peas and carrots, frozen, boiled, drained, without salt, Soy Sauce), \nShrimp for Tacos* (Shrimps, Lemon Juice, Paprika, Garlic Powder), Sausage, chicken or turkey, Italian style,  lower sodium",
-        "id": 90
+        "id": 91
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460909_southern-shrimp-and-grits_62ac542ddcfe6-m.jpg",
@@ -1282,10 +1296,10 @@
         "Protein": 37,
         "Carbs": 27,
         "Fat": 22,
-        "Sugars": 2,
-        "Sodium(mg)": 728,
+        "Sugar": 2,
+        "Sodium (mg)": 728,
         "Ingredients": "Grits Prepared* (Water, Cereals, corn grits, white, regular and quick, enriched, dry, Cheddar Cheese, Sea Salt ), \nShrimp for Tacos* (Shrimps, Lemon Juice, Paprika, Garlic Powder), Mushrooms and Asparagus Mix* (Saut\u00e9ed Mushrooms* (White Mushrooms, Extra Virgin Olive Oil ), Asparagus)",
-        "id": 91
+        "id": 92
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460645_shrimp-tacos_62ac5325e3297-m.jpg",
@@ -1296,10 +1310,10 @@
         "Protein": 23,
         "Carbs": 28,
         "Fat": 2,
-        "Sugars": 4,
-        "Sodium(mg)": 306,
+        "Sugar": 4,
+        "Sodium (mg)": 306,
         "Ingredients": "Shrimp for Tacos* (Shrimps, Lemon Juice, Paprika, Garlic Powder), Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Salt, Black Pepper), \nTortillas, Red Cabbage, Pickled Onions* (Rice Vinegar, Agave Syrup, Pickling Spice)",
-        "id": 92
+        "id": 93
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646321_17-imgl3836_6478ebf11cd62-m.jpg",
@@ -1310,10 +1324,10 @@
         "Protein": 33,
         "Carbs": 15,
         "Fat": 26,
-        "Sugars": 4,
-        "Sodium(mg)": 950,
+        "Sugar": 4,
+        "Sodium (mg)": 950,
         "Ingredients": "Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Egg scrambled, \nPico de Gallo* (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper), Corn & Jalapeno Mix* (Corn, Jalapeno), Bellpepper, Cheddar Cheese",
-        "id": 93
+        "id": 94
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646321_17-imgl3836_6478ebf11cd62-m.jpg",
@@ -1324,10 +1338,10 @@
         "Protein": 29,
         "Carbs": 14,
         "Fat": 23,
-        "Sugars": 4,
-        "Sodium(mg)": 790,
+        "Sugar": 4,
+        "Sodium (mg)": 790,
         "Ingredients": "Egg scrambled, Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), \nCorn & Jalapeno Mix* (Corn, Jalapeno), Pico de Gallo* (Red Tomatoes, Onions, Jalapeno, Cilantro fresh, Salt, Black Pepper), Bellpepper, Cheddar Cheese",
-        "id": 94
+        "id": 95
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460960_caveman-copy_62ac5460456ad-m.jpg",
@@ -1338,10 +1352,10 @@
         "Protein": 39,
         "Carbs": 49,
         "Fat": 9,
-        "Sugars": 4,
-        "Sodium(mg)": 467,
+        "Sugar": 4,
+        "Sodium (mg)": 467,
         "Ingredients": "Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar , \nRice Vinegar , Garlic Powder, Gluten Free Flour , Ground ginger), Steak Seasoning ), Sweet Potatoes Mashed (Yams), Broccoli",
-        "id": 95
+        "id": 96
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460960_caveman-copy_62ac5460456ad-m.jpg",
@@ -1352,10 +1366,10 @@
         "Protein": 28,
         "Carbs": 48,
         "Fat": 7,
-        "Sugars": 3,
-        "Sodium(mg)": 341,
+        "Sugar": 3,
+        "Sodium (mg)": 341,
         "Ingredients": "Sweet Potatoes Mashed (Yams)*, Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* \n(Water, Honey, Soy Sauce, Dark Brown Sugar , Rice Vinegar , Garlic Powder, Gluten Free Flour , Ground ginger), Steak Seasoning ), Broccoli",
-        "id": 96
+        "id": 97
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461156_steak-eggs_62ac552474c9a-m.jpg",
@@ -1366,10 +1380,10 @@
         "Protein": 38,
         "Carbs": 32,
         "Fat": 17,
-        "Sugars": 5,
-        "Sodium(mg)": 535,
+        "Sugar": 5,
+        "Sodium (mg)": 535,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt, Black Pepper)), \nSteak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Gluten Free Flour, Ground ginger), Steak Seasoning), Egg, whole, cooked, scrambled",
-        "id": 97
+        "id": 98
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461156_steak-eggs_62ac552474c9a-m.jpg",
@@ -1380,10 +1394,10 @@
         "Protein": 48,
         "Carbs": 33,
         "Fat": 20,
-        "Sugars": 6,
-        "Sodium(mg)": 661,
+        "Sugar": 6,
+        "Sodium (mg)": 661,
         "Ingredients": "Red Potatoes prepared* (Potatoes, Red Potato Seasoning* (Garlic Powder, Paprika, Sea Salt, Black Pepper)), \nSteak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Gluten Free Flour, Ground ginger), Steak Seasoning), Egg, whole, cooked, scrambled",
-        "id": 98
+        "id": 99
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460826_steak-salad_62ac53dad143c-m.jpg",
@@ -1394,10 +1408,10 @@
         "Protein": 38,
         "Carbs": 19,
         "Fat": 33,
-        "Sugars": 10,
-        "Sodium(mg)": 1050,
+        "Sugar": 10,
+        "Sodium (mg)": 1050,
         "Ingredients": "Salad Mix* (Lettuce), Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar , Rice Vinegar , Garlic Powder, Gluten Free Flour , Ground ginger), Steak Seasoning ), Onions, Balsamic Vinaigrette Dressing, Blue Cheese, Red Tomatoes",
-        "id": 99
+        "id": 100
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460763_steel-cut-oats_62ac539b3e035-m.jpg",
@@ -1408,10 +1422,10 @@
         "Protein": 4,
         "Carbs": 22,
         "Fat": 3,
-        "Sugars": 3,
-        "Sodium(mg)": 152,
+        "Sugar": 3,
+        "Sodium (mg)": 152,
         "Ingredients": "Steel Cut Oats (cooked), Unsweetened Almond Milk, Strawberries, Blueberries",
-        "id": 100
+        "id": 101
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460953_sweet-potato-smart-chicken-2_62ac5459a52a2-m.jpg",
@@ -1422,10 +1436,10 @@
         "Protein": 35,
         "Carbs": 50,
         "Fat": 4,
-        "Sugars": 2,
-        "Sodium(mg)": 478,
+        "Sugar": 2,
+        "Sodium (mg)": 478,
         "Ingredients": "Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley), Sweet Potatoes Mashed (Yams)*, Broccoli",
-        "id": 101
+        "id": 102
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460953_sweet-potato-smart-chicken-2_62ac5459a52a2-m.jpg",
@@ -1436,10 +1450,10 @@
         "Protein": 26,
         "Carbs": 48,
         "Fat": 3,
-        "Sugars": 2,
-        "Sodium(mg)": 348,
+        "Sugar": 2,
+        "Sodium (mg)": 348,
         "Ingredients": "Sweet Potatoes Mashed (Yams)*, Basic Chicken* (Chicken, Garlic Powder, Paprika, Onion Powder, Salt & Pepper Blend* (Sea Salt , Black Pepper), Parsley), Broccoli",
-        "id": 102
+        "id": 103
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460833_mushroom-swiss-burger-2_62ac53e188118-m.jpg",
@@ -1450,10 +1464,10 @@
         "Protein": 51,
         "Carbs": 13,
         "Fat": 30,
-        "Sugars": 6,
-        "Sodium(mg)": 239,
+        "Sugar": 6,
+        "Sodium (mg)": 239,
         "Ingredients": "Spinach Mushroom Blend* (Spinach, Onions, Sun-dried Tomatoes, Saut\u00e9ed Mushrooms* (White Mushrooms, Extra Virgin Olive Oil )), Ground Beef, Extra Virgin Olive Oil ), Swiss Cheese",
-        "id": 103
+        "id": 104
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460820_taco-rice_62ac53d4a2e42-m.jpg",
@@ -1464,10 +1478,10 @@
         "Protein": 32,
         "Carbs": 48,
         "Fat": 22,
-        "Sugars": 1,
-        "Sodium(mg)": 740,
+        "Sugar": 1,
+        "Sodium (mg)": 740,
         "Ingredients": "Brown Rice, Taco Turkey* (Ground Turkey, Water, Seasoning mix, dry, taco, original), Cheddar Cheese, Green Onions",
-        "id": 104
+        "id": 105
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460820_taco-rice_62ac53d4a2e42-m.jpg",
@@ -1478,10 +1492,10 @@
         "Protein": 25,
         "Carbs": 36,
         "Fat": 18,
-        "Sugars": 1,
-        "Sodium(mg)": 570,
+        "Sugar": 1,
+        "Sodium (mg)": 570,
         "Ingredients": "Brown Rice, Taco Turkey* (Ground Turkey, Water, Seasoning mix, dry, taco, original), Cheddar Cheese, Green Onions",
-        "id": 105
+        "id": 106
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684518087_995a3503_6467b4c72488e-m.jpg",
@@ -1492,10 +1506,10 @@
         "Protein": 33,
         "Carbs": 61,
         "Fat": 30,
-        "Sugars": 19,
-        "Sodium(mg)": 1240,
+        "Sugar": 19,
+        "Sodium (mg)": 1240,
         "Ingredients": "Salad Mix* (Lettuce), Taco Turkey* (Ground Turkey, Water, Seasoning mix, dry, taco, original), Kidney Beans, Tortilla Chips Tri-Color Strips, Corn, Cherry Tomato, Cilantro Jalapeno Ranch* (Ranch Dressing, Jalapeno, Cilantro, Lemon Juice), Barbecue Sauce",
-        "id": 106
+        "id": 107
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460859_teriyaki-chicken-3_62ac53fb1b6b0-m.jpg",
@@ -1506,10 +1520,10 @@
         "Protein": 50,
         "Carbs": 70,
         "Fat": 7,
-        "Sugars": 19,
-        "Sodium(mg)": 1184,
+        "Sugar": 19,
+        "Sodium (mg)": 1184,
         "Ingredients": "Brown Rice, Capitol Chicken* (Chicken Breast, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), \nBroccoli, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar , Rice Vinegar , Gluten Free Flour , Ground ginger)",
-        "id": 107
+        "id": 108
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460859_teriyaki-chicken-3_62ac53fb1b6b0-m.jpg",
@@ -1520,10 +1534,10 @@
         "Protein": 36,
         "Carbs": 59,
         "Fat": 5,
-        "Sugars": 19,
-        "Sodium(mg)": 1012,
+        "Sugar": 19,
+        "Sodium (mg)": 1012,
         "Ingredients": "Brown Rice, Capitol Chicken* (Chicken, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Broccoli, \nTeriyaki Sauce Gluten Free* (Water, Soy Sauce, Rice Vinegar , Dark Brown Sugar , Gluten Free Flour , Ground ginger)",
-        "id": 108
+        "id": 109
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684518125_995a0293_6467b4edd8203-m.jpg",
@@ -1534,10 +1548,10 @@
         "Protein": 38,
         "Carbs": 8,
         "Fat": 21,
-        "Sugars": 5,
-        "Sodium(mg)": 169,
+        "Sugar": 5,
+        "Sodium (mg)": 169,
         "Ingredients": "Salmon Teriyaki 6oz* (Salmon, Teriyaki Sauce Gluten Free* (Water, Soy Sauce, Dark Brown Sugar , Rice Vinegar , Garlic Powder, Gluten Free Flour , Ground ginger, Honey)), \nMango Salsa* (Mangos, Jalapeno, Bellpepper ), Edamame, Lemon, Ancient Grains (Quinoa, Green Chickpea, Kale, Olive Oil, Sea Salt, Black Pepper)",
-        "id": 109
+        "id": 110
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1684518125_995a0293_6467b4edd8203-m.jpg",
@@ -1548,10 +1562,10 @@
         "Protein": 29,
         "Carbs": 7,
         "Fat": 16,
-        "Sugars": 5,
-        "Sodium(mg)": 126,
+        "Sugar": 5,
+        "Sodium (mg)": 126,
         "Ingredients": "Salmon Teriyaki * (Salmon, Teriyaki Sauce Gluten Free* (Water, Soy Sauce, Rice Vinegar , Dark Brown Sugar , Gluten Free Flour , Garlic Powder, Ground ginger)),\n Mango Salsa* (Mangos, Jalapeno, Bellpepper ), Edamame, Lemon, Ancient Grains (Quinoa, Green Chickpea, Kale, Olive Oil, Sea Salt, Black Pepper)",
-        "id": 110
+        "id": 111
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1715112672_turkeyburger_663a8ae0c024e-m.jpg",
@@ -1562,10 +1576,10 @@
         "Protein": 33,
         "Carbs": 72,
         "Fat": 27,
-        "Sugars": 16,
-        "Sodium(mg)": 1160,
+        "Sugar": 16,
+        "Sodium (mg)": 1160,
         "Ingredients": "Sweet Potatoes & Peppers* (Sweet potato, Diced Bell Pepper Mix* (Bell Pepper, Extra Virgin Olive Oil , Salt & Pepper Blend* (Sea Salt , Black Pepper))), Turkey Burger Mix* (Ground Turkey 90/10 , Onions, Ketchup , Worcestershire Sauce, Salt & Pepper Blend* (Sea Salt , Black Pepper)), UDI'S, Gluten Free Burger Bun, Cheddar Cheese",
-        "id": 111
+        "id": 112
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460974_vinnys-fit-pasta-5_62ac546e81578-m.jpg",
@@ -1576,10 +1590,10 @@
         "Protein": 30,
         "Carbs": 58,
         "Fat": 17,
-        "Sugars": 9,
-        "Sodium(mg)": 1340,
+        "Sugar": 9,
+        "Sodium (mg)": 1340,
         "Ingredients": "Elbow Pasta Marinara* (Gluten-free Pasta, Marinara Sauce), Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Grated Parmesan Cheese",
-        "id": 112
+        "id": 113
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460974_vinnys-fit-pasta-5_62ac546e81578-m.jpg",
@@ -1590,10 +1604,10 @@
         "Protein": 22,
         "Carbs": 44,
         "Fat": 12,
-        "Sugars": 7,
-        "Sodium(mg)": 970,
+        "Sugar": 7,
+        "Sodium (mg)": 970,
         "Ingredients": "Elbow Pasta Marinara* (Gluten-free Pasta, Marinara Sauce), Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Grated Parmesan Cheese",
-        "id": 113
+        "id": 114
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1686867000_995a5048_648b8c38f2bce-m.jpg",
@@ -1604,10 +1618,10 @@
         "Protein": 17,
         "Carbs": 26,
         "Fat": 11,
-        "Sugars": 7,
-        "Sodium(mg)": 400,
+        "Sugar": 7,
+        "Sodium (mg)": 400,
         "Ingredients": "Marinara Sauce, Nola Turkey* (Ground Turkey, Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Water, Shredded Mozzarella Cheese, White Mushrooms, Zucchini Summer Squash, Ricotta Cheese, Gluten-free Pasta)",
-        "id": 114
+        "id": 115
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460699_get-yo-mac-on_62ac535b24e3e-m.jpg",
@@ -1618,10 +1632,10 @@
         "Protein": 36,
         "Carbs": 61,
         "Fat": 26,
-        "Sugars": 1,
-        "Sodium(mg)": 1040,
+        "Sugar": 1,
+        "Sodium (mg)": 1040,
         "Ingredients": "Gluten-free Pasta, Nola Turkey* (Ground Turkey 90/10 , Nola Spice Blend* (Paprika, Garlic Powder, Sea Salt , Onion Powder, Black Pepper)), Cheddar Cheese, Onions",
-        "id": 115
+        "id": 116
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460699_get-yo-mac-on_62ac535b24e3e-m.jpg",
@@ -1632,10 +1646,10 @@
         "Protein": 28,
         "Carbs": 43,
         "Fat": 21,
-        "Sugars": 1,
-        "Sodium(mg)": 790,
+        "Sugar": 1,
+        "Sodium (mg)": 790,
         "Ingredients": "Gluten-free Pasta, Nola Turkey* (Ground Turkey 90/10 , Nola Spice Blend* (Paprika, Garlic Powder, Sea Salt , Onion Powder, Black Pepper)), Cheddar Cheese, Onions",
-        "id": 116
+        "id": 117
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460693_turkey-meatball-zoodles_62ac53555578a-m.jpg",
@@ -1646,10 +1660,10 @@
         "Protein": 33,
         "Carbs": 19,
         "Fat": 18,
-        "Sugars": 9,
-        "Sodium(mg)": 1130,
+        "Sugar": 9,
+        "Sodium (mg)": 1130,
         "Ingredients": "Zoodles Marinara* (Summer Squash, Sauce, Marinara Sauce), Turkey Meatballs* (Ground Turkey 90/10 , Parsley, Garlic Powder, Sea Salt ), Parmesan Cheese, Parsley",
-        "id": 117
+        "id": 118
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460693_turkey-meatball-zoodles_62ac53555578a-m.jpg",
@@ -1660,10 +1674,10 @@
         "Protein": 25,
         "Carbs": 13,
         "Fat": 14,
-        "Sugars": 5,
-        "Sodium(mg)": 840,
+        "Sugar": 5,
+        "Sodium (mg)": 840,
         "Ingredients": "Zoodles Marinara* (Summer Squash, Sauce, Marinara Sauce), Turkey Meatballs* (Ground Turkey 90/10 , Parsley, Garlic Powder, Sea Salt ), Parmesan Cheese, Parsley",
-        "id": 118
+        "id": 119
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461090_turkey-chili-mac_62ac54e28e3bd-m.jpg",
@@ -1674,10 +1688,10 @@
         "Protein": 35,
         "Carbs": 43,
         "Fat": 14,
-        "Sugars": 13,
-        "Sodium(mg)": 940,
+        "Sugar": 13,
+        "Sodium (mg)": 940,
         "Ingredients": "Turkey Chili* (Ground Turkey, Tomato diced, Chicken broth, Black Beans Tomato Paste, Corn, Bell Pepper , Salt & Pepper Blend* (Sea Salt , Black Pepper), Garlic Powder, Chili powder, Onion Powder, Paprika, Cumin)",
-        "id": 119
+        "id": 120
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320013_995a0311_6473f14d0e793-m.jpg",
@@ -1688,10 +1702,10 @@
         "Protein": 8,
         "Carbs": 71,
         "Fat": 18,
-        "Sugars": 10,
-        "Sodium(mg)": 700,
+        "Sugar": 10,
+        "Sodium (mg)": 700,
         "Ingredients": "Curry Mix vegan* (Coconut milk, canned, Baby Carrots, Tomato Puree, Thai Curry Paste , Agave Syrup, Salt & Pepper Blend* (Sea Salt , Black Pepper)), White Rice",
-        "id": 120
+        "id": 121
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320013_995a0311_6473f14d0e793-m.jpg",
@@ -1702,10 +1716,10 @@
         "Protein": 6,
         "Carbs": 49,
         "Fat": 13,
-        "Sugars": 8,
-        "Sodium(mg)": 525,
+        "Sugar": 8,
+        "Sodium (mg)": 525,
         "Ingredients": "Curry Mix vegan* (Coconut milk, canned, Baby Carrots, Tomato Puree, Thai Curry Paste , Agave Syrup, Salt & Pepper Blend* (Sea Salt , Black Pepper)), White Rice",
-        "id": 121
+        "id": 122
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460455_vegan-enchilada_62ac52675c982-m.jpg",
@@ -1716,10 +1730,10 @@
         "Protein": 20,
         "Carbs": 67,
         "Fat": 16,
-        "Sugars": 14,
-        "Sodium(mg)": 796,
+        "Sugar": 14,
+        "Sodium (mg)": 796,
         "Ingredients": "Spanish Salsa Rice* (Brown Rice, Red Salsa* (Red Tomatoes, Jalapeno Peppers, Onions, Cilantro, Lemon Juice, Salt, Black Pepper)), Vegan Enchilada Beyond Mix* \n(Beyond Burger Patty , Coriander leaves, Lime juice, Steak Seasoning ), Vegan Cheese, Tortillas, Enchilada Sauce* (Peppers, hot chile, sun-dried, Garlic)",
-        "id": 122
+        "id": 123
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655461034_veggie-mac-3_62ac54aaeaeb6-m.jpg",
@@ -1730,10 +1744,10 @@
         "Protein": 22,
         "Carbs": 47,
         "Fat": 18,
-        "Sugars": 4,
-        "Sodium(mg)": 760,
+        "Sugar": 4,
+        "Sodium (mg)": 760,
         "Ingredients": "Gluten-free Pasta, Vegan Nola* (Beyond Burger Patty , Nola Spice Blend* (Paprika, Garlic Powder, Sea Salt , Onion Powder, Black Pepper)), Vegan Cheese, Onions",
-        "id": 123
+        "id": 124
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460739_vegan-lasagna_62ac538377154-m.jpg",
@@ -1744,10 +1758,10 @@
         "Protein": 9,
         "Carbs": 45,
         "Fat": 5,
-        "Sugars": 9,
-        "Sodium(mg)": 565,
+        "Sugar": 9,
+        "Sodium (mg)": 565,
         "Ingredients": "Sauce, pasta, spaghetti/marinara, ready-to-serve, Gluten-free Pasta, Squash, Water, White Mushrooms, Tofu, Vegan Cheese",
-        "id": 124
+        "id": 125
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320342_995a0314_6473f296c4f1a-m.jpg",
@@ -1758,10 +1772,10 @@
         "Protein": 9,
         "Carbs": 65,
         "Fat": 16,
-        "Sugars": 7,
-        "Sodium(mg)": 152,
+        "Sugar": 7,
+        "Sodium (mg)": 152,
         "Ingredients": "Masala Mix Vegan* (Coconut milk, Tomato Puree, Cauliflower, Onions, Red Bell Pepper, Garlic Powder, Agave Syrup, Sauce Curry Tikka Masala, Sea Salt, Cumin, Ginger, Coriander, Turmeric, Paprika), White Rice",
-        "id": 125
+        "id": 126
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685320342_995a0314_6473f296c4f1a-m.jpg",
@@ -1772,10 +1786,10 @@
         "Protein": 6,
         "Carbs": 45,
         "Fat": 12,
-        "Sugars": 5,
-        "Sodium(mg)": 114,
+        "Sugar": 5,
+        "Sodium (mg)": 114,
         "Ingredients": "Masala Mix Vegan* (Coconut milk, Tomato Puree, Cauliflower, Onions, Red Bell Pepper, Garlic Powder, Agave Syrup, Sauce Curry Tikka Masala, Sea Salt, Cumin, Ginger, Coriander, Turmeric, Paprika), White Rice",
-        "id": 126
+        "id": 127
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460733_vegan-vinnys-pasta_62ac537d8358b-m.jpg",
@@ -1786,10 +1800,10 @@
         "Protein": 22,
         "Carbs": 41,
         "Fat": 19,
-        "Sugars": 7,
-        "Sodium(mg)": 1068,
+        "Sugar": 7,
+        "Sodium (mg)": 1068,
         "Ingredients": "Elbow Pasta Marinara* (Gluten-free Pasta, Sauce, pasta, Marinara sauce), Vegan Nola* (Beyond Burger Patty , Nola Spice Blend* (Paprika, Garlic Powder, Onion Powder, Sea Salt , Black Pepper)), Vegan Cheese",
-        "id": 127
+        "id": 128
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1687549524_995a0297_6495f654693f6-m.jpg",
@@ -1800,10 +1814,10 @@
         "Protein": 14,
         "Carbs": 56,
         "Fat": 16,
-        "Sugars": 8,
-        "Sodium(mg)": 630,
+        "Sugar": 8,
+        "Sodium (mg)": 630,
         "Ingredients": "Kale, Red Cabbage, Brown Rice, Sweet potato, Quinoa prepared* (Water, Quinoa, Sea Salt , Garlic Powder), Seasoned Tofu* (Coconut milk, Tahini Paste , Tofu, Salt & Pepper Blend* (Sea Salt , Black Pepper), Turmeric, Chili powder, Paprika, Cumin seed, Oregano)",
-        "id": 128
+        "id": 129
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1685646845_28-imgl3884_6478edfd19176-m.jpg",
@@ -1814,10 +1828,10 @@
         "Protein": 15,
         "Carbs": 30,
         "Fat": 7,
-        "Sugars": 24,
-        "Sodium(mg)": 60,
+        "Sugar": 24,
+        "Sodium (mg)": 60,
         "Ingredients": "Low Fat Vanilla Greek Yogurt, Mangos, Granola",
-        "id": 129
+        "id": 130
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460903_pepper-steak_62ac54279420c-m.jpg",
@@ -1828,10 +1842,24 @@
         "Protein": 37,
         "Carbs": 37,
         "Fat": 11,
-        "Sugars": 4,
-        "Sodium(mg)": 950,
+        "Sugar": 4,
+        "Sodium (mg)": 950,
         "Ingredients": "Pepper Steak* (Steak (Tri Tip) Diced* (Beef, Worcestershire Sauce, Teriyaki Sauce Gluten Free* (Water, Honey, Soy Sauce, Dark Brown Sugar, Rice Vinegar, Garlic Powder, Gluten Free Flour, Ground ginger), Steak Seasoning ), Soy Sauce, Steak Seasoning ), Brown Rice, Diced Bell Pepper Mix* (Bell Pepper, Extra Virgin Olive Oil , Salt & Pepper Blend* (Sea Salt , Black Pepper))",
-        "id": 130
+        "id": 131
+    },
+    {
+        "Images": "https://readyfitgo.com/assets/products/1686203800_995a0279_64816d98808a8-m.jpg",
+        "Vegan or/and Vegetarian": null,
+        "Meal Type": null,
+        "Menu Item": "Pepperoni Pizza (2 Servings/ Amount per serving)",
+        "Calories": 560,
+        "Protein": 44,
+        "Carbs": 62,
+        "Fat": 23,
+        "Sugar": 8,
+        "Sodium (mg)": 1550,
+        "Ingredients": "Cauliflower Pizza Crust, Marinara Sauce, Shredded Mozzarella Cheese, Pepperoncini",
+        "id": 132
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460482_hawaiian-poke-bowl_62ac5282dd3a2-m.jpg",
@@ -1842,10 +1870,10 @@
         "Protein": 32,
         "Carbs": 24,
         "Fat": 3,
-        "Sugars": 7,
-        "Sodium(mg)": 1390,
+        "Sugar": 7,
+        "Sodium (mg)": 1390,
         "Ingredients": "Yellowfin Tuna, Poke Sauce* (Soy Sauce, Pineapple, Rice Vinegar, Lime juice, Garlic), Brown Rice, Cucumber, Pineapple, Edamame, Quinoa",
-        "id": 131
+        "id": 133
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460934_devilish-egg-salad-2_62ac544650abd-m.jpg",
@@ -1856,10 +1884,10 @@
         "Protein": 12,
         "Carbs": 13,
         "Fat": 17,
-        "Sugars": 1,
-        "Sodium(mg)": 400,
+        "Sugar": 1,
+        "Sodium (mg)": 400,
         "Ingredients": "Egg Salad Mix* (Egg, Mayonnaise , Celery, Sea Salt , Garlic Powder, Cayenne Pepper), Celery, Saltine Crackers",
-        "id": 132
+        "id": 134
     },
     {
         "Images": "https://readyfitgo.com/assets/products/1655460427_mango-ceviche_62ac524b7811f-m.jpg",
@@ -1870,9 +1898,9 @@
         "Protein": 21,
         "Carbs": 28,
         "Fat": 3,
-        "Sugars": 9,
-        "Sodium(mg)": 190,
+        "Sugar": 9,
+        "Sodium (mg)": 190,
         "Ingredients": "Ceviche* (Fish, tilapia, raw, Lemon Juice, Rice Vinegar , Salt & Pepper Blend* (Sea Salt , Black Pepper)), Quinoa prepared* (Water, Quinoa, Garlic Powder), Cucumber, Mangos, Onions, Rice crackers",
-        "id": 133
+        "id": 135
     }
 ]

@@ -3,7 +3,11 @@ import cors from 'cors';  // Make sure you import cors
 import fetch from 'node-fetch';
 
 const app = express();
+<<<<<<< Updated upstream
 const PORT = process.env.PORT || 3000;
+=======
+const PORT = process.env.PORT || 3000; //TODO: Change to 3000
+>>>>>>> Stashed changes
 
 // Use CORS middleware to set CORS headers
 app.use(cors({
