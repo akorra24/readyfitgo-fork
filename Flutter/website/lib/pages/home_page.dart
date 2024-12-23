@@ -354,71 +354,76 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 60),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.05),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           // Numbered Header
-                          Stack(
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    "images/home_line.png",
+                                    width: 80,
+                                  ),
+                                  SizedBox(width: 10),
+                                  Text(
+                                    "GET STARTED",
+                                    style: TextStyle(
+                                      fontFamily: 'Rufina',
+                                      fontSize: 15,
+                                      letterSpacing: 5,
+                                      color: Color(0xFFFBD784),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              SizedBox(height: 10),
+                              // Main Title
                               Text(
-                                "",
+                                "Nutrition",
                                 style: TextStyle(
                                   fontFamily: 'Rufina',
-                                  fontSize: 150,
-                                  color: Colors.white.withOpacity(0.1),
+                                  fontSize: 40,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 150, top: 70),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "images/home_line.png",
-                                          width: 80,
-                                        ),
-                                        SizedBox(width: 10),
-                                        Text(
-                                          "GET STARTED",
-                                          style: TextStyle(
-                                            fontFamily: 'Rufina',
-                                            fontSize: 15,
-                                            letterSpacing: 5,
-                                            color: Color(0xFFFBD784),
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    SizedBox(height: 10),
-                                    // Main Title
-                                    Text(
-                                      "Nutrition",
-                                      style: TextStyle(
-                                        fontFamily: 'Rufina',
-                                        fontSize: 40,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
                             ],
                           ),
                           // Bullet Points
-                          Padding(
-                            padding: const EdgeInsets.only(left: 150),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                    "1. Start monitoring your food intake for at least a month. Yes, it’s time to count your calories.",
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  "1. Start monitoring your food intake for at least a month. Yes, it’s time to count your calories.",
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    height: 1.5,
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child:
+                                    Text("• You don’t have to do this forever.",
+                                        style: TextStyle(
+                                          fontFamily: 'Satoshi',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          height: 1.5,
+                                        )),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text(
+                                    "• You’re doing this to get a rough idea of how many calories are in your food. If you don’t understand what you’re eating, you can’t make informed decisions about what to eat.",
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
                                       fontWeight: FontWeight.w600,
@@ -426,43 +431,28 @@ class HomePage extends StatelessWidget {
                                       color: Colors.white,
                                       height: 1.5,
                                     )),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                      "• You don’t have to do this forever.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                      "• You’re doing this to get a rough idea of how many calories are in your food. If you don’t understand what you’re eating, you can’t make informed decisions about what to eat.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 150),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                    "2. Estimate your calories using the macro calculator.",
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                  "2. Estimate your calories using the macro calculator.",
+                                  style: TextStyle(
+                                    fontFamily: 'Satoshi',
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    height: 1.5,
+                                  )),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text(
+                                    "• If you're not already super lean (<12% body fat), start things off with a cut.",
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
                                       fontWeight: FontWeight.w600,
@@ -470,32 +460,20 @@ class HomePage extends StatelessWidget {
                                       color: Colors.white,
                                       height: 1.5,
                                     )),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                      "• If you're not already super lean (<12% body fat), start things off with a cut.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 20),
-                                  child: Text(
-                                      "• This will fast-track your aesthetic progress by shedding fat around your muscles, while still allowing muscle gain as a beginner.",
-                                      style: TextStyle(
-                                        fontFamily: 'Satoshi',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16,
-                                        color: Colors.white,
-                                        height: 1.5,
-                                      )),
-                                ),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text(
+                                    "• This will fast-track your aesthetic progress by shedding fat around your muscles, while still allowing muscle gain as a beginner.",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      color: Colors.white,
+                                      height: 1.5,
+                                    )),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -548,7 +526,8 @@ class HomePage extends StatelessWidget {
                   Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
+                      padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width * 0.02),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
