@@ -50,8 +50,10 @@ class HomePage extends StatelessWidget {
                     children: [
                       // Navigation Bar
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 40, vertical: 20),
+                        padding: EdgeInsets.symmetric(
+                            horizontal:
+                                MediaQuery.of(context).size.width * 0.01,
+                            vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -64,7 +66,7 @@ class HomePage extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                       right: MediaQuery.of(context).size.width *
-                                          0.02),
+                                          0.03),
                                   child: TextButton(
                                     onPressed: () {},
                                     child: const Text(
@@ -80,7 +82,7 @@ class HomePage extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                       right: MediaQuery.of(context).size.width *
-                                          0.02),
+                                          0.03),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -103,7 +105,7 @@ class HomePage extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                       right: MediaQuery.of(context).size.width *
-                                          0.02),
+                                          0.03),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -173,7 +175,7 @@ class HomePage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.2),
+                                left: MediaQuery.of(context).size.width * 0.25),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
