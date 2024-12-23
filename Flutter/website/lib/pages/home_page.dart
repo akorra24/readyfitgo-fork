@@ -313,21 +313,31 @@ class HomePage extends StatelessWidget {
                         "images/follow.png",
                         width: 15,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
-                          "images/instagram.png",
-                          width: 20,
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: InkWell(
+                          onTap: () {
+                            html.window.open(
+                                'https://www.instagram.com/readyfitgo_cali/',
+                                '_blank');
+                          },
+                          child: Image.asset(
+                            "images/instagram.png",
+                            width: 20,
+                            color: Colors.white,
+                          ),
                         ),
-                        color: Colors.white,
                       ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Image.asset(
+                      InkWell(
+                        onTap: () {
+                          html.window
+                              .open('https://twitter.com/readyfitgo', '_blank');
+                        },
+                        child: Image.asset(
                           "images/twitter.png",
                           width: 20,
+                          color: Colors.white,
                         ),
-                        color: Colors.white,
                       ),
                     ],
                   ),
@@ -850,8 +860,9 @@ class HomePage extends StatelessWidget {
                     children: [
                       InkWell(
                         onTap: () {
-                          html.window
-                              .open('https://readyfitgo.com/shop', '_blank');
+                          html.window.open(
+                              'https://www.facebook.com/RFGHermosaBeach/',
+                              '_blank');
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -884,8 +895,9 @@ class HomePage extends StatelessWidget {
                       SizedBox(width: 20),
                       InkWell(
                         onTap: () {
-                          html.window
-                              .open('https://readyfitgo.com/shop', '_blank');
+                          html.window.open(
+                              'https://www.instagram.com/readyfitgo_cali/',
+                              '_blank');
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
@@ -950,7 +962,7 @@ class HomePage extends StatelessWidget {
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
                                     html.window.open(
-                                        'https://readyfitgo.com/contact',
+                                        'https://www.linkedin.com/company/ready-fit-go-corona',
                                         '_blank');
                                   },
                               ),
@@ -968,14 +980,27 @@ class HomePage extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Image.asset(
-                              "images/Linkedin.png",
-                              width: 30,
+                            InkWell(
+                              onTap: () {
+                                html.window.open(
+                                    'https://www.linkedin.com/company/ready-fit-go-corona',
+                                    '_blank');
+                              },
+                              child: Image.asset(
+                                "images/Linkedin.png",
+                                width: 30,
+                              ),
                             ),
                             SizedBox(width: 10),
-                            Image.asset(
-                              "images/Twitter_2.png",
-                              width: 30,
+                            InkWell(
+                              onTap: () {
+                                html.window.open(
+                                    'https://twitter.com/readyfitgo', '_blank');
+                              },
+                              child: Image.asset(
+                                "images/Twitter_2.png",
+                                width: 30,
+                              ),
                             ),
                           ],
                         )
