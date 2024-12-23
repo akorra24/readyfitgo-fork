@@ -26,8 +26,29 @@ class _MealGeneratorState extends State<MealGenerator> {
   int numberOfMeals = 3;
   int numberOfDays = 5;
 
-  bool get _isFormValid {
-    return _formKey.currentState?.validate() ?? false;
+  // bool get _isFormValid {
+  //   return _formKey.currentState?.validate() ?? false;
+  // }
+
+  bool _isFormValid = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _proteinController.addListener(_validateForm);
+    _carbsController.addListener(_validateForm);
+    _fatsController.addListener(_validateForm);
+    _caloriesController.addListener(_validateForm);
+  }
+
+  void _validateForm() {
+    setState(() {
+      _isFormValid = _proteinController.text.isNotEmpty &&
+          _carbsController.text.isNotEmpty &&
+          _fatsController.text.isNotEmpty &&
+          _caloriesController.text.isNotEmpty &&
+          (_formKey.currentState?.validate() ?? false);
+    });
   }
 
   @override
@@ -338,93 +359,213 @@ class _MealGeneratorState extends State<MealGenerator> {
                             }),
                           ),
                           const SizedBox(height: 60),
-                          GestureDetector(
-                            onTap: _isFormValid
-                                ? () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => DailyMealPlanPage(
-                                          selectedMacros: {
-                                            'Protein': double.parse(
-                                                _proteinController.text),
-                                            'Carbohydrates': double.parse(
-                                                _carbsController.text),
-                                            'Fats': double.parse(
-                                                _fatsController.text),
-                                            'Calories': double.parse(
-                                                _caloriesController.text),
-                                          },
-                                          dietaryPreference: dietaryPreference,
-                                          numberOfMeals: numberOfMeals,
-                                          numberOfDays: numberOfDays,
-                                          calculateMacros: false,
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                : null,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              MacroCalculatorPage()),
-                                    );
-                                  },
-                                  child: SizedBox(
-                                    width: 280, // Set the desired width here
-                                    child: Container(
-                                      padding: const EdgeInsets.all(15),
-                                      margin: const EdgeInsets.symmetric(
-                                          horizontal: 25),
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFF0C1F27),
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child: const Center(
-                                        child: Text(
-                                          'Don\'t know my Macros',
-                                          style: TextStyle(
-                                            color: Colors.white, // White text
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 15,
+                          LayoutBuilder(
+                            builder: (context, constraints) {
+                              if (MediaQuery.of(context).size.width < 700) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MacroCalculatorPage()),
+                                        );
+                                      },
+                                      child: SizedBox(
+                                        width:
+                                            280, // Set the desired width here
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 25),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF0C1F27),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Don\'t know my Macros',
+                                              style: TextStyle(
+                                                color:
+                                                    Colors.white, // White text
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 280, // Set the desired width here
-                                  child: Container(
-                                    padding: const EdgeInsets.all(15),
-                                    margin: const EdgeInsets.symmetric(
-                                        horizontal: 25),
-                                    decoration: BoxDecoration(
-                                      color: _isFormValid
-                                          ? const Color(0xFF0C1F27)
-                                          : Colors.grey,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        'Generate My Meals',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 15,
+                                    SizedBox(height: 20),
+                                    GestureDetector(
+                                      onTap: _isFormValid
+                                          ? () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMealPlanPage(
+                                                    selectedMacros: {
+                                                      'Protein': double.parse(
+                                                          _proteinController
+                                                              .text),
+                                                      'Carbohydrates':
+                                                          double.parse(
+                                                              _carbsController
+                                                                  .text),
+                                                      'Fats': double.parse(
+                                                          _fatsController.text),
+                                                      'Calories': double.parse(
+                                                          _caloriesController
+                                                              .text),
+                                                    },
+                                                    dietaryPreference:
+                                                        dietaryPreference,
+                                                    numberOfMeals:
+                                                        numberOfMeals,
+                                                    numberOfDays: numberOfDays,
+                                                    calculateMacros: false,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          : null,
+                                      child: SizedBox(
+                                        width:
+                                            280, // Set the desired width here
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 25),
+                                          decoration: BoxDecoration(
+                                            color: _isFormValid
+                                                ? const Color(0xFF0C1F27)
+                                                : Colors.grey,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Generate My Meals',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ),
+                                  ],
+                                );
+                              } else {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MacroCalculatorPage()),
+                                        );
+                                      },
+                                      child: SizedBox(
+                                        width:
+                                            280, // Set the desired width here
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 25),
+                                          decoration: BoxDecoration(
+                                            color: const Color(0xFF0C1F27),
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Don\'t know my Macros',
+                                              style: TextStyle(
+                                                color:
+                                                    Colors.white, // White text
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: _isFormValid
+                                          ? () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      DailyMealPlanPage(
+                                                    selectedMacros: {
+                                                      'Protein': double.parse(
+                                                          _proteinController
+                                                              .text),
+                                                      'Carbohydrates':
+                                                          double.parse(
+                                                              _carbsController
+                                                                  .text),
+                                                      'Fats': double.parse(
+                                                          _fatsController.text),
+                                                      'Calories': double.parse(
+                                                          _caloriesController
+                                                              .text),
+                                                    },
+                                                    dietaryPreference:
+                                                        dietaryPreference,
+                                                    numberOfMeals:
+                                                        numberOfMeals,
+                                                    numberOfDays: numberOfDays,
+                                                    calculateMacros: false,
+                                                  ),
+                                                ),
+                                              );
+                                            }
+                                          : null,
+                                      child: SizedBox(
+                                        width:
+                                            280, // Set the desired width here
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15),
+                                          margin: const EdgeInsets.symmetric(
+                                              horizontal: 25),
+                                          decoration: BoxDecoration(
+                                            color: _isFormValid
+                                                ? const Color(0xFF0C1F27)
+                                                : Colors.grey,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: const Center(
+                                            child: Text(
+                                              'Generate My Meals',
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              }
+                            },
                           ),
                           SizedBox(
                             height: 60,
