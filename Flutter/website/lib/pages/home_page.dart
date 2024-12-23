@@ -159,13 +159,15 @@ class HomePage extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(height: 150),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.2),
                       // Central Content
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 400),
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.2),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -306,7 +308,7 @@ class HomePage extends StatelessWidget {
                 // Side Icons
                 Positioned(
                   left: 20,
-                  top: 300,
+                  top: MediaQuery.of(context).size.height * 0.37,
                   child: Column(
                     children: [
                       Image.asset(
