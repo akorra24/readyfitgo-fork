@@ -1194,11 +1194,14 @@ class HomePage extends StatelessWidget {
             // Footer Section
             Container(
               color: const Color(0xFF0B1D26), // Dark blue background color
-              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+              padding: EdgeInsets.symmetric(
+                  vertical: 30,
+                  horizontal: MediaQuery.of(context).size.width * 0.01),
               child: Column(
                 children: [
                   Text(
                     "Fresh. Convenient. Local.",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Satoshi',
                       fontSize: 35,
@@ -1209,7 +1212,9 @@ class HomePage extends StatelessWidget {
                   SizedBox(height: 30),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width / 4),
+                        horizontal: MediaQuery.of(context).size.width < 700
+                            ? MediaQuery.of(context).size.width * 0.001
+                            : MediaQuery.of(context).size.width / 4),
                     child: Text(
                       "We're passionate about making healthy living easy with fresh, ready-to-eat meals designed to fit your lifestyle. Our meals are machine-sealed with nitrogen gas to stay fresh for up to 14 days—no freezing needed. Whether you're ordering for delivery or picking up in-store, our meals are made to fuel your goals without the hassle. From personalized coaching to flexible meal plans, we’re here to support your wellness journey every step of the way.",
                       textAlign: TextAlign.center,
@@ -1299,80 +1304,165 @@ class HomePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: MediaQuery.of(context).size.width * 0.1),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Image.asset(
-                          'images/rfg_logo.png',
-                          height: 100,
-                        ),
-                        RichText(
-                          text: TextSpan(
-                            children: [
-                              TextSpan(
-                                text: "2025 ReadyFitGo. ",
-                                style: TextStyle(
-                                  fontFamily: 'Satoshi',
-                                  fontSize: 16,
-                                  color: Colors.white.withOpacity(0.6),
-                                  fontWeight: FontWeight.bold,
-                                ),
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      if (constraints.maxWidth < 700) {
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'images/rfg_logo.png',
+                              height: 100,
+                            ),
+                            SizedBox(height: 20),
+                            RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "2025 ReadyFitGo. ",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Colors.white.withOpacity(0.6),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "Click Here",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Color(0xFF8AEA8A), // Green color
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        html.window.open(
+                                            'https://www.linkedin.com/company/ready-fit-go-corona',
+                                            '_blank');
+                                      },
+                                  ),
+                                  TextSpan(
+                                    text: " for Business Inquiries.",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Colors.white.withOpacity(0.6),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              TextSpan(
-                                text: "Click Here",
-                                style: TextStyle(
-                                  fontFamily: 'Satoshi',
-                                  fontSize: 16,
-                                  color: Color(0xFF8AEA8A), // Green color
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
+                            ),
+                            SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  onTap: () {
                                     html.window.open(
                                         'https://www.linkedin.com/company/ready-fit-go-corona',
                                         '_blank');
                                   },
-                              ),
-                              TextSpan(
-                                text: " for Business Inquiries.",
-                                style: TextStyle(
-                                  fontFamily: 'Satoshi',
-                                  fontSize: 16,
-                                  color: Colors.white.withOpacity(0.6),
-                                  fontWeight: FontWeight.bold,
+                                  child: Image.asset(
+                                    "images/Linkedin.png",
+                                    width: 30,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                html.window.open(
-                                    'https://www.linkedin.com/company/ready-fit-go-corona',
-                                    '_blank');
-                              },
-                              child: Image.asset(
-                                "images/Linkedin.png",
-                                width: 30,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            InkWell(
-                              onTap: () {
-                                html.window.open(
-                                    'https://twitter.com/readyfitgo', '_blank');
-                              },
-                              child: Image.asset(
-                                "images/Twitter_2.png",
-                                width: 30,
-                              ),
-                            ),
+                                SizedBox(width: 10),
+                                InkWell(
+                                  onTap: () {
+                                    html.window.open(
+                                        'https://twitter.com/readyfitgo',
+                                        '_blank');
+                                  },
+                                  child: Image.asset(
+                                    "images/Twitter_2.png",
+                                    width: 30,
+                                  ),
+                                ),
+                              ],
+                            )
                           ],
-                        )
-                      ],
-                    ),
+                        );
+                      } else {
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              'images/rfg_logo.png',
+                              height: 100,
+                            ),
+                            RichText(
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: "2025 ReadyFitGo. ",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Colors.white.withOpacity(0.6),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: "Click Here",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Color(0xFF8AEA8A), // Green color
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    recognizer: TapGestureRecognizer()
+                                      ..onTap = () {
+                                        html.window.open(
+                                            'https://www.linkedin.com/company/ready-fit-go-corona',
+                                            '_blank');
+                                      },
+                                  ),
+                                  TextSpan(
+                                    text: " for Business Inquiries.",
+                                    style: TextStyle(
+                                      fontFamily: 'Satoshi',
+                                      fontSize: 16,
+                                      color: Colors.white.withOpacity(0.6),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    html.window.open(
+                                        'https://www.linkedin.com/company/ready-fit-go-corona',
+                                        '_blank');
+                                  },
+                                  child: Image.asset(
+                                    "images/Linkedin.png",
+                                    width: 30,
+                                  ),
+                                ),
+                                SizedBox(width: 10),
+                                InkWell(
+                                  onTap: () {
+                                    html.window.open(
+                                        'https://twitter.com/readyfitgo',
+                                        '_blank');
+                                  },
+                                  child: Image.asset(
+                                    "images/Twitter_2.png",
+                                    width: 30,
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        );
+                      }
+                    }),
                   )
                 ],
               ),
