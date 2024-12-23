@@ -177,7 +177,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                           Row(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 40),
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.03),
                                 child: TextButton(
                                   onPressed: () {
                                     Navigator.push(
@@ -197,7 +199,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 40),
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.03),
                                 child: TextButton(
                                   onPressed: () {
                                     Navigator.push(
@@ -218,7 +222,9 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 40),
+                                padding: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.03),
                                 child: TextButton(
                                   onPressed: () {
                                     Navigator.push(

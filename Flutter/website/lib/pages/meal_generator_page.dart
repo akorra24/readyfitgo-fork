@@ -60,7 +60,8 @@ class _MealGeneratorState extends State<MealGenerator> {
                     Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
+                          padding: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.03),
                           child: TextButton(
                             onPressed: () {
                               Navigator.push(
@@ -80,7 +81,8 @@ class _MealGeneratorState extends State<MealGenerator> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
+                          padding: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.03),
                           child: TextButton(
                             onPressed: () {
                               Navigator.push(
@@ -101,7 +103,8 @@ class _MealGeneratorState extends State<MealGenerator> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 40),
+                          padding: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.03),
                           child: TextButton(
                             onPressed: () {
                               Navigator.push(

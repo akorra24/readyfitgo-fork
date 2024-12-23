@@ -50,10 +50,8 @@ class HomePage extends StatelessWidget {
                     children: [
                       // Navigation Bar
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width * 0.01,
-                            vertical: 20),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
