@@ -14,6 +14,122 @@ class MacroCalculatorPage extends StatefulWidget {
 }
 
 class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  Widget _buildNavigation(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (MediaQuery.of(context).size.width < 700) {
+          return IconButton(
+            icon: const Icon(Icons.menu, color: Colors.white),
+            onPressed: () {
+              _scaffoldKey.currentState?.openEndDrawer();
+            },
+          );
+        } else {
+          return Row(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width * 0.03),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: const Text(
+                    "Home",
+                    style: TextStyle(
+                        fontFamily: 'Satoshi',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width * 0.03),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MacroCalculatorPage()),
+                    );
+                  },
+                  child: const Text(
+                    "Calculate Macros",
+                    style: TextStyle(
+                        fontFamily: 'Satoshi',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                    right: MediaQuery.of(context).size.width * 0.03),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MealGenerator()),
+                    );
+                  },
+                  child: const Text(
+                    "Meal Generator",
+                    style: TextStyle(
+                        fontFamily: 'Satoshi',
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontSize: 18),
+                  ),
+                ),
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  // Button press action here
+                },
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white, // Text color
+                  backgroundColor: Colors.transparent, // Background color
+                  side: const BorderSide(
+                    color: Colors.white, // Border color
+                    width: 1.0, // Border width
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(0), // Button corner radius
+                  ),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      html.window.open('https://readyfitgo.com/shop', '_blank');
+                    },
+                    child: Text(
+                      'Shop Now',
+                      style: TextStyle(
+                        fontFamily: 'Satoshi',
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              )
+            ],
+          );
+        }
+      },
+    );
+  }
+
   final _formKey = GlobalKey<FormState>();
   bool _isButtonEnabled = false;
   bool _macrosCalculated = false;
@@ -149,6 +265,45 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            ListTile(
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+            ),
+            ListTile(
+              title: const Text('Calculate Macros'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MacroCalculatorPage()));
+              },
+            ),
+            ListTile(
+              title: const Text('Meal Generator'),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MealGenerator()));
+              },
+            ),
+            ListTile(
+              title: const Text('Shop Now'),
+              onTap: () {
+                html.window.open('https://readyfitgo.com/shop', '_blank');
+              },
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -175,119 +330,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                 'images/logo.png',
                                 height: 50,
                               ),
-                              Row(
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        right:
-                                            MediaQuery.of(context).size.width *
-                                                0.03),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => HomePage()),
-                                        );
-                                      },
-                                      child: const Text(
-                                        "Home",
-                                        style: TextStyle(
-                                            fontFamily: 'Satoshi',
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        right:
-                                            MediaQuery.of(context).size.width *
-                                                0.03),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  MacroCalculatorPage()),
-                                        );
-                                      },
-                                      child: const Text(
-                                        "Calculate Macros",
-                                        style: TextStyle(
-                                            fontFamily: 'Satoshi',
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                        right:
-                                            MediaQuery.of(context).size.width *
-                                                0.03),
-                                    child: TextButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  MealGenerator()),
-                                        );
-                                      },
-                                      child: const Text(
-                                        "Meal Generator",
-                                        style: TextStyle(
-                                            fontFamily: 'Satoshi',
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.white,
-                                            fontSize: 18),
-                                      ),
-                                    ),
-                                  ),
-                                  OutlinedButton(
-                                    onPressed: () {
-                                      // Button press action here
-                                    },
-                                    style: OutlinedButton.styleFrom(
-                                      foregroundColor:
-                                          Colors.white, // Text color
-                                      backgroundColor: Colors
-                                          .transparent, // Background color
-                                      side: const BorderSide(
-                                        color: Colors.white, // Border color
-                                        width: 1.0, // Border width
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            0), // Button corner radius
-                                      ),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          html.window.open(
-                                              'https://readyfitgo.com/shop',
-                                              '_blank');
-                                        },
-                                        child: Text(
-                                          'Shop Now',
-                                          style: TextStyle(
-                                            fontFamily: 'Satoshi',
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 18,
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
+                              _buildNavigation(context),
                             ],
                           ),
                         ),
