@@ -45,11 +45,11 @@ class _MealGeneratorState extends State<MealGenerator> {
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.125,
-            child: Column(children: [
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               // Navigation Bar
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -379,8 +379,7 @@ class _MealGeneratorState extends State<MealGenerator> {
 
   Widget _buildTextField(TextEditingController controller, String label) {
     return Container(
-      padding: EdgeInsets.all(MediaQuery.of(context).size.width *
-                                          0.02),
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
       width: MediaQuery.of(context).size.width * 0.15,
       child: TextFormField(
         controller: controller,
