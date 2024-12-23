@@ -187,7 +187,7 @@ class _MealGeneratorState extends State<MealGenerator> {
           child: Column(
             children: [
               const Text(
-                'Macro Calculator',
+                'Meal Generator',
                 style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
@@ -216,61 +216,126 @@ class _MealGeneratorState extends State<MealGenerator> {
                           Padding(
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width * 0.03),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: <Widget>[
-                                Text('Enter Daily Macros',
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold)),
-                                _buildTextField(
-                                    _caloriesController, 'Calories'),
-                                _buildTextField(_carbsController, 'Carbs (g)'),
-                                _buildTextField(
-                                    _proteinController, 'Protein (g)'),
-                                _buildTextField(_fatsController, 'Fats (g)'),
-                              ],
-                            ),
+                            child:
+                                LayoutBuilder(builder: (context, constraints) {
+                              if (MediaQuery.of(context).size.width < 700) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text('Enter Daily Macros',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
+                                    _buildTextField(
+                                        _caloriesController, 'Calories'),
+                                    _buildTextField(
+                                        _carbsController, 'Carbs (g)'),
+                                    _buildTextField(
+                                        _proteinController, 'Protein (g)'),
+                                    _buildTextField(
+                                        _fatsController, 'Fats (g)'),
+                                  ],
+                                );
+                              } else {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text('Enter Daily Macros',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
+                                    _buildTextField(
+                                        _caloriesController, 'Calories'),
+                                    _buildTextField(
+                                        _carbsController, 'Carbs (g)'),
+                                    _buildTextField(
+                                        _proteinController, 'Protein (g)'),
+                                    _buildTextField(
+                                        _fatsController, 'Fats (g)'),
+                                  ],
+                                );
+                              }
+                            }),
                           ),
                           const SizedBox(height: 40),
                           Padding(
                             padding: const EdgeInsets.only(left: 25, right: 25),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Text('Enter Daily Macros',
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold)),
-                                Expanded(
-                                    child: _buildDropdown(
+                            child:
+                                LayoutBuilder(builder: (context, constraints) {
+                              if (MediaQuery.of(context).size.width < 700) {
+                                return Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text('Enter Daily Macros',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
+                                    _buildDropdown(
                                         'Dietary Preferences',
                                         ['None', 'Vegetarian', 'Vegan'],
                                         dietaryPreference, (String? newValue) {
-                                  setState(() {
-                                    dietaryPreference = newValue!;
-                                  });
-                                })),
-                                Expanded(
-                                    child: _buildDropdown(
+                                      setState(() {
+                                        dietaryPreference = newValue!;
+                                      });
+                                    }),
+                                    _buildDropdown(
                                         'Number of Meals',
                                         [1, 2, 3, 4, 5],
                                         numberOfMeals, (int? newValue) {
-                                  setState(() {
-                                    numberOfMeals = newValue!;
-                                  });
-                                })),
-                                Expanded(
-                                    child: _buildDropdown(
+                                      setState(() {
+                                        numberOfMeals = newValue!;
+                                      });
+                                    }),
+                                    _buildDropdown(
                                         'Number of Days',
                                         [1, 2, 3, 4, 5, 6, 7],
                                         numberOfDays, (int? newValue) {
-                                  setState(() {
-                                    numberOfDays = newValue!;
-                                  });
-                                })),
-                              ],
-                            ),
+                                      setState(() {
+                                        numberOfDays = newValue!;
+                                      });
+                                    }),
+                                  ],
+                                );
+                              } else {
+                                return Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text('Enter Daily Macros',
+                                        style: const TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
+                                    Expanded(
+                                        child: _buildDropdown(
+                                            'Dietary Preferences',
+                                            ['None', 'Vegetarian', 'Vegan'],
+                                            dietaryPreference,
+                                            (String? newValue) {
+                                      setState(() {
+                                        dietaryPreference = newValue!;
+                                      });
+                                    })),
+                                    Expanded(
+                                        child: _buildDropdown(
+                                            'Number of Meals',
+                                            [1, 2, 3, 4, 5],
+                                            numberOfMeals, (int? newValue) {
+                                      setState(() {
+                                        numberOfMeals = newValue!;
+                                      });
+                                    })),
+                                    Expanded(
+                                        child: _buildDropdown(
+                                            'Number of Days',
+                                            [1, 2, 3, 4, 5, 6, 7],
+                                            numberOfDays, (int? newValue) {
+                                      setState(() {
+                                        numberOfDays = newValue!;
+                                      });
+                                    })),
+                                  ],
+                                );
+                              }
+                            }),
                           ),
                           const SizedBox(height: 60),
                           GestureDetector(
@@ -300,58 +365,32 @@ class _MealGeneratorState extends State<MealGenerator> {
                                   }
                                 : null,
                             child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                MacroCalculatorPage()),
-                                      );
-                                    },
-                                    child: SizedBox(
-                                      width: 280, // Set the desired width here
-                                      child: Container(
-                                        padding: const EdgeInsets.all(15),
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 25),
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xFF0C1F27),
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'Don\'t know my Macros',
-                                            style: TextStyle(
-                                              color: Colors.white, // White text
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              MacroCalculatorPage()),
+                                    );
+                                  },
+                                  child: SizedBox(
                                     width: 280, // Set the desired width here
                                     child: Container(
                                       padding: const EdgeInsets.all(15),
                                       margin: const EdgeInsets.symmetric(
                                           horizontal: 25),
                                       decoration: BoxDecoration(
-                                        color: _isFormValid
-                                            ? const Color(0xFF0C1F27)
-                                            : Colors.grey,
+                                        color: const Color(0xFF0C1F27),
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: const Center(
                                         child: Text(
-                                          'Generate My Meals',
+                                          'Don\'t know my Macros',
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            color: Colors.white, // White text
                                             fontWeight: FontWeight.bold,
                                             fontSize: 15,
                                           ),
@@ -359,7 +398,33 @@ class _MealGeneratorState extends State<MealGenerator> {
                                       ),
                                     ),
                                   ),
-                                ]),
+                                ),
+                                SizedBox(
+                                  width: 280, // Set the desired width here
+                                  child: Container(
+                                    padding: const EdgeInsets.all(15),
+                                    margin: const EdgeInsets.symmetric(
+                                        horizontal: 25),
+                                    decoration: BoxDecoration(
+                                      color: _isFormValid
+                                          ? const Color(0xFF0C1F27)
+                                          : Colors.grey,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    child: const Center(
+                                      child: Text(
+                                        'Generate My Meals',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                           SizedBox(
                             height: 60,
@@ -380,7 +445,9 @@ class _MealGeneratorState extends State<MealGenerator> {
   Widget _buildTextField(TextEditingController controller, String label) {
     return Container(
       padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.02),
-      width: MediaQuery.of(context).size.width * 0.15,
+      width: MediaQuery.of(context).size.width < 700
+          ? MediaQuery.of(context).size.width * 0.5
+          : MediaQuery.of(context).size.width * 0.15,
       child: TextFormField(
         controller: controller,
         style: TextStyle(
@@ -428,7 +495,9 @@ class _MealGeneratorState extends State<MealGenerator> {
       {double width = 150}) {
     return Container(
       padding: EdgeInsets.all(25),
-      width: width,
+      width: MediaQuery.of(context).size.width < 700
+          ? MediaQuery.of(context).size.width * 0.5
+          : width,
       child: DropdownButtonFormField<T>(
         decoration: InputDecoration(
           labelText: label,
