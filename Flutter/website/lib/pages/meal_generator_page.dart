@@ -179,7 +179,7 @@ class _MealGeneratorState extends State<MealGenerator> {
           ),
         ),
         child: Container(
-          padding: const EdgeInsets.all(50),
+          padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
           decoration: BoxDecoration(
             color: const Color(0xC90C1E26),
             borderRadius: BorderRadius.circular(10),
@@ -201,7 +201,8 @@ class _MealGeneratorState extends State<MealGenerator> {
               ),
               const SizedBox(height: 30),
               Container(
-                padding: const EdgeInsets.all(30),
+                padding:
+                    EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
                 decoration: BoxDecoration(
                   color: const Color(0x940C1E26),
                   borderRadius: BorderRadius.circular(10),
@@ -213,7 +214,8 @@ class _MealGeneratorState extends State<MealGenerator> {
                       child: Column(
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.only(left: 25, right: 25),
+                            padding: EdgeInsets.only(
+                                left: MediaQuery.of(context).size.width * 0.03),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -377,8 +379,9 @@ class _MealGeneratorState extends State<MealGenerator> {
 
   Widget _buildTextField(TextEditingController controller, String label) {
     return Container(
-      padding: EdgeInsets.all(25),
-      width: 180,
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width *
+                                          0.02),
+      width: MediaQuery.of(context).size.width * 0.15,
       child: TextFormField(
         controller: controller,
         style: TextStyle(
