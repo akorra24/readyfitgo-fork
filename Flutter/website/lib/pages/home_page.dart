@@ -203,7 +203,15 @@ class HomePage extends StatelessWidget {
                                   "Fit your budget.",
                                   style: TextStyle(
                                     fontFamily: 'Rufina',
-                                    fontSize: 60,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width < 600
+                                            ? 30 // Mobile screens
+                                            : MediaQuery.of(context)
+                                                        .size
+                                                        .width <
+                                                    1200
+                                                ? 60 // Tablet screens
+                                                : 80,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -212,7 +220,15 @@ class HomePage extends StatelessWidget {
                                   "Fit your lifestyle.",
                                   style: TextStyle(
                                     fontFamily: 'Rufina',
-                                    fontSize: 60,
+                                    fontSize:
+                                        MediaQuery.of(context).size.width < 600
+                                            ? 30 // Mobile screens
+                                            : MediaQuery.of(context)
+                                                        .size
+                                                        .width <
+                                                    1200
+                                                ? 60 // Tablet screens
+                                                : 80,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
