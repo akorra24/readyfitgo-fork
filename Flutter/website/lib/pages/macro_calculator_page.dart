@@ -147,7 +147,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
       TextEditingController(text: '30');
 
   String _sex = 'Male';
-  String _activityLevel = 'Lightly active';
+  String _activityLevel = '3-5 Days Exercise';
   String _fitnessGoal = 'Lose Weight';
   String _dietaryPreference = 'None';
   int _numberOfMeals = 3;
@@ -202,12 +202,12 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
 
     double multiplier;
     switch (_activityLevel) {
-      case 'Sedentary':
+      case '1-3 Days Exercise':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier =
-              10; // or maybe 10, as it’s even below the Lightly Active 10–12 range
+              10; // or maybe 10, as it’s even below the 3-5 Days Exercise 10–12 range
         } else if (_fitnessGoal == 'Maintain Weight') {
-          multiplier = 12; // slightly lower than Lightly Active 12–14
+          multiplier = 12; // slightly lower than 3-5 Days Exercise 12–14
         } else if (_fitnessGoal == 'Gain Weight') {
           multiplier = 14; // or 15, your choice
         } else if (_fitnessGoal == 'Body Recomposition') {
@@ -216,7 +216,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 12; // fallback
         }
         break;
-      case 'Lightly active':
+      case '3-5 Days Exercise':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -229,7 +229,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active':
+      case '5-7 Days Exercise':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -242,7 +242,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active':
+      case 'Athlete':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -255,20 +255,20 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 17; // default to maintenance if goal is not specified
         }
         break;
-      case 'Super active':
-        // If you want to handle super active similarly:
-        if (_fitnessGoal == 'Lose Weight') {
-          multiplier = 17; // e.g., a bit higher than Very Active’s 15
-        } else if (_fitnessGoal == 'Maintain Weight') {
-          multiplier = 19; // or maybe 20
-        } else if (_fitnessGoal == 'Gain Weight') {
-          multiplier = 22; // or 24, etc.
-        } else if (_fitnessGoal == 'Body Recomposition') {
-          multiplier = 18;
-        } else {
-          multiplier = 19;
-        }
-        break;
+      // case 'Super active':
+      //   // If you want to handle super active similarly:
+      //   if (_fitnessGoal == 'Lose Weight') {
+      //     multiplier = 17; // e.g., a bit higher than Athlete’s 15
+      //   } else if (_fitnessGoal == 'Maintain Weight') {
+      //     multiplier = 19; // or maybe 20
+      //   } else if (_fitnessGoal == 'Gain Weight') {
+      //     multiplier = 22; // or 24, etc.
+      //   } else if (_fitnessGoal == 'Body Recomposition') {
+      //     multiplier = 18;
+      //   } else {
+      //     multiplier = 19;
+      //   }
+      //   break;
       default:
         multiplier =
             13; // default to maintenance if activity level is not specified
@@ -634,11 +634,11 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                                 Colors
                                                                     .grey[800],
                                                             items: [
-                                                              'Sedentary',
-                                                              'Lightly active',
-                                                              'Moderately active',
-                                                              'Very active',
-                                                              'Super active'
+                                                              '1-3 Days Exercise',
+                                                              '3-5 Days Exercise',
+                                                              '5-7 Days Exercise',
+                                                              'Athlete',
+                                                              // 'Super active'
                                                             ]
                                                                 .map((label) =>
                                                                     DropdownMenuItem(
@@ -1488,11 +1488,11 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                                   Colors.grey[
                                                                       800],
                                                               items: [
-                                                                'Sedentary',
-                                                                'Lightly active',
-                                                                'Moderately active',
-                                                                'Very active',
-                                                                'Super active'
+                                                                '1-3 Days Exercise',
+                                                                '3-5 Days Exercise',
+                                                                '5-7 Days Exercise',
+                                                                'Athlete',
+                                                                // 'Super active'
                                                               ]
                                                                   .map((label) =>
                                                                       DropdownMenuItem(
@@ -2680,7 +2680,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "If your only activity outside the office is the gym, put yourself down as “Sedentary”. ",
+                      "If your only activity outside the office is the gym, put yourself down as “1-3 Days Exercise”. ",
                       style: TextStyle(
                         fontFamily: 'Satoshi',
                         fontSize: 20,
@@ -2698,7 +2698,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     ),
                     SizedBox(height: 10),
                     Text(
-                      "Four 1 hour strength training sessions at the gym each week is less than 2 hours of actual activity. It does not result in a large number of calories burnt.\nConversely, a teacher on her feet for the lions share of the week is most likely “Lightly Active”. The intermittent cardio throughout the day adds up.",
+                      "Four 1 hour strength training sessions at the gym each week is less than 2 hours of actual activity. It does not result in a large number of calories burnt.\nConversely, a teacher on her feet for the lions share of the week is most likely “3-5 Days Exercise”. The intermittent cardio throughout the day adds up.",
                       style: TextStyle(
                         fontFamily: 'Satoshi',
                         fontSize: 20,
@@ -2726,7 +2726,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Text(
-                          "• Sedentary: Little or no exercise, office job (1.2×)",
+                          "• 1-3 Days Exercise: Little or no exercise, office job (1.2×)",
                           style: TextStyle(
                             fontFamily: 'Satoshi',
                             fontSize: 20,
@@ -2736,7 +2736,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Text(
-                          "• Lightly Active: Light daily activity & exercise 1-3 days per week (1.375×)",
+                          "• 3-5 Days Exercise: Light daily activity & exercise 1-3 days per week (1.375×)",
                           style: TextStyle(
                             fontFamily: 'Satoshi',
                             fontSize: 20,
@@ -2746,7 +2746,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Text(
-                          "• Moderately Active: Moderate daily activity & exercise 3-5 days per week (1.55×)",
+                          "• 5-7 Days Exercise: Moderate daily activity & exercise 3-5 days per week (1.55×)",
                           style: TextStyle(
                             fontFamily: 'Satoshi',
                             fontSize: 20,
@@ -2756,7 +2756,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Text(
-                          "• Very Active: Physically demanding lifestyle & exercise 6-7 days per week (1.725×)",
+                          "• Athlete: Physically demanding lifestyle & exercise 6-7 days per week (1.725×)",
                           style: TextStyle(
                             fontFamily: 'Satoshi',
                             fontSize: 20,

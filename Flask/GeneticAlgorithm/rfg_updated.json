@@ -612,7 +612,7 @@
         "Fat": 31,
         "Sugars": 5,
         "Sodium(mg)": 605,
-        "Ingredients": null,
+        "Ingredients": "null",
         "id": 43
     },
     {
@@ -626,7 +626,7 @@
         "Fat": 23,
         "Sugars": 4,
         "Sodium(mg)": 432,
-        "Ingredients": null,
+        "Ingredients": "null",
         "id": 44
     },
     {

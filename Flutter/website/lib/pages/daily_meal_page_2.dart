@@ -69,19 +69,24 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
   }
 
   void calculateMacros() {
-    if (widget.age == null ||
-        widget.sex == null ||
-        widget.height == null ||
-        widget.weight == null ||
-        widget.activityLevel == null ||
-        widget.fitnessGoal == null) {
-      // Handle the error case where essential parameters are missing
-      return;
-    }
-
+    // Determine the multiplier based on activity level and fitness goal
     double multiplier;
     switch (widget.activityLevel) {
-      case 'Lightly active':
+      case '1-3 Days Exercise':
+        if (widget.fitnessGoal == 'Lose Weight') {
+          multiplier =
+              10; // or maybe 10, as it’s even below the 3-5 Days Exercise 10–12 range
+        } else if (widget.fitnessGoal == 'Maintain Weight') {
+          multiplier = 12; // slightly lower than 3-5 Days Exercise 12–14
+        } else if (widget.fitnessGoal == 'Gain Weight') {
+          multiplier = 14; // or 15, your choice
+        } else if (widget.fitnessGoal == 'Body Recomposition') {
+          multiplier = 11; // slightly less than your lose-weight number
+        } else {
+          multiplier = 12; // fallback
+        }
+        break;
+      case '3-5 Days Exercise':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -94,7 +99,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active':
+      case '5-7 Days Exercise':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -107,7 +112,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active':
+      case 'Athlete':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -125,8 +130,10 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
             13; // default to maintenance if activity level is not specified
     }
 
+    // Calculate daily caloric needs
     dailyCaloricNeeds = widget.weight! * multiplier;
 
+    // Calculate macros based on selected preferences
     dailyMacros = {
       'Protein (grams)': dailyCaloricNeeds *
           (widget.selectedMacros?['Protein'] ?? widget.proteinPercentage) /
@@ -141,15 +148,95 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
           100 /
           9,
     };
-
+    print(dailyMacros);
+    print(dailyCaloricNeeds);
     if (mounted) setState(() {});
   }
+
+  // void calculateMacros() {
+  //   if (widget.age == null ||
+  //       widget.sex == null ||
+  //       widget.height == null ||
+  //       widget.weight == null ||
+  //       widget.activityLevel == null ||
+  //       widget.fitnessGoal == null) {
+  //     // Handle the error case where essential parameters are missing
+  //     return;
+  //   }
+
+  //   double multiplier;
+  //   switch (widget.activityLevel) {
+  //     case 'Lightly active':
+  //       if (widget.fitnessGoal == 'Lose Weight') {
+  //         multiplier = 11; // middle of the range 10-12
+  //       } else if (widget.fitnessGoal == 'Maintain Weight') {
+  //         multiplier = 13; // middle of the range 12-14
+  //       } else if (widget.fitnessGoal == 'Gain Weight') {
+  //         multiplier = 16; // middle of the range 16-18
+  //       } else if (widget.fitnessGoal == 'Body Recomposition') {
+  //         multiplier = 12; // slightly less than maintenance
+  //       } else {
+  //         multiplier = 13; // default to maintenance if goal is not specified
+  //       }
+  //       break;
+  //     case 'Moderately active':
+  //       if (widget.fitnessGoal == 'Lose Weight') {
+  //         multiplier = 13; // middle of the range 12-14
+  //       } else if (widget.fitnessGoal == 'Maintain Weight') {
+  //         multiplier = 15; // middle of the range 14-16
+  //       } else if (widget.fitnessGoal == 'Gain Weight') {
+  //         multiplier = 18; // middle of the range 18-20
+  //       } else if (widget.fitnessGoal == 'Body Recomposition') {
+  //         multiplier = 14; // slightly less than maintenance
+  //       } else {
+  //         multiplier = 15; // default to maintenance if goal is not specified
+  //       }
+  //       break;
+  //     case 'Very active':
+  //       if (widget.fitnessGoal == 'Lose Weight') {
+  //         multiplier = 15; // middle of the range 14-16
+  //       } else if (widget.fitnessGoal == 'Maintain Weight') {
+  //         multiplier = 17; // middle of the range 16-18
+  //       } else if (widget.fitnessGoal == 'Gain Weight') {
+  //         multiplier = 20; // middle of the range 20-22
+  //       } else if (widget.fitnessGoal == 'Body Recomposition') {
+  //         multiplier = 16; // slightly less than maintenance
+  //       } else {
+  //         multiplier = 17; // default to maintenance if goal is not specified
+  //       }
+  //       break;
+  //     default:
+  //       multiplier =
+  //           13; // default to maintenance if activity level is not specified
+  //   }
+
+  //   dailyCaloricNeeds = widget.weight! * multiplier;
+
+  //   dailyMacros = {
+  //     'Protein (grams)': dailyCaloricNeeds *
+  //         (widget.selectedMacros?['Protein'] ?? widget.proteinPercentage) /
+  //         100 /
+  //         4,
+  //     'Carbs (grams)': dailyCaloricNeeds *
+  //         (widget.selectedMacros?['Carbohydrates'] ?? widget.carbsPercentage) /
+  //         100 /
+  //         4,
+  //     'Fats (grams)': dailyCaloricNeeds *
+  //         (widget.selectedMacros?['Fats'] ?? widget.fatPercentage) /
+  //         100 /
+  //         9,
+  //   };
+
+  //   if (mounted) setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
     if (dailyCaloricNeeds == 0 || dailyMacros.isEmpty) {
+      print('in the indicator');
       return Center(child: CircularProgressIndicator());
     }
+    print('otside the indicator');
 
     return Scaffold(
       body: Container(
