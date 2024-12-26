@@ -147,8 +147,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
       TextEditingController(text: '30');
 
   String _sex = 'Male';
-  String _activityLevel =
-      'Lightly active (light exercise less than 3 days per week)';
+  String _activityLevel = 'Lightly active';
   String _fitnessGoal = 'Lose Weight';
   String _dietaryPreference = 'None';
   int _numberOfMeals = 3;
@@ -203,7 +202,21 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
 
     double multiplier;
     switch (_activityLevel) {
-      case 'Lightly active (light exercise less than 3 days per week)':
+      case 'Sedentary':
+        if (_fitnessGoal == 'Lose Weight') {
+          multiplier =
+              10; // or maybe 10, as it’s even below the Lightly Active 10–12 range
+        } else if (_fitnessGoal == 'Maintain Weight') {
+          multiplier = 12; // slightly lower than Lightly Active 12–14
+        } else if (_fitnessGoal == 'Gain Weight') {
+          multiplier = 14; // or 15, your choice
+        } else if (_fitnessGoal == 'Body Recomposition') {
+          multiplier = 11; // slightly less than your lose-weight number
+        } else {
+          multiplier = 12; // fallback
+        }
+        break;
+      case 'Lightly active':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -216,7 +229,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active (moderate exercise 3-5 days per week)':
+      case 'Moderately active':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -229,7 +242,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active (intense exercise 6-7 days per week)':
+      case 'Very active':
         if (_fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (_fitnessGoal == 'Maintain Weight') {
@@ -240,6 +253,20 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
           multiplier = 16; // slightly less than maintenance
         } else {
           multiplier = 17; // default to maintenance if goal is not specified
+        }
+        break;
+      case 'Super active':
+        // If you want to handle super active similarly:
+        if (_fitnessGoal == 'Lose Weight') {
+          multiplier = 17; // e.g., a bit higher than Very Active’s 15
+        } else if (_fitnessGoal == 'Maintain Weight') {
+          multiplier = 19; // or maybe 20
+        } else if (_fitnessGoal == 'Gain Weight') {
+          multiplier = 22; // or 24, etc.
+        } else if (_fitnessGoal == 'Body Recomposition') {
+          multiplier = 18;
+        } else {
+          multiplier = 19;
         }
         break;
       default:
@@ -608,10 +635,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                                     .grey[800],
                                                             items: [
                                                               'Sedentary',
-                                                              'Lightly active (light exercise less than 3 days per week)',
-                                                              'Moderately active (moderate exercise 3-5 days per week)',
-                                                              'Very active (intense exercise 6-7 days per week)',
-                                                              'Super active (very intense exercise or physical job)'
+                                                              'Lightly active',
+                                                              'Moderately active',
+                                                              'Very active',
+                                                              'Super active'
                                                             ]
                                                                 .map((label) =>
                                                                     DropdownMenuItem(
@@ -1462,10 +1489,10 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                                                                       800],
                                                               items: [
                                                                 'Sedentary',
-                                                                'Lightly active (light exercise less than 3 days per week)',
-                                                                'Moderately active (moderate exercise 3-5 days per week)',
-                                                                'Very active (intense exercise 6-7 days per week)',
-                                                                'Super active (very intense exercise or physical job)'
+                                                                'Lightly active',
+                                                                'Moderately active',
+                                                                'Very active',
+                                                                'Super active'
                                                               ]
                                                                   .map((label) =>
                                                                       DropdownMenuItem(

@@ -81,7 +81,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
 
     double multiplier;
     switch (widget.activityLevel) {
-      case 'Lightly active (light exercise less than 3 days per week)':
+      case 'Lightly active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -94,7 +94,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active (moderate exercise 3-5 days per week)':
+      case 'Moderately active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -107,7 +107,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active (intense exercise 6-7 days per week)':
+      case 'Very active':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (widget.fitnessGoal == 'Maintain Weight') {
