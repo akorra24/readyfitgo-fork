@@ -24,19 +24,26 @@ class MealDetailCard extends StatelessWidget {
     required this.ingredients,
     this.onPressed,
     this.onPressedBandS,
-    this.buttonText = 'Replace',
+    this.buttonText = 'Replace with another Meal',
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: const BoxConstraints(
+      constraints: BoxConstraints(
           maxWidth: 300, maxHeight: 700), // Ensure consistent size
       child: Container(
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          border: Border.all(color: textColor, width: 1),
+          // border: Border.all(color: textColor, width: 1),
           borderRadius: BorderRadius.circular(8),
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: replaceCard
+                ? [Color(0xFF162D37), Color(0x6E162E38)]
+                : [Color(0xFF162D37), Color(0xFF42545C), Colors.white],
+          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -68,7 +75,7 @@ class MealDetailCard extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
-                          color: textColor),
+                          color: Colors.white),
                     ),
                   ),
                   const Divider(),
@@ -86,52 +93,56 @@ class MealDetailCard extends StatelessWidget {
             ),
             replaceCard
                 ? Container()
-                : Container(
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                    ),
-                    height: 50,
-                    width: double.infinity,
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: TextButton(
-                      onPressed: onPressedBandS ?? () {},
-                      child: const Text(
-                        'Replace w/ Snack/Breakfast',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                : Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFF4DADB3),
+                          borderRadius: BorderRadius.circular(50)),
+                      height: 35,
+                      width: 200,
+                      child: TextButton(
+                        onPressed: onPressedBandS ?? () {},
+                        child: const Text(
+                          'Replace with Breakfast/Snack',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
                   ),
             replaceCard
                 ? Container()
-                : Divider(
-                    color: textColor,
+                : SizedBox(
+                    height: 15,
                   ),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(8),
-                    bottomRight: Radius.circular(8)),
-              ),
-              height: 50,
-              width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: TextButton(
-                onPressed: onPressed ?? () {},
-                child: Text(
-                  buttonText,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: replaceCard ? Color(0xFF68B268) : Color(0xFFFF8E3C),
+                    borderRadius: BorderRadius.circular(50)),
+                height: 35,
+                width: 200,
+                child: TextButton(
+                  onPressed: onPressed ?? () {},
+                  child: Text(
+                    buttonText,
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
             ),
+            replaceCard
+                ? Container()
+                : SizedBox(
+                    height: 20,
+                  ),
           ],
         ),
       ),
@@ -144,11 +155,11 @@ class MealDetailCard extends StatelessWidget {
       children: [
         Text(
           label,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: Colors.white),
         ),
         Text(
           value,
-          style: TextStyle(color: textColor),
+          style: TextStyle(color: Colors.white),
         ),
       ],
     );
@@ -183,13 +194,21 @@ class MealDetailCard extends StatelessWidget {
           alignment: Alignment.center,
           child: Tooltip(
             message: 'Tap to view ingredients',
-            child: Text(
-              "Ingredients: ${_shortenIngredients(ingredients)}",
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13,
-                  color: Colors.grey),
-              textAlign: TextAlign.center,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(50)),
+              height: 35,
+              width: 150,
+              child: Center(
+                child: Text(
+                  'View Ingredients',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
             ),
           ),
         ),

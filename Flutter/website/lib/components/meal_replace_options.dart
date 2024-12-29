@@ -64,52 +64,77 @@ class MealReplaceOptions extends StatelessWidget {
           return Dialog(
             child: Container(
               padding: EdgeInsets.all(16),
-              child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, // Number of meal cards per row
-                  childAspectRatio: 0.64, // Adjust this to control card height
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                ),
-                itemCount: closestMealIds.length,
-                itemBuilder: (context, index) {
-                  final mealId = closestMealIds[index];
-                  return FutureBuilder<Map<String, dynamic>>(
-                    future: fetchMealDetails(mealId),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
-                      } else if (snapshot.hasError) {
-                        return Text('Error loading meal details');
-                      } else {
-                        final meal = snapshot.data!;
-                        print('Meal ID: $mealId');
+              child: Stack(children: [
+                GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: MediaQuery.of(context).size.width < 700
+                        ? 1 // Mobile
+                        : MediaQuery.of(context).size.width < 1300
+                            ? 2 // Tablet
+                            : 3, // Desktop
+                    childAspectRatio: MediaQuery.of(context).size.width < 700
+                        ? 0.5 // Mobile - wider ratio
+                        : MediaQuery.of(context).size.width < 900
+                            ? 0.67
+                            : MediaQuery.of(context).size.width < 1300
+                                ? 0.9
+                                : MediaQuery.of(context).size.width < 1400
+                                    ? 0.8
+                                    : 0.9, // Desktop - wider ratio
+                    crossAxisSpacing: MediaQuery.of(context).size.width * 0.02,
+                    mainAxisSpacing: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  itemCount: closestMealIds.length,
+                  itemBuilder: (context, index) {
+                    final mealId = closestMealIds[index];
+                    return FutureBuilder<Map<String, dynamic>>(
+                      future: fetchMealDetails(mealId),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text('Error loading meal details');
+                        } else {
+                          final meal = snapshot.data!;
+                          print('Meal ID: $mealId');
 
-                        return MealDetailCard(
-                          title: meal['Menu Item'],
-                          imagePath: meal['Images'],
-                          textColor: Colors.black,
-                          replaceCard: true,
-                          nutritionInfo: {
-                            "Calories": "${meal['Calories']} Kcal",
-                            "Protein": "${meal['Protein']} g",
-                            "Carbs": "${meal['Carbs']} g",
-                            "Fat": "${meal['Fat']} g",
-                          },
-                          ingredients: meal["Ingredients"],
-                          servingSize: "Serving size information",
-                          buttonText: "Select",
-                          onPressed: () {
-                            // print('Meal ID: $mealId');
-                            onMealSelected(mealId);
-                            Navigator.of(context).pop();
-                          },
-                        );
-                      }
+                          return MealDetailCard(
+                            title: meal['Menu Item'],
+                            imagePath: meal['Images'],
+                            textColor: Colors.black,
+                            replaceCard: true,
+                            nutritionInfo: {
+                              "Calories": "${meal['Calories']} Kcal",
+                              "Protein": "${meal['Protein']} g",
+                              "Carbs": "${meal['Carbs']} g",
+                              "Fat": "${meal['Fat']} g",
+                            },
+                            ingredients: meal["Ingredients"],
+                            servingSize: "Serving size information",
+                            buttonText: "Select",
+                            onPressed: () {
+                              // print('Meal ID: $mealId');
+                              onMealSelected(mealId);
+                              Navigator.of(context).pop();
+                            },
+                          );
+                        }
+                      },
+                    );
+                  },
+                ),
+                Positioned(
+                  right: 8,
+                  top: 8,
+                  child: IconButton(
+                    icon: Icon(Icons.close),
+                    onPressed: () {
+                      Navigator.of(context).pop();
                     },
-                  );
-                },
-              ),
+                  ),
+                ),
+              ]),
             ),
           );
         }

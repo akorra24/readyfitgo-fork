@@ -37,7 +37,21 @@ class _ResultsPageState extends State<ResultsPage> {
     // Determine the multiplier based on activity level and fitness goal
     double multiplier;
     switch (widget.activityLevel) {
-      case 'Lightly active (light exercise less than 3 days per week)':
+      case '1-3 Days Exercise':
+        if (widget.fitnessGoal == 'Lose Weight') {
+          multiplier =
+              10; // or maybe 10, as it’s even below the 3-5 Days Exercise 10–12 range
+        } else if (widget.fitnessGoal == 'Maintain Weight') {
+          multiplier = 12; // slightly lower than 3-5 Days Exercise 12–14
+        } else if (widget.fitnessGoal == 'Gain Weight') {
+          multiplier = 14; // or 15, your choice
+        } else if (widget.fitnessGoal == 'Body Recomposition') {
+          multiplier = 11; // slightly less than your lose-weight number
+        } else {
+          multiplier = 12; // fallback
+        }
+        break;
+      case '3-5 Days Exercise':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 11; // middle of the range 10-12
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -50,7 +64,7 @@ class _ResultsPageState extends State<ResultsPage> {
           multiplier = 13; // default to maintenance if goal is not specified
         }
         break;
-      case 'Moderately active (moderate exercise 3-5 days per week)':
+      case '5-7 Days Exercise':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 13; // middle of the range 12-14
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -63,7 +77,7 @@ class _ResultsPageState extends State<ResultsPage> {
           multiplier = 15; // default to maintenance if goal is not specified
         }
         break;
-      case 'Very active (intense exercise 6-7 days per week)':
+      case 'Athlete':
         if (widget.fitnessGoal == 'Lose Weight') {
           multiplier = 15; // middle of the range 14-16
         } else if (widget.fitnessGoal == 'Maintain Weight') {
@@ -116,13 +130,13 @@ class _ResultsPageState extends State<ResultsPage> {
   //   }
   //   // Adjust bmr based on activity level
   //   switch (widget.activityLevel) {
-  //     case 'Lightly active (light exercise less than 3 days per week)':
+  //     case '3-5 Days Exercise (light exercise less than 3 days per week)':
   //       dailyCaloricNeeds = bmr * 1.2;
   //       break;
-  //     case 'Moderately active (moderate exercise 3-5 days per week)':
+  //     case '5-7 Days Exercise (moderate exercise 3-5 days per week)':
   //       dailyCaloricNeeds = bmr * 1.55;
   //       break;
-  //     case 'Very active (intense exercise 6-7 days per week)':
+  //     case 'Athlete (intense exercise 6-7 days per week)':
   //       dailyCaloricNeeds = bmr * 1.725;
   //       break;
   //     default:
