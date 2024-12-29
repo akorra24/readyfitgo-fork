@@ -843,19 +843,6 @@ class HomePage extends StatelessWidget {
                 if (constraints.maxWidth < 700) {
                   return Column(
                     children: [
-                      // Image Section
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                          child: Image.asset(
-                            'images/gym.png',
-                            width: MediaQuery.of(context).size.width,
-                            height: 600,
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 20),
                       // Text Section
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -964,6 +951,19 @@ class HomePage extends StatelessWidget {
                             height: 50,
                           ),
                         ],
+                      ),
+                      SizedBox(width: 20),
+                      // Image Section
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          child: Image.asset(
+                            'images/gym.png',
+                            width: MediaQuery.of(context).size.width,
+                            height: 600,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                     ],
                   );
