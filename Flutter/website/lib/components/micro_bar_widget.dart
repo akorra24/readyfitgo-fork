@@ -41,8 +41,8 @@ class MacroDisplayWidget extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: Colors.transparent, // Make background transparent
-          border: Border.all(color: Colors.grey), // Add grey border
-          borderRadius: BorderRadius.circular(12),
+          // border: Border.all(color: Colors.grey), // Add grey border
+          // borderRadius: BorderRadius.circular(12),
         ),
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -61,31 +61,31 @@ class MacroDisplayWidget extends StatelessWidget {
                     children: <TextSpan>[
                       TextSpan(
                           text: '${calories.toStringAsFixed(0)} ',
-                          style: TextStyle(color: Colors.green)),
-                      TextSpan(text: 'Calories (Total)'),
+                          style: TextStyle(color: Colors.white)),
+                      TextSpan(text: 'Calories (Meal)'),
                     ],
                   ),
                 )),
-                GestureDetector(
-                  onTap: onPressed,
-                  child: Container(
-                    padding: const EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Colors.green,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Center(
-                      child: Text(
-                        'Regenerate',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                // GestureDetector(
+                //   onTap: onPressed,
+                //   child: Container(
+                //     padding: const EdgeInsets.all(10),
+                //     decoration: BoxDecoration(
+                //       color: Colors.green,
+                //       borderRadius: BorderRadius.circular(8),
+                //     ),
+                //     child: const Center(
+                //       child: Text(
+                //         'Regenerate',
+                //         style: TextStyle(
+                //           color: Colors.white,
+                //           fontWeight: FontWeight.bold,
+                //           fontSize: 13,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
             SizedBox(height: 3),
@@ -136,7 +136,7 @@ class MacroDisplayWidget extends StatelessWidget {
                         flex: (proteinFraction * 1000).toInt(),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Color(0xFF4CAF50),
                             borderRadius: BorderRadius.horizontal(
                               left: Radius.circular(10),
                             ),
@@ -147,7 +147,7 @@ class MacroDisplayWidget extends StatelessWidget {
                       Expanded(
                         flex: (carbsFraction * 1000).toInt(),
                         child: Container(
-                          color: Colors.orange,
+                          color: Color(0xFF504CAF),
                           height: 10,
                         ),
                       ),
@@ -155,7 +155,7 @@ class MacroDisplayWidget extends StatelessWidget {
                         flex: (fatFraction * 1000).toInt(),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.yellow,
+                            color: Color(0xFFAF4C4C),
                             borderRadius: BorderRadius.horizontal(
                               right: Radius.circular(10),
                             ),
@@ -205,11 +205,11 @@ class MacroDisplayWidget extends StatelessWidget {
             //     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             //   ),
             // ),
-            SizedBox(height: 4),
-            Divider(
-              color: Colors.grey,
-            ),
-            SizedBox(height: 4),
+            // SizedBox(height: 4),
+            // Divider(
+            //   color: Colors.grey,
+            // ),
+            SizedBox(height: 30),
             RichText(
               text: TextSpan(
                 style: TextStyle(
@@ -220,7 +220,7 @@ class MacroDisplayWidget extends StatelessWidget {
                 children: <TextSpan>[
                   TextSpan(
                       text: '${targetCalories.toStringAsFixed(0)} ',
-                      style: TextStyle(color: Colors.green)),
+                      style: TextStyle(color: Colors.white)),
                   TextSpan(text: 'Calories (Target)'),
                 ],
               ),
@@ -273,7 +273,7 @@ class MacroDisplayWidget extends StatelessWidget {
                         flex: (targetProteinFraction * 1000).toInt(),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.blue,
+                            color: Color(0xFF4CAF50),
                             borderRadius: BorderRadius.horizontal(
                               left: Radius.circular(10),
                             ),
@@ -284,7 +284,7 @@ class MacroDisplayWidget extends StatelessWidget {
                       Expanded(
                         flex: (targetCarbsFraction * 1000).toInt(),
                         child: Container(
-                          color: Colors.orange,
+                          color: Color(0xFF504CAF),
                           height: 10,
                         ),
                       ),
@@ -292,7 +292,7 @@ class MacroDisplayWidget extends StatelessWidget {
                         flex: (targetFatFraction * 1000).toInt(),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.yellow,
+                            color: Color(0xFFAF4C4C),
                             borderRadius: BorderRadius.horizontal(
                               right: Radius.circular(10),
                             ),

@@ -60,6 +60,19 @@ flutter:
     - images/home_page.jpg
     - images/logo1.png
     - images/steak.jpg
+    - images/logo.png
+    - images/mind.png
+    - images/gym.png
+    - images/follow.png
+    - images/instagram.png
+    - images/Instagram_2.png
+    - images/Facebook.png
+    - images/twitter.png
+    - images/Linkedin.png
+    - images/Twitter_2.png
+    - images/home_line.png
+    - images/nutrition.png
+    - images/rfg_logo.png
     - images/test.jpg
     - images/rfgg.png
     - images/hi.jpeg
@@ -79,6 +92,20 @@ flutter:
         - asset: assets/fonts/Rufina-Regular.ttf
         - asset: assets/fonts/Rufina-Bold.ttf
           weight: 700
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-VariableFont_opsz,wght.ttf
+    - family: Satoshi
+      fonts:
+        - asset: assets/fonts/Satoshi-Regular.ttf
+    - family: RufinaBold
+      fonts:
+        - asset: assets/fonts/Rufina-Bold.ttf
+    
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

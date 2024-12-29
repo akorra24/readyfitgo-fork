@@ -40,6 +40,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
   List<dynamic> macros = [];
   List<Map<String, dynamic>> mealDetails = [];
   bool isLoading = true;
+  final TextEditingController _emailController = TextEditingController();
 
   @override
   void initState() {
@@ -89,6 +90,41 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     });
   }
 
+  // Send Email function
+  Future<void> sendEmail(String email) async {
+    setState(() {
+      isLoading = true;
+    });
+    final response = await http.post(
+      Uri.parse(
+          'https://script.google.com/macros/s/AKfycbw0S4624QX2mfFH6rgNBgyWaVWnEowUN2_yOXFETipShvpjaK_NwroM_8CNiYzsbFsg/exec'),
+      headers: <String, String>{
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: jsonEncode({
+        "Calories": widget.calories,
+        "Protein": widget.protein,
+        "Fat": widget.fats,
+        "Carbs": widget.carbs,
+        "meal_count": widget.numberOfMeals,
+        "selected_meal_id": "n/a",
+        "dietery": widget.dietaryPreference,
+        "email": email,
+        "meal_info": mealDetails,
+        "dayIndex": widget.dayIndex + 1,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      print('Email sent successfully');
+    } else {
+      print('Failed to send email');
+    }
+    setState(() {
+      isLoading = false;
+    });
+  }
+
   void updateMacroDisplay() {
     double totalCalories = 0.0;
     double totalCarbs = 0.0;
@@ -120,163 +156,489 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     Map<String, dynamic> mappedMacros = mapMacrosToList(macros);
 
     return Scaffold(
-      body: Container(
-        color: Color(0xFFFFF5E1),
-        child: Stack(
-          children: [
-            Image.asset(
-              'images/home_page.jpg', // Make sure the path to the image is correct
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black54, Colors.transparent],
             ),
-            Container(
-              color: Colors.black.withOpacity(0.7),
-              width: double.infinity,
-              height: double.infinity,
+          ),
+          child: Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: const Color(0xC90C1E26),
+              borderRadius: BorderRadius.circular(10),
             ),
-            // Main content
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Padding(
-                          padding: const EdgeInsets.only(left: 40, bottom: 8),
-                          child: const Text(
-                            'Your Personalized Daily Meal Plan',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19,
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ),
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            padding: EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: MacroDisplayWidget(
-                              calories: mappedMacros['Calories'],
-                              carbs: mappedMacros['Carbs'],
-                              protein: mappedMacros['Protein'],
-                              fat: mappedMacros['Fat'],
-                              targetCalories: widget.calories,
-                              targetCarbs: widget.carbs,
-                              targetProtein: widget.protein,
-                              targetFat: widget.fats,
-                              onPressed: fetchRecommendedMeals,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text('Your Daily Meal Plan',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800,
+                      )),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: MediaQuery.of(context).size.width * 0.01,
                   ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: mealDetails.map((meal) {
-                        // print("Ingredients: ${meal['Ingredients ']}");
-                        return MealDetailCard(
-                          textColor: Colors.white,
-                          title: meal['Menu Item'],
-                          imagePath: meal['Images'],
-                          replaceCard: false,
-                          nutritionInfo: {
-                            "Calories": "${meal['Calories']} Kcal",
-                            "Protein": "${meal['Protein']} g",
-                            "Carbs": "${meal['Carbs']} g",
-                            "Fat": "${meal['Fat']} g",
-                          },
-                          ingredients: meal['Ingredients'],
-                          servingSize: "Serving size information",
-                          buttonText: "Replace",
-                          onPressedBandS: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return MealReplaceOptions(
-                                  breakfastSnack: true,
-                                  currentMealId: meal['id'],
-                                  jsonFilePath: 'assets/sorted_distances.json',
-                                  onMealSelected: (selectedMealId) async {
-                                    // Fetch the details of the selected meal
-                                    String data = await rootBundle
-                                        .loadString('assets/rfg_updated.json');
-                                    List<dynamic> meals = jsonDecode(data);
-                                    var selectedMeal = meals.firstWhere(
-                                        (meal) => meal['id'] == selectedMealId,
-                                        orElse: () => {});
-
-                                    // Update the mealDetails with the selected meal
-                                    setState(() {
-                                      mealDetails = mealDetails.map((m) {
-                                        if (m['id'] == meal['id']) {
-                                          return selectedMeal
-                                              as Map<String, dynamic>;
-                                        }
-                                        return m;
-                                      }).toList();
-
-                                      // Update the macros based on the new meal selection
-                                      updateMacroDisplay();
-                                    });
-                                  },
-                                );
-                              },
-                            );
-                          },
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return MealReplaceOptions(
-                                  breakfastSnack: false,
-                                  currentMealId: meal['id'],
-                                  jsonFilePath: 'assets/sorted_distances.json',
-                                  onMealSelected: (selectedMealId) async {
-                                    // Fetch the details of the selected meal
-                                    String data = await rootBundle
-                                        .loadString('assets/rfg_updated.json');
-                                    List<dynamic> meals = jsonDecode(data);
-                                    var selectedMeal = meals.firstWhere(
-                                        (meal) => meal['id'] == selectedMealId,
-                                        orElse: () => {});
-
-                                    // Update the mealDetails with the selected meal
-                                    setState(() {
-                                      mealDetails = mealDetails.map((m) {
-                                        if (m['id'] == meal['id']) {
-                                          return selectedMeal
-                                              as Map<String, dynamic>;
-                                        }
-                                        return m;
-                                      }).toList();
-
-                                      // Update the macros based on the new meal selection
-                                      updateMacroDisplay();
-                                    });
-                                  },
-                                );
-                              },
-                            );
-                          },
-                        );
-                      }).toList(),
-                    ),
+                  decoration: BoxDecoration(
+                    color: const Color(0x940C1E26),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  const SizedBox(height: 30),
-                ],
-              ),
+                  child: Stack(
+                    children: [
+                      // Main content
+                      Column(
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Align(
+                                alignment: Alignment.center,
+                                child: Container(
+                                  padding: EdgeInsets.all(16),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: MacroDisplayWidget(
+                                    calories: mappedMacros['Calories'],
+                                    carbs: mappedMacros['Carbs'],
+                                    protein: mappedMacros['Protein'],
+                                    fat: mappedMacros['Fat'],
+                                    targetCalories: widget.calories,
+                                    targetCarbs: widget.carbs,
+                                    targetProtein: widget.protein,
+                                    targetFat: widget.fats,
+                                    onPressed: fetchRecommendedMeals,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Container(
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              padding: const EdgeInsets.all(20),
+                              decoration: BoxDecoration(
+                                color: const Color(0x940C1E26),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      // Email Button
+                                      OutlinedButton.icon(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                backgroundColor:
+                                                    const Color(0xFF0B1D26),
+                                                title: const Text(
+                                                  'Enter Email',
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                content: TextField(
+                                                  controller: _emailController,
+                                                  style: const TextStyle(
+                                                      color: Colors.white),
+                                                  decoration:
+                                                      const InputDecoration(
+                                                    hintText:
+                                                        'Enter your email',
+                                                    hintStyle: TextStyle(
+                                                        color: Colors.grey),
+                                                    enabledBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                          color: Colors.white),
+                                                    ),
+                                                    focusedBorder:
+                                                        OutlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ),
+                                                ),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(context),
+                                                    child: const Text(
+                                                      'Cancel',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () {
+                                                      if (_emailController
+                                                          .text.isNotEmpty) {
+                                                        Navigator.pop(context);
+                                                        sendEmail(
+                                                                _emailController
+                                                                    .text)
+                                                            .then((_) {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            const SnackBar(
+                                                              content: Text(
+                                                                  'Email sent successfully!'),
+                                                            ),
+                                                          );
+
+                                                          _emailController
+                                                              .clear();
+                                                        }).catchError((error) {
+                                                          ScaffoldMessenger.of(
+                                                                  context)
+                                                              .showSnackBar(
+                                                            SnackBar(
+                                                              content: Text(
+                                                                  'Failed to send email: $error'),
+                                                            ),
+                                                          );
+                                                        });
+                                                      }
+                                                    },
+                                                    child: const Text(
+                                                      'Send',
+                                                      style: TextStyle(
+                                                          color: Colors.white),
+                                                    ),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+                                        },
+                                        icon: Icon(Icons.email_outlined,
+                                            color: Colors.white),
+                                        label: Text(
+                                          'Email',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                          backgroundColor: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                                10), // Adjust radius value as needed
+                                          ),
+                                        ),
+                                      ),
+
+                                      // Regenerate Button
+                                      OutlinedButton.icon(
+                                        onPressed: fetchRecommendedMeals,
+                                        icon: Icon(Icons.refresh,
+                                            color: Colors.white),
+                                        label: Text(
+                                          'Regenerate',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                          backgroundColor: Colors.black,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 50,
+                                  ),
+                                  LayoutBuilder(
+                                      builder: (context, constraints) {
+                                    if (MediaQuery.of(context).size.width <
+                                        700) {
+                                      return Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: mealDetails.map((meal) {
+                                          // print("Ingredients: ${meal['Ingredients ']}");
+                                          return MealDetailCard(
+                                            textColor: Colors.white,
+                                            title: meal['Menu Item'],
+                                            imagePath: meal['Images'],
+                                            replaceCard: false,
+                                            nutritionInfo: {
+                                              "Calories":
+                                                  "${meal['Calories']} Kcal",
+                                              "Protein": "${meal['Protein']} g",
+                                              "Carbs": "${meal['Carbs']} g",
+                                              "Fat": "${meal['Fat']} g",
+                                            },
+                                            ingredients: meal['Ingredients'],
+                                            servingSize:
+                                                "Serving size information",
+                                            buttonText:
+                                                "Replace with another Meal",
+                                            onPressedBandS: () {
+                                              showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return MealReplaceOptions(
+                                                    breakfastSnack: true,
+                                                    currentMealId: meal['id'],
+                                                    jsonFilePath:
+                                                        'assets/sorted_distances.json',
+                                                    onMealSelected:
+                                                        (selectedMealId) async {
+                                                      // Fetch the details of the selected meal
+                                                      String data = await rootBundle
+                                                          .loadString(
+                                                              'assets/rfg_updated.json');
+                                                      List<dynamic> meals =
+                                                          jsonDecode(data);
+                                                      var selectedMeal =
+                                                          meals.firstWhere(
+                                                              (meal) =>
+                                                                  meal['id'] ==
+                                                                  selectedMealId,
+                                                              orElse: () => {});
+
+                                                      // Update the mealDetails with the selected meal
+                                                      setState(() {
+                                                        mealDetails =
+                                                            mealDetails
+                                                                .map((m) {
+                                                          if (m['id'] ==
+                                                              meal['id']) {
+                                                            return selectedMeal
+                                                                as Map<String,
+                                                                    dynamic>;
+                                                          }
+                                                          return m;
+                                                        }).toList();
+
+                                                        // Update the macros based on the new meal selection
+                                                        updateMacroDisplay();
+                                                      });
+                                                    },
+                                                  );
+                                                },
+                                              );
+                                            },
+                                            onPressed: () {
+                                              showDialog(
+                                                context: context,
+                                                builder:
+                                                    (BuildContext context) {
+                                                  return MealReplaceOptions(
+                                                    breakfastSnack: false,
+                                                    currentMealId: meal['id'],
+                                                    jsonFilePath:
+                                                        'assets/sorted_distances.json',
+                                                    onMealSelected:
+                                                        (selectedMealId) async {
+                                                      // Fetch the details of the selected meal
+                                                      String data = await rootBundle
+                                                          .loadString(
+                                                              'assets/rfg_updated.json');
+                                                      List<dynamic> meals =
+                                                          jsonDecode(data);
+                                                      var selectedMeal =
+                                                          meals.firstWhere(
+                                                              (meal) =>
+                                                                  meal['id'] ==
+                                                                  selectedMealId,
+                                                              orElse: () => {});
+
+                                                      // Update the mealDetails with the selected meal
+                                                      setState(() {
+                                                        mealDetails =
+                                                            mealDetails
+                                                                .map((m) {
+                                                          if (m['id'] ==
+                                                              meal['id']) {
+                                                            return selectedMeal
+                                                                as Map<String,
+                                                                    dynamic>;
+                                                          }
+                                                          return m;
+                                                        }).toList();
+
+                                                        // Update the macros based on the new meal selection
+                                                        updateMacroDisplay();
+                                                      });
+                                                    },
+                                                  );
+                                                },
+                                              );
+                                            },
+                                          );
+                                        }).toList(),
+                                      );
+                                    } else {
+                                      return SingleChildScrollView(
+                                        scrollDirection: Axis.horizontal,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: mealDetails.map((meal) {
+                                            // print("Ingredients: ${meal['Ingredients ']}");
+                                            return MealDetailCard(
+                                              textColor: Colors.white,
+                                              title: meal['Menu Item'],
+                                              imagePath: meal['Images'],
+                                              replaceCard: false,
+                                              nutritionInfo: {
+                                                "Calories":
+                                                    "${meal['Calories']} Kcal",
+                                                "Protein":
+                                                    "${meal['Protein']} g",
+                                                "Carbs": "${meal['Carbs']} g",
+                                                "Fat": "${meal['Fat']} g",
+                                              },
+                                              ingredients: meal['Ingredients'],
+                                              servingSize:
+                                                  "Serving size information",
+                                              buttonText:
+                                                  "Replace with another Meal",
+                                              onPressedBandS: () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return MealReplaceOptions(
+                                                      breakfastSnack: true,
+                                                      currentMealId: meal['id'],
+                                                      jsonFilePath:
+                                                          'assets/sorted_distances.json',
+                                                      onMealSelected:
+                                                          (selectedMealId) async {
+                                                        // Fetch the details of the selected meal
+                                                        String data =
+                                                            await rootBundle
+                                                                .loadString(
+                                                                    'assets/rfg_updated.json');
+                                                        List<dynamic> meals =
+                                                            jsonDecode(data);
+                                                        var selectedMeal =
+                                                            meals.firstWhere(
+                                                                (meal) =>
+                                                                    meal[
+                                                                        'id'] ==
+                                                                    selectedMealId,
+                                                                orElse: () =>
+                                                                    {});
+
+                                                        // Update the mealDetails with the selected meal
+                                                        setState(() {
+                                                          mealDetails =
+                                                              mealDetails
+                                                                  .map((m) {
+                                                            if (m['id'] ==
+                                                                meal['id']) {
+                                                              return selectedMeal
+                                                                  as Map<String,
+                                                                      dynamic>;
+                                                            }
+                                                            return m;
+                                                          }).toList();
+
+                                                          // Update the macros based on the new meal selection
+                                                          updateMacroDisplay();
+                                                        });
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                              onPressed: () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return MealReplaceOptions(
+                                                      breakfastSnack: false,
+                                                      currentMealId: meal['id'],
+                                                      jsonFilePath:
+                                                          'assets/sorted_distances.json',
+                                                      onMealSelected:
+                                                          (selectedMealId) async {
+                                                        // Fetch the details of the selected meal
+                                                        String data =
+                                                            await rootBundle
+                                                                .loadString(
+                                                                    'assets/rfg_updated.json');
+                                                        List<dynamic> meals =
+                                                            jsonDecode(data);
+                                                        var selectedMeal =
+                                                            meals.firstWhere(
+                                                                (meal) =>
+                                                                    meal[
+                                                                        'id'] ==
+                                                                    selectedMealId,
+                                                                orElse: () =>
+                                                                    {});
+
+                                                        // Update the mealDetails with the selected meal
+                                                        setState(() {
+                                                          mealDetails =
+                                                              mealDetails
+                                                                  .map((m) {
+                                                            if (m['id'] ==
+                                                                meal['id']) {
+                                                              return selectedMeal
+                                                                  as Map<String,
+                                                                      dynamic>;
+                                                            }
+                                                            return m;
+                                                          }).toList();
+
+                                                          // Update the macros based on the new meal selection
+                                                          updateMacroDisplay();
+                                                        });
+                                                      },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            );
+                                          }).toList(),
+                                        ),
+                                      );
+                                    }
+                                  }),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 30),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
