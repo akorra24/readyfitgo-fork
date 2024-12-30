@@ -121,42 +121,73 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       endDrawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: const Text('Calculate Macros'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MacroCalculatorPage()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Meal Generator'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MealGenerator()),
-                );
-              },
-            ),
-            ListTile(
-              title: const Text('Shop Now'),
-              onTap: () {
-                html.window.open('https://readyfitgo.com/shop', '_blank');
-              },
-            ),
-          ],
+        child: Container(
+          color: const Color(0xFF0A1D26), // Dark blue background color
+          child: ListView(
+            children: [
+              ListTile(
+                title: const Text(
+                  'Home',
+                  style: TextStyle(
+                      fontFamily: 'Satoshi',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Calculate Macros',
+                  style: TextStyle(
+                      fontFamily: 'Satoshi',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MacroCalculatorPage()),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Meal Generator',
+                  style: TextStyle(
+                      fontFamily: 'Satoshi',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MealGenerator()),
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text(
+                  'Shop Now',
+                  style: TextStyle(
+                      fontFamily: 'Satoshi',
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 18),
+                ),
+                onTap: () {
+                  html.window.open('https://readyfitgo.com/shop', '_blank');
+                },
+              ),
+            ],
+          ),
         ),
       ),
       body: SingleChildScrollView(
