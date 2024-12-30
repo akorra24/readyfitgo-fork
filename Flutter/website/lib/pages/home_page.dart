@@ -715,13 +715,15 @@ class HomePage extends StatelessWidget {
                     );
                   } else {
                     return Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Text Section
                         Expanded(
                           flex: 1,
                           child: Padding(
                             padding: EdgeInsets.only(
-                                left: MediaQuery.of(context).size.width * 0.05),
+                                left: MediaQuery.of(context).size.width * 0.05,
+                                top: MediaQuery.of(context).size.height * 0.05),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
