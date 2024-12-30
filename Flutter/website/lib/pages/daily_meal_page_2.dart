@@ -267,6 +267,7 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
                       (index) => MealRecommendationPage(
                         key: PageStorageKey('Day$index'),
                         dayIndex: index,
+                        isLastDay: index == widget.numberOfDays - 1,
                         calories: dailyCaloricNeeds,
                         carbs: dailyMacros['Carbs (grams)']!,
                         protein: dailyMacros['Protein (grams)']!,

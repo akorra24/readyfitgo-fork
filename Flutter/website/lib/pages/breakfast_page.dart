@@ -3,11 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:website/components/meal_detail_card.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:html' as html;
 
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
 
 class MealRecommendationPage extends StatefulWidget {
+  final bool isLastDay;
   final int dayIndex;
   final double calories;
   final double carbs;
@@ -18,6 +20,7 @@ class MealRecommendationPage extends StatefulWidget {
 
   MealRecommendationPage({
     Key? key,
+    required this.isLastDay,
     required this.dayIndex,
     required this.calories,
     required this.carbs,
@@ -244,93 +247,111 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                     children: [
                                       // Email Button
                                       OutlinedButton.icon(
-                                        onPressed: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                backgroundColor:
-                                                    const Color(0xFF0B1D26),
-                                                title: const Text(
-                                                  'Enter Email',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                content: TextField(
-                                                  controller: _emailController,
-                                                  style: const TextStyle(
-                                                      color: Colors.white),
-                                                  decoration:
-                                                      const InputDecoration(
-                                                    hintText:
-                                                        'Enter your email',
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.grey),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors.white),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                ),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(context),
-                                                    child: const Text(
-                                                      'Cancel',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      if (_emailController
-                                                          .text.isNotEmpty) {
-                                                        Navigator.pop(context);
-                                                        sendEmail(
-                                                                _emailController
-                                                                    .text)
-                                                            .then((_) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            const SnackBar(
-                                                              content: Text(
-                                                                  'Email sent successfully!'),
-                                                            ),
-                                                          );
+                                        onPressed: widget.isLastDay
+                                            ? () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return AlertDialog(
+                                                      backgroundColor:
+                                                          const Color(
+                                                              0xFF0B1D26),
+                                                      title: const Text(
+                                                        'Enter Email',
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                      content: TextField(
+                                                        controller:
+                                                            _emailController,
+                                                        style: const TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                        decoration:
+                                                            const InputDecoration(
+                                                          hintText:
+                                                              'Enter your email',
+                                                          hintStyle: TextStyle(
+                                                              color:
+                                                                  Colors.grey),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  context),
+                                                          child: const Text(
+                                                            'Cancel',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            if (_emailController
+                                                                .text
+                                                                .isNotEmpty) {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              sendEmail(
+                                                                      _emailController
+                                                                          .text)
+                                                                  .then((_) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  const SnackBar(
+                                                                    content: Text(
+                                                                        'Email sent successfully!'),
+                                                                  ),
+                                                                );
 
-                                                          _emailController
-                                                              .clear();
-                                                        }).catchError((error) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                  'Failed to send email: $error'),
-                                                            ),
-                                                          );
-                                                        });
-                                                      }
-                                                    },
-                                                    child: const Text(
-                                                      'Send',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
+                                                                _emailController
+                                                                    .clear();
+                                                              }).catchError(
+                                                                      (error) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content: Text(
+                                                                        'Failed to send email: $error'),
+                                                                  ),
+                                                                );
+                                                              });
+                                                            }
+                                                          },
+                                                          child: const Text(
+                                                            'Send',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            : null,
                                         icon: Icon(Icons.email_outlined,
                                             color: Colors.white),
                                         label: Text(
@@ -340,14 +361,34 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                         style: OutlinedButton.styleFrom(
                                           side: BorderSide(
                                               color: Colors.transparent),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: widget.isLastDay
+                                              ? Colors.black
+                                              : Colors.grey,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(
                                                 10), // Adjust radius value as needed
                                           ),
                                         ),
                                       ),
-
+                                      // Shop now Button
+                                      OutlinedButton.icon(
+                                        onPressed: () {
+                                          html.window.open(
+                                              'https://readyfitgo.com/shop',
+                                              '_blank');
+                                        },
+                                        icon: Icon(Icons.shopping_cart_outlined,
+                                            color: Colors.white),
+                                        label: Text(
+                                          'Shop Now',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                          backgroundColor: Colors.black,
+                                        ),
+                                      ),
                                       // Regenerate Button
                                       OutlinedButton.icon(
                                         onPressed: fetchRecommendedMeals,
