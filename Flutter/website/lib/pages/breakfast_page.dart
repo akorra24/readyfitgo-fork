@@ -8,6 +8,8 @@ import 'dart:html' as html;
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
 
+import '../models/meal_details.dart';
+
 class MealRecommendationPage extends StatefulWidget {
   final bool isLastDay;
   final int dayIndex;
@@ -17,6 +19,8 @@ class MealRecommendationPage extends StatefulWidget {
   final double fats;
   final String dietaryPreference;
   final int numberOfMeals;
+  final Function(List<MealDetails>) onMealDetailsUpdate;
+  final List<List<MealDetails>>? allMealDetails;
 
   MealRecommendationPage({
     Key? key,
@@ -28,6 +32,8 @@ class MealRecommendationPage extends StatefulWidget {
     required this.fats,
     required this.dietaryPreference,
     required this.numberOfMeals,
+    required this.onMealDetailsUpdate,
+    this.allMealDetails,
   }) : super(key: key);
 
   @override
@@ -84,6 +90,23 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         mealDetails =
             List<Map<String, dynamic>>.from(mealResponse['meal_info']);
         updateMacroDisplay(); // Update macro display when meals are fetched
+
+        List<MealDetails> formattedMeals = mealDetails
+            .map((meal) => MealDetails(
+                mealType: meal['Meal Type'] ?? 'Breakfast',
+                title: meal['Menu Item'] ?? '',
+                description: '', // Add description if available in API
+                imageUrl: meal['Images'] ?? '',
+                ingredients: meal['Ingredients'].toString().split(','),
+                instructions: [], // Add instructions if available in API
+                calories: int.parse(meal['Calories']?.toString() ?? '0'),
+                protein: int.parse(meal['Protein']?.toString() ?? '0'),
+                carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
+                fat: int.parse(meal['Fat']?.toString() ?? '0'),
+                day: widget.dayIndex + 1))
+            .toList();
+
+        widget.onMealDetailsUpdate(formattedMeals);
       });
     } else {
       throw Exception('Failed to load recommendations');
@@ -114,7 +137,22 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         "selected_meal_id": "n/a",
         "dietery": widget.dietaryPreference,
         "email": email,
-        "meal_info": mealDetails,
+        "meal_info": widget.allMealDetails
+                ?.map((dayMeals) => dayMeals
+                    .map((meal) => {
+                          "mealType": meal.mealType,
+                          "title": meal.title,
+                          "calories": meal.calories,
+                          "protein": meal.protein,
+                          "carbs": meal.carbs,
+                          "fat": meal.fat,
+                          "imageUrl": meal.imageUrl,
+                          "ingredients": meal.ingredients.join(','),
+                          "day": meal.day
+                        })
+                    .toList())
+                .toList() ??
+            [],
         "dayIndex": widget.dayIndex + 1,
       }),
     );
