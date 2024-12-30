@@ -3,11 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:website/components/meal_detail_card.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'dart:html' as html;
 
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
 
+import '../models/meal_details.dart';
+
 class MealRecommendationPage extends StatefulWidget {
+  final bool isLastDay;
   final int dayIndex;
   final double calories;
   final double carbs;
@@ -15,9 +19,12 @@ class MealRecommendationPage extends StatefulWidget {
   final double fats;
   final String dietaryPreference;
   final int numberOfMeals;
+  final Function(List<MealDetails>) onMealDetailsUpdate;
+  final List<List<MealDetails>>? allMealDetails;
 
   MealRecommendationPage({
     Key? key,
+    required this.isLastDay,
     required this.dayIndex,
     required this.calories,
     required this.carbs,
@@ -25,6 +32,8 @@ class MealRecommendationPage extends StatefulWidget {
     required this.fats,
     required this.dietaryPreference,
     required this.numberOfMeals,
+    required this.onMealDetailsUpdate,
+    this.allMealDetails,
   }) : super(key: key);
 
   @override
@@ -41,6 +50,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
   List<Map<String, dynamic>> mealDetails = [];
   bool isLoading = true;
   final TextEditingController _emailController = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   void initState() {
@@ -80,6 +90,23 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         mealDetails =
             List<Map<String, dynamic>>.from(mealResponse['meal_info']);
         updateMacroDisplay(); // Update macro display when meals are fetched
+
+        List<MealDetails> formattedMeals = mealDetails
+            .map((meal) => MealDetails(
+                mealType: meal['Meal Type'] ?? 'Breakfast',
+                title: meal['Menu Item'] ?? '',
+                description: '', // Add description if available in API
+                imageUrl: meal['Images'] ?? '',
+                ingredients: meal['Ingredients'].toString().split(','),
+                instructions: [], // Add instructions if available in API
+                calories: int.parse(meal['Calories']?.toString() ?? '0'),
+                protein: int.parse(meal['Protein']?.toString() ?? '0'),
+                carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
+                fat: int.parse(meal['Fat']?.toString() ?? '0'),
+                day: widget.dayIndex + 1))
+            .toList();
+
+        widget.onMealDetailsUpdate(formattedMeals);
       });
     } else {
       throw Exception('Failed to load recommendations');
@@ -110,7 +137,22 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
         "selected_meal_id": "n/a",
         "dietery": widget.dietaryPreference,
         "email": email,
-        "meal_info": mealDetails,
+        "meal_info": widget.allMealDetails
+                ?.map((dayMeals) => dayMeals
+                    .map((meal) => {
+                          "mealType": meal.mealType,
+                          "title": meal.title,
+                          "calories": meal.calories,
+                          "protein": meal.protein,
+                          "carbs": meal.carbs,
+                          "fat": meal.fat,
+                          "imageUrl": meal.imageUrl,
+                          "ingredients": meal.ingredients.join(','),
+                          "day": meal.day
+                        })
+                    .toList())
+                .toList() ??
+            [],
         "dayIndex": widget.dayIndex + 1,
       }),
     );
@@ -243,93 +285,111 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                     children: [
                                       // Email Button
                                       OutlinedButton.icon(
-                                        onPressed: () {
-                                          showDialog(
-                                            context: context,
-                                            builder: (BuildContext context) {
-                                              return AlertDialog(
-                                                backgroundColor:
-                                                    const Color(0xFF0B1D26),
-                                                title: const Text(
-                                                  'Enter Email',
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                content: TextField(
-                                                  controller: _emailController,
-                                                  style: const TextStyle(
-                                                      color: Colors.white),
-                                                  decoration:
-                                                      const InputDecoration(
-                                                    hintText:
-                                                        'Enter your email',
-                                                    hintStyle: TextStyle(
-                                                        color: Colors.grey),
-                                                    enabledBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors.white),
-                                                    ),
-                                                    focusedBorder:
-                                                        OutlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                ),
-                                                actions: [
-                                                  TextButton(
-                                                    onPressed: () =>
-                                                        Navigator.pop(context),
-                                                    child: const Text(
-                                                      'Cancel',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                  TextButton(
-                                                    onPressed: () {
-                                                      if (_emailController
-                                                          .text.isNotEmpty) {
-                                                        Navigator.pop(context);
-                                                        sendEmail(
-                                                                _emailController
-                                                                    .text)
-                                                            .then((_) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            const SnackBar(
-                                                              content: Text(
-                                                                  'Email sent successfully!'),
-                                                            ),
-                                                          );
+                                        onPressed: widget.isLastDay
+                                            ? () {
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return AlertDialog(
+                                                      backgroundColor:
+                                                          const Color(
+                                                              0xFF0B1D26),
+                                                      title: const Text(
+                                                        'Enter Email',
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                      content: TextField(
+                                                        controller:
+                                                            _emailController,
+                                                        style: const TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                        decoration:
+                                                            const InputDecoration(
+                                                          hintText:
+                                                              'Enter your email',
+                                                          hintStyle: TextStyle(
+                                                              color:
+                                                                  Colors.grey),
+                                                          enabledBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white),
+                                                          ),
+                                                          focusedBorder:
+                                                              OutlineInputBorder(
+                                                            borderSide:
+                                                                BorderSide(
+                                                                    color: Colors
+                                                                        .white),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      actions: [
+                                                        TextButton(
+                                                          onPressed: () =>
+                                                              Navigator.pop(
+                                                                  context),
+                                                          child: const Text(
+                                                            'Cancel',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
+                                                        TextButton(
+                                                          onPressed: () {
+                                                            if (_emailController
+                                                                .text
+                                                                .isNotEmpty) {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              sendEmail(
+                                                                      _emailController
+                                                                          .text)
+                                                                  .then((_) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  const SnackBar(
+                                                                    content: Text(
+                                                                        'Email sent successfully!'),
+                                                                  ),
+                                                                );
 
-                                                          _emailController
-                                                              .clear();
-                                                        }).catchError((error) {
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                  'Failed to send email: $error'),
-                                                            ),
-                                                          );
-                                                        });
-                                                      }
-                                                    },
-                                                    child: const Text(
-                                                      'Send',
-                                                      style: TextStyle(
-                                                          color: Colors.white),
-                                                    ),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          );
-                                        },
+                                                                _emailController
+                                                                    .clear();
+                                                              }).catchError(
+                                                                      (error) {
+                                                                ScaffoldMessenger.of(
+                                                                        context)
+                                                                    .showSnackBar(
+                                                                  SnackBar(
+                                                                    content: Text(
+                                                                        'Failed to send email: $error'),
+                                                                  ),
+                                                                );
+                                                              });
+                                                            }
+                                                          },
+                                                          child: const Text(
+                                                            'Send',
+                                                            style: TextStyle(
+                                                                color: Colors
+                                                                    .white),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    );
+                                                  },
+                                                );
+                                              }
+                                            : null,
                                         icon: Icon(Icons.email_outlined,
                                             color: Colors.white),
                                         label: Text(
@@ -339,14 +399,34 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                         style: OutlinedButton.styleFrom(
                                           side: BorderSide(
                                               color: Colors.transparent),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: widget.isLastDay
+                                              ? Colors.black
+                                              : Colors.grey,
                                           shape: RoundedRectangleBorder(
                                             borderRadius: BorderRadius.circular(
                                                 10), // Adjust radius value as needed
                                           ),
                                         ),
                                       ),
-
+                                      // Shop now Button
+                                      OutlinedButton.icon(
+                                        onPressed: () {
+                                          html.window.open(
+                                              'https://readyfitgo.com/shop',
+                                              '_blank');
+                                        },
+                                        icon: Icon(Icons.shopping_cart_outlined,
+                                            color: Colors.white),
+                                        label: Text(
+                                          'Shop Now',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                          backgroundColor: Colors.black,
+                                        ),
+                                      ),
                                       // Regenerate Button
                                       OutlinedButton.icon(
                                         onPressed: fetchRecommendedMeals,
@@ -493,137 +573,199 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                         }).toList(),
                                       );
                                     } else {
-                                      return SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: mealDetails.map((meal) {
-                                            // print("Ingredients: ${meal['Ingredients ']}");
-                                            return MealDetailCard(
-                                              textColor: Colors.white,
-                                              title: meal['Menu Item'],
-                                              imagePath: meal['Images'],
-                                              replaceCard: false,
-                                              nutritionInfo: {
-                                                "Calories":
-                                                    "${meal['Calories']} Kcal",
-                                                "Protein":
-                                                    "${meal['Protein']} g",
-                                                "Carbs": "${meal['Carbs']} g",
-                                                "Fat": "${meal['Fat']} g",
-                                              },
-                                              ingredients: meal['Ingredients'],
-                                              servingSize:
-                                                  "Serving size information",
-                                              buttonText:
-                                                  "Replace with another Meal",
-                                              onPressedBandS: () {
-                                                showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return MealReplaceOptions(
-                                                      breakfastSnack: true,
-                                                      currentMealId: meal['id'],
-                                                      jsonFilePath:
-                                                          'assets/sorted_distances.json',
-                                                      onMealSelected:
-                                                          (selectedMealId) async {
-                                                        // Fetch the details of the selected meal
-                                                        String data =
-                                                            await rootBundle
-                                                                .loadString(
-                                                                    'assets/rfg_updated.json');
-                                                        List<dynamic> meals =
-                                                            jsonDecode(data);
-                                                        var selectedMeal =
-                                                            meals.firstWhere(
-                                                                (meal) =>
-                                                                    meal[
-                                                                        'id'] ==
-                                                                    selectedMealId,
-                                                                orElse: () =>
-                                                                    {});
+                                      return Stack(children: [
+                                        SingleChildScrollView(
+                                          controller: _scrollController,
+                                          scrollDirection: Axis.horizontal,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: mealDetails.map((meal) {
+                                              // print("Ingredients: ${meal['Ingredients ']}");
+                                              return MealDetailCard(
+                                                textColor: Colors.white,
+                                                title: meal['Menu Item'],
+                                                imagePath: meal['Images'],
+                                                replaceCard: false,
+                                                nutritionInfo: {
+                                                  "Calories":
+                                                      "${meal['Calories']} Kcal",
+                                                  "Protein":
+                                                      "${meal['Protein']} g",
+                                                  "Carbs": "${meal['Carbs']} g",
+                                                  "Fat": "${meal['Fat']} g",
+                                                },
+                                                ingredients:
+                                                    meal['Ingredients'],
+                                                servingSize:
+                                                    "Serving size information",
+                                                buttonText:
+                                                    "Replace with another Meal",
+                                                onPressedBandS: () {
+                                                  showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return MealReplaceOptions(
+                                                        breakfastSnack: true,
+                                                        currentMealId:
+                                                            meal['id'],
+                                                        jsonFilePath:
+                                                            'assets/sorted_distances.json',
+                                                        onMealSelected:
+                                                            (selectedMealId) async {
+                                                          // Fetch the details of the selected meal
+                                                          String data =
+                                                              await rootBundle
+                                                                  .loadString(
+                                                                      'assets/rfg_updated.json');
+                                                          List<dynamic> meals =
+                                                              jsonDecode(data);
+                                                          var selectedMeal =
+                                                              meals.firstWhere(
+                                                                  (meal) =>
+                                                                      meal[
+                                                                          'id'] ==
+                                                                      selectedMealId,
+                                                                  orElse: () =>
+                                                                      {});
 
-                                                        // Update the mealDetails with the selected meal
-                                                        setState(() {
-                                                          mealDetails =
-                                                              mealDetails
-                                                                  .map((m) {
-                                                            if (m['id'] ==
-                                                                meal['id']) {
-                                                              return selectedMeal
-                                                                  as Map<String,
-                                                                      dynamic>;
-                                                            }
-                                                            return m;
-                                                          }).toList();
+                                                          // Update the mealDetails with the selected meal
+                                                          setState(() {
+                                                            mealDetails =
+                                                                mealDetails
+                                                                    .map((m) {
+                                                              if (m['id'] ==
+                                                                  meal['id']) {
+                                                                return selectedMeal
+                                                                    as Map<
+                                                                        String,
+                                                                        dynamic>;
+                                                              }
+                                                              return m;
+                                                            }).toList();
 
-                                                          // Update the macros based on the new meal selection
-                                                          updateMacroDisplay();
-                                                        });
-                                                      },
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                              onPressed: () {
-                                                showDialog(
-                                                  context: context,
-                                                  builder:
-                                                      (BuildContext context) {
-                                                    return MealReplaceOptions(
-                                                      breakfastSnack: false,
-                                                      currentMealId: meal['id'],
-                                                      jsonFilePath:
-                                                          'assets/sorted_distances.json',
-                                                      onMealSelected:
-                                                          (selectedMealId) async {
-                                                        // Fetch the details of the selected meal
-                                                        String data =
-                                                            await rootBundle
-                                                                .loadString(
-                                                                    'assets/rfg_updated.json');
-                                                        List<dynamic> meals =
-                                                            jsonDecode(data);
-                                                        var selectedMeal =
-                                                            meals.firstWhere(
-                                                                (meal) =>
-                                                                    meal[
-                                                                        'id'] ==
-                                                                    selectedMealId,
-                                                                orElse: () =>
-                                                                    {});
+                                                            // Update the macros based on the new meal selection
+                                                            updateMacroDisplay();
+                                                          });
+                                                        },
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                                onPressed: () {
+                                                  showDialog(
+                                                    context: context,
+                                                    builder:
+                                                        (BuildContext context) {
+                                                      return MealReplaceOptions(
+                                                        breakfastSnack: false,
+                                                        currentMealId:
+                                                            meal['id'],
+                                                        jsonFilePath:
+                                                            'assets/sorted_distances.json',
+                                                        onMealSelected:
+                                                            (selectedMealId) async {
+                                                          // Fetch the details of the selected meal
+                                                          String data =
+                                                              await rootBundle
+                                                                  .loadString(
+                                                                      'assets/rfg_updated.json');
+                                                          List<dynamic> meals =
+                                                              jsonDecode(data);
+                                                          var selectedMeal =
+                                                              meals.firstWhere(
+                                                                  (meal) =>
+                                                                      meal[
+                                                                          'id'] ==
+                                                                      selectedMealId,
+                                                                  orElse: () =>
+                                                                      {});
 
-                                                        // Update the mealDetails with the selected meal
-                                                        setState(() {
-                                                          mealDetails =
-                                                              mealDetails
-                                                                  .map((m) {
-                                                            if (m['id'] ==
-                                                                meal['id']) {
-                                                              return selectedMeal
-                                                                  as Map<String,
-                                                                      dynamic>;
-                                                            }
-                                                            return m;
-                                                          }).toList();
+                                                          // Update the mealDetails with the selected meal
+                                                          setState(() {
+                                                            mealDetails =
+                                                                mealDetails
+                                                                    .map((m) {
+                                                              if (m['id'] ==
+                                                                  meal['id']) {
+                                                                return selectedMeal
+                                                                    as Map<
+                                                                        String,
+                                                                        dynamic>;
+                                                              }
+                                                              return m;
+                                                            }).toList();
 
-                                                          // Update the macros based on the new meal selection
-                                                          updateMacroDisplay();
-                                                        });
-                                                      },
-                                                    );
-                                                  },
-                                                );
-                                              },
-                                            );
-                                          }).toList(),
+                                                            // Update the macros based on the new meal selection
+                                                            updateMacroDisplay();
+                                                          });
+                                                        },
+                                                      );
+                                                    },
+                                                  );
+                                                },
+                                              );
+                                            }).toList(),
+                                          ),
                                         ),
-                                      );
+                                        Positioned(
+                                          left: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                _scrollController.animateTo(
+                                                  _scrollController.offset -
+                                                      300,
+                                                  duration: const Duration(
+                                                      milliseconds: 500),
+                                                  curve: Curves.easeInOut,
+                                                );
+                                              },
+                                              child: Container(
+                                                color: Colors.black54,
+                                                padding:
+                                                    const EdgeInsets.all(12),
+                                                child: const Icon(
+                                                    Icons.arrow_back_ios,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Positioned(
+                                          right: 0,
+                                          top: 0,
+                                          bottom: 0,
+                                          child: MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                _scrollController.animateTo(
+                                                  _scrollController.offset +
+                                                      300,
+                                                  duration: const Duration(
+                                                      milliseconds: 500),
+                                                  curve: Curves.easeInOut,
+                                                );
+                                              },
+                                              child: Container(
+                                                color: Colors.black54,
+                                                padding:
+                                                    const EdgeInsets.all(12),
+                                                child: const Icon(
+                                                    Icons.arrow_forward_ios,
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ]);
                                     }
                                   }),
                                 ],

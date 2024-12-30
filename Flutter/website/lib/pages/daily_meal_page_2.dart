@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:website/pages/breakfast_page.dart';
+import '../models/meal_details.dart';
 
 class DailyMealPlanPage extends StatefulWidget {
   final int? age;
@@ -230,6 +231,18 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
   //   if (mounted) setState(() {});
   // }
 
+  // Add to class level variables
+  List<List<MealDetails>> allMealDetails = [];
+
+// In build method, before ListView.builder
+  void storeMealDetails(int dayIndex, List<MealDetails> dayMeals) {
+    if (allMealDetails.length <= dayIndex) {
+      allMealDetails.add(dayMeals);
+    } else {
+      allMealDetails[dayIndex] = dayMeals;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (dailyCaloricNeeds == 0 || dailyMacros.isEmpty) {
@@ -267,12 +280,18 @@ class _DailyMealPlanPageState extends State<DailyMealPlanPage>
                       (index) => MealRecommendationPage(
                         key: PageStorageKey('Day$index'),
                         dayIndex: index,
+                        isLastDay: index == widget.numberOfDays - 1,
                         calories: dailyCaloricNeeds,
                         carbs: dailyMacros['Carbs (grams)']!,
                         protein: dailyMacros['Protein (grams)']!,
                         fats: dailyMacros['Fats (grams)']!,
                         dietaryPreference: widget.dietaryPreference,
                         numberOfMeals: widget.numberOfMeals,
+                        onMealDetailsUpdate: (meals) =>
+                            storeMealDetails(index, meals),
+                        allMealDetails: index == widget.numberOfDays - 1
+                            ? allMealDetails
+                            : null,
                       ),
                     ),
                   ),
