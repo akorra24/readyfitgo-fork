@@ -567,7 +567,7 @@ class HomePage extends StatelessWidget {
             Container(
                 color: const Color(0xFF0B1D26), // Dark blue background color
                 padding:
-                    const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: LayoutBuilder(builder: (context, constraints) {
                   if (constraints.maxWidth < 700) {
                     return Column(
@@ -698,7 +698,6 @@ class HomePage extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(width: 20),
                         // Image Section
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10),
@@ -706,7 +705,7 @@ class HomePage extends StatelessWidget {
                             child: Image.asset(
                               'images/nutrition.png',
                               width: 450,
-                              height: 600,
+                              height: 500,
                               fit: BoxFit.contain,
                             ),
                           ),
@@ -887,7 +886,7 @@ class HomePage extends StatelessWidget {
             // Features Section
             Container(
               color: const Color(0xFF0B1D26), // Dark blue background color
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: LayoutBuilder(builder: (context, constraints) {
                 if (constraints.maxWidth < 700) {
                   return Column(
@@ -1001,7 +1000,6 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 20),
                       // Image Section
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
@@ -1009,7 +1007,7 @@ class HomePage extends StatelessWidget {
                           child: Image.asset(
                             'images/gym.png',
                             width: MediaQuery.of(context).size.width,
-                            height: 600,
+                            height: 300,
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -1160,7 +1158,7 @@ class HomePage extends StatelessWidget {
             // Features Section
             Container(
               color: const Color(0xFF0B1D26), // Dark blue background color
-              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: LayoutBuilder(builder: (context, constraints) {
                 if (constraints.maxWidth < 700) {
                   return Column(
@@ -1261,7 +1259,6 @@ class HomePage extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(width: 20),
                       // Image Section
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
@@ -1269,7 +1266,7 @@ class HomePage extends StatelessWidget {
                           child: Image.asset(
                             'images/mind.png',
                             width: 450,
-                            height: 600,
+                            height: 500,
                             fit: BoxFit.contain,
                           ),
                         ),
