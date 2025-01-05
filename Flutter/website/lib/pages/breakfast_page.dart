@@ -352,9 +352,19 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      ElevatedButton(
+                                      OutlinedButton.icon(
                                         onPressed: generateAndDownloadPDF,
-                                        child: Text('Download PDF'),
+                                        icon: Icon(Icons.print_outlined,
+                                            color: Colors.white),
+                                        label: Text(
+                                          'Print',
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: BorderSide(
+                                              color: Colors.transparent),
+                                          backgroundColor: Colors.black,
+                                        ),
                                       ),
                                       // Email Button
                                       OutlinedButton.icon(
