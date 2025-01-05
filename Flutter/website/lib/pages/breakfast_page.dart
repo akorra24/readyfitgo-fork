@@ -5,6 +5,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:html' as html;
 
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
+
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
 
@@ -115,6 +119,71 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     setState(() {
       isLoading = false;
     });
+  }
+
+  Future<void> generateAndDownloadPDF() async {
+    final pdf = pw.Document();
+
+    pdf.addPage(pw.MultiPage(
+        build: (context) => [
+              pw.Header(
+                  level: 0,
+                  child: pw.Text('Meal Plan Summary',
+                      style: pw.TextStyle(
+                          fontSize: 24, fontWeight: pw.FontWeight.bold))),
+              pw.Container(
+                  padding: pw.EdgeInsets.all(10),
+                  decoration: pw.BoxDecoration(border: pw.Border.all()),
+                  child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        pw.Text('Daily Target Macros:'),
+                        pw.Text('Calories: ${widget.calories}'),
+                        pw.Text('Protein: ${widget.protein}g'),
+                        pw.Text('Carbs: ${widget.carbs}g'),
+                        pw.Text('Fats: ${widget.fats}g'),
+                      ])),
+              ...widget.allMealDetails?.asMap().entries.map((entry) {
+                    int dayIndex = entry.key;
+                    List<MealDetails> dayMeals = entry.value;
+                    return pw.Container(
+                        margin: pw.EdgeInsets.only(top: 20),
+                        child: pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text('Day ${dayIndex + 1}',
+                                  style: pw.TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: pw.FontWeight.bold)),
+                              ...dayMeals
+                                  .map((meal) => pw.Container(
+                                      margin: pw.EdgeInsets.only(top: 10),
+                                      padding: pw.EdgeInsets.all(10),
+                                      decoration: pw.BoxDecoration(
+                                          border: pw.Border.all(
+                                              color: PdfColors.grey300)),
+                                      child: pw.Column(
+                                          crossAxisAlignment:
+                                              pw.CrossAxisAlignment.start,
+                                          children: [
+                                            pw.Text(meal.title,
+                                                style:
+                                                    pw.TextStyle(fontSize: 16)),
+                                            pw.Text(
+                                                'Calories: ${meal.calories} | Protein: ${meal.protein}g | Carbs: ${meal.carbs}g | Fat: ${meal.fat}g'),
+                                            pw.Text(
+                                                'Ingredients: ${meal.ingredients.join(", ")}'),
+                                          ])))
+                                  .toList(),
+                            ]));
+                  }).toList() ??
+                  [],
+            ]));
+
+    await Printing.sharePdf(
+      bytes: await pdf.save(),
+      filename: 'meal_plan.pdf',
+    );
   }
 
   // Send Email function
@@ -283,6 +352,10 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
+                                      ElevatedButton(
+                                        onPressed: generateAndDownloadPDF,
+                                        child: Text('Download PDF'),
+                                      ),
                                       // Email Button
                                       OutlinedButton.icon(
                                         onPressed: widget.isLastDay
