@@ -122,128 +122,84 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
   }
 
   Future<void> generateAndDownloadPDF() async {
-  final pdf = pw.Document();
-  final pageWidth = PdfPageFormat.a4.width;
+    final pdf = pw.Document();
+    final pageWidth = PdfPageFormat.a4.width;
 
-  pdf.addPage(pw.Page(
-    pageFormat: PdfPageFormat.a4,
-    build: (context) => pw.Container(
-      width: pageWidth,
-      child: pw.Column(
-        crossAxisAlignment: pw.CrossAxisAlignment.start,
-        children: [
-          // Header
-          pw.Container(
-            width: pageWidth,
-            padding: pw.EdgeInsets.all(20),
-            color: PdfColors.blueGrey800,
-            child: pw.Table(
-              columnWidths: {
-                0: pw.FlexColumnWidth(3),
-                1: pw.FlexColumnWidth(1),
-              },
-              children: [
-                pw.TableRow(children: [
-                  pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.RichText(
-                        text: pw.TextSpan(
-                          children: [
-                            pw.TextSpan(
-                              text: 'Your Meal Plan ',
-                              style: pw.TextStyle(
-                                color: PdfColors.white,
-                                fontSize: 24,
-                                fontWeight: pw.FontWeight.bold,
-                              ),
-                            ),
-                            pw.TextSpan(
-                              text: 'All ${widget.allMealDetails?.length} Days',
-                              style: pw.TextStyle(
-                                color: PdfColors.orange,
-                                fontSize: 24,
-                                fontWeight: pw.FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
+    pdf.addPage(
+      pw.MultiPage(
+        pageFormat: PdfPageFormat.a4,
+        margin: pw.EdgeInsets.all(20),
+        header: (context) => pw.Container(
+          width: pageWidth,
+          color: PdfColors.blueGrey800,
+          padding: pw.EdgeInsets.all(20),
+          child: pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.RichText(
+                text: pw.TextSpan(
+                  children: [
+                    pw.TextSpan(
+                      text: 'Your Meal Plan ',
+                      style: pw.TextStyle(
+                        color: PdfColors.white,
+                        fontSize: 24,
+                        fontWeight: pw.FontWeight.bold,
                       ),
-                      pw.Text('Dietary Preference: ${widget.dietaryPreference}',
-                          style: pw.TextStyle(color: PdfColors.white)),
-                      pw.Text('Number of Meals: ${widget.numberOfMeals}',
-                          style: pw.TextStyle(color: PdfColors.white)),
-                    ],
-                  ),
-                  pw.Container(), // Placeholder for logo
-                ]),
-              ],
-            ),
+                    ),
+                    pw.TextSpan(
+                      text: 'All ${widget.allMealDetails?.length} Days',
+                      style: pw.TextStyle(
+                        color: PdfColors.orange,
+                        fontSize: 24,
+                        fontWeight: pw.FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              pw.SizedBox(height: 10),
+              pw.Text('Dietary Preference: ${widget.dietaryPreference}',
+                  style: pw.TextStyle(color: PdfColors.white)),
+              pw.Text('Number of Meals: ${widget.numberOfMeals}',
+                  style: pw.TextStyle(color: PdfColors.white)),
+            ],
           ),
-
-          pw.SizedBox(height: 20),
-
-          // Macros Table
+        ),
+        footer: (context) => pw.Container(
+          alignment: pw.Alignment.centerRight,
+          margin: pw.EdgeInsets.only(top: 20),
+          child: pw.Text(
+            'Page ${context.pageNumber} of ${context.pagesCount}',
+            style: pw.TextStyle(color: PdfColors.grey700),
+          ),
+        ),
+        build: (context) => [
+          // Daily Macros Target Table
           pw.Table(
             border: pw.TableBorder.all(),
             columnWidths: {
-              0: pw.FixedColumnWidth(pageWidth / 4),
-              1: pw.FixedColumnWidth(pageWidth / 4),
-              2: pw.FixedColumnWidth(pageWidth / 4),
-              3: pw.FixedColumnWidth(pageWidth / 4),
+              0: pw.FixedColumnWidth(pageWidth * 0.25),
+              1: pw.FixedColumnWidth(pageWidth * 0.25),
+              2: pw.FixedColumnWidth(pageWidth * 0.25),
+              3: pw.FixedColumnWidth(pageWidth * 0.25),
             },
             children: [
               pw.TableRow(
                 decoration: pw.BoxDecoration(color: PdfColors.blueGrey800),
                 children: [
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('Calories',
-                        style: pw.TextStyle(color: PdfColors.white),
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('Protein',
-                        style: pw.TextStyle(color: PdfColors.white),
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('Carbs',
-                        style: pw.TextStyle(color: PdfColors.white),
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('Fat',
-                        style: pw.TextStyle(color: PdfColors.white),
-                        textAlign: pw.TextAlign.center),
-                  ),
+                  _buildHeaderCell('Calories'),
+                  _buildHeaderCell('Protein'),
+                  _buildHeaderCell('Carbs'),
+                  _buildHeaderCell('Fat'),
                 ],
               ),
               pw.TableRow(
                 children: [
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('${widget.calories}',
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('${widget.protein}g',
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('${widget.carbs}g',
-                        textAlign: pw.TextAlign.center),
-                  ),
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('${widget.fats}g',
-                        textAlign: pw.TextAlign.center),
-                  ),
+                  _buildDataCell('${widget.calories}'),
+                  _buildDataCell('${widget.protein}g'),
+                  _buildDataCell('${widget.carbs}g'),
+                  _buildDataCell('${widget.fats}g'),
                 ],
               ),
             ],
@@ -255,28 +211,19 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
           pw.Table(
             border: pw.TableBorder.all(),
             columnWidths: {
-              for (var i = 0; i <= widget.allMealDetails!.length; i++)
-                i: i == 0
-                    ? pw.FixedColumnWidth(80)
-                    : pw.FixedColumnWidth((pageWidth - 80) /
-                        widget.allMealDetails!.length),
+              0: pw.FixedColumnWidth(80),
+              for (var i = 1; i <= widget.allMealDetails!.length; i++)
+                i: pw.FixedColumnWidth(
+                    (pageWidth - 100) / widget.allMealDetails!.length),
             },
             children: [
-              // Table header
+              // Header row
               pw.TableRow(
                 decoration: pw.BoxDecoration(color: PdfColors.blueGrey800),
                 children: [
-                  pw.Padding(
-                    padding: pw.EdgeInsets.all(8),
-                    child: pw.Text('Meal',
-                        style: pw.TextStyle(color: PdfColors.white)),
-                  ),
+                  _buildHeaderCell('Meal'),
                   for (var i = 0; i < widget.allMealDetails!.length; i++)
-                    pw.Padding(
-                      padding: pw.EdgeInsets.all(8),
-                      child: pw.Text('Day ${i + 1}',
-                          style: pw.TextStyle(color: PdfColors.white)),
-                    ),
+                    _buildHeaderCell('Day ${i + 1}'),
                 ],
               ),
               // Meal rows
@@ -288,45 +235,60 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                     pw.Container(
                       color: PdfColors.blueGrey800,
                       padding: pw.EdgeInsets.all(8),
-                      child: pw.Text('Meal ${mealIndex + 1}',
-                          style: pw.TextStyle(color: PdfColors.white)),
+                      child: pw.Text(
+                        'Meal ${mealIndex + 1}',
+                        style: pw.TextStyle(color: PdfColors.white),
+                        textAlign: pw.TextAlign.center,
+                      ),
                     ),
                     for (var dayIndex = 0;
                         dayIndex < widget.allMealDetails!.length;
                         dayIndex++)
-                      pw.Padding(
-                        padding: pw.EdgeInsets.all(8),
-                        child: pw.Column(
-                          crossAxisAlignment: pw.CrossAxisAlignment.start,
-                          children: [
-                            pw.Text(
-                                widget.allMealDetails![dayIndex][mealIndex].title,
-                                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-                            pw.Text(
-                                '${widget.allMealDetails![dayIndex][mealIndex].calories} Cal'),
-                            pw.Text(
-                                'P: ${widget.allMealDetails![dayIndex][mealIndex].protein}g'),
-                            pw.Text(
-                                'C: ${widget.allMealDetails![dayIndex][mealIndex].carbs}g'),
-                            pw.Text(
-                                'F: ${widget.allMealDetails![dayIndex][mealIndex].fat}g'),
-                          ],
-                        ),
-                      ),
+                      _buildMealCell(
+                          widget.allMealDetails![dayIndex][mealIndex]),
                   ],
                 ),
             ],
           ),
         ],
       ),
-    ),
-  ));
+    );
 
-  await Printing.sharePdf(
-    bytes: await pdf.save(),
-    filename: 'meal_plan.pdf',
-  );
-}
+    await Printing.sharePdf(
+      bytes: await pdf.save(),
+      filename: 'meal_plan.pdf',
+    );
+  }
+
+// Helper methods
+  pw.Widget _buildHeaderCell(String text) => pw.Padding(
+        padding: pw.EdgeInsets.all(8),
+        child: pw.Text(
+          text,
+          style: pw.TextStyle(color: PdfColors.white),
+          textAlign: pw.TextAlign.center,
+        ),
+      );
+
+  pw.Widget _buildDataCell(String text) => pw.Padding(
+        padding: pw.EdgeInsets.all(8),
+        child: pw.Text(text, textAlign: pw.TextAlign.center),
+      );
+
+  pw.Widget _buildMealCell(MealDetails meal) => pw.Padding(
+        padding: pw.EdgeInsets.all(8),
+        child: pw.Column(
+          crossAxisAlignment: pw.CrossAxisAlignment.start,
+          children: [
+            pw.Text(meal.title,
+                style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+            pw.Text('${meal.calories} Cal'),
+            pw.Text('P: ${meal.protein}g'),
+            pw.Text('C: ${meal.carbs}g'),
+            pw.Text('F: ${meal.fat}g'),
+          ],
+        ),
+      );
 
   // Send Email function
   Future<void> sendEmail(String email) async {
