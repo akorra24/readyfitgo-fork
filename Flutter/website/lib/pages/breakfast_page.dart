@@ -11,6 +11,7 @@ import 'package:printing/printing.dart';
 
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
+import 'package:website/pages/macro_calculator_page.dart';
 import 'package:website/pages/meal_generator_page.dart';
 
 import '../models/meal_details.dart';
@@ -463,7 +464,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => MealGenerator()),
+                                builder: (context) => MacroCalculatorPage()),
                           );
                         },
                       ),
