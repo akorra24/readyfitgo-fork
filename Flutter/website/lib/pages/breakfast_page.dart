@@ -70,7 +70,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     });
 
     final response = await http.post(
-      Uri.parse('http://127.0.0.1:5000/recommend'),
+      Uri.parse('http://readyfitgo-new.wl.r.appspot.com/recommend'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
