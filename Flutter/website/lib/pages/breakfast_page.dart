@@ -11,6 +11,7 @@ import 'package:printing/printing.dart';
 
 import 'package:website/components/meal_replace_options.dart';
 import 'package:website/components/micro_bar_widget.dart';
+import 'package:website/pages/meal_generator_page.dart';
 
 import '../models/meal_details.dart';
 
@@ -447,14 +448,41 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
             ),
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text('Your Daily Meal Plan',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800,
-                      )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(left: 20.0),
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_circle_left_outlined,
+                          size: 30.0,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MealGenerator()),
+                          );
+                        },
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          'Your Daily Meal Plan',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ),
+                    // Add invisible widget to maintain centering
+                    SizedBox(width: 68), // Same width as IconButton + padding
+                  ],
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
