@@ -248,19 +248,77 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                           widget.allMealDetails![dayIndex][mealIndex]),
                   ],
                 ),
+              // Add total row
+              pw.TableRow(
+                children: [
+                  pw.Container(
+                    color: PdfColors.blueGrey800,
+                    padding: pw.EdgeInsets.all(8),
+                    child: pw.Text(
+                      'Total',
+                      style: pw.TextStyle(
+                          color: PdfColors.white,
+                          fontWeight: pw.FontWeight.bold),
+                      textAlign: pw.TextAlign.center,
+                    ),
+                  ),
+                  for (var dayIndex = 0;
+                      dayIndex < widget.allMealDetails!.length;
+                      dayIndex++)
+                    pw.Padding(
+                      padding: pw.EdgeInsets.all(8),
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text('Daily Totals',
+                              style:
+                                  pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+                          ...(() {
+                            final totals = _calculateDayTotals(
+                                widget.allMealDetails![dayIndex]);
+                            return [
+                              pw.Text('${totals['calories']?.round()} Cal'),
+                              pw.Text('P: ${totals['protein']?.round()}g'),
+                              pw.Text('C: ${totals['carbs']?.round()}g'),
+                              pw.Text('F: ${totals['fat']?.round()}g'),
+                            ];
+                          })(),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
             ],
           ),
         ],
       ),
     );
 
-    await Printing.sharePdf(
-      bytes: await pdf.save(),
-      filename: 'meal_plan.pdf',
+    await Printing.layoutPdf(
+      onLayout: (PdfPageFormat format) async {
+        return pdf.save();
+      },
+      name: 'meal_plan.pdf',
+      format: PdfPageFormat.a4.copyWith(
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 20,
+        marginBottom: 20,
+      ),
     );
   }
 
 // Helper methods
+
+  Map<String, double> _calculateDayTotals(List<MealDetails> dayMeals) {
+    return {
+      'calories': dayMeals.fold(0.0, (sum, meal) => sum + meal.calories),
+      'protein': dayMeals.fold(0.0, (sum, meal) => sum + meal.protein),
+      'carbs': dayMeals.fold(0.0, (sum, meal) => sum + meal.carbs),
+      'fat': dayMeals.fold(0.0, (sum, meal) => sum + meal.fat),
+    };
+  }
+
   pw.Widget _buildHeaderCell(String text) => pw.Padding(
         padding: pw.EdgeInsets.all(8),
         child: pw.Text(
