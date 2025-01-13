@@ -1134,6 +1134,8 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                     } else {
                                       return Stack(children: [
                                         SingleChildScrollView(
+                                          physics:
+                                              const NeverScrollableScrollPhysics(),
                                           controller: _scrollController,
                                           scrollDirection: Axis.horizontal,
                                           child: Row(
@@ -1210,22 +1212,21 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                                             updateMacroDisplay();
 
                                                             List<MealDetails> formattedMeals = mealDetails
-                                                            .map((meal) => MealDetails(
-                                                                mealType: meal['Meal Type'] ?? 'Breakfast',
-                                                                title: meal['Menu Item'] ?? '',
-                                                                description: '', // Add description if available in API
-                                                                imageUrl: meal['Images'] ?? '',
-                                                                ingredients: meal['Ingredients'].toString().split(','),
-                                                                instructions: [], // Add instructions if available in API
-                                                                calories: int.parse(meal['Calories']?.toString() ?? '0'),
-                                                                protein: int.parse(meal['Protein']?.toString() ?? '0'),
-                                                                carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
-                                                                fat: int.parse(meal['Fat']?.toString() ?? '0'),
-                                                                day: widget.dayIndex + 1))
-                                                            .toList();
+                                                                .map((meal) => MealDetails(
+                                                                    mealType: meal['Meal Type'] ?? 'Breakfast',
+                                                                    title: meal['Menu Item'] ?? '',
+                                                                    description: '', // Add description if available in API
+                                                                    imageUrl: meal['Images'] ?? '',
+                                                                    ingredients: meal['Ingredients'].toString().split(','),
+                                                                    instructions: [], // Add instructions if available in API
+                                                                    calories: int.parse(meal['Calories']?.toString() ?? '0'),
+                                                                    protein: int.parse(meal['Protein']?.toString() ?? '0'),
+                                                                    carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
+                                                                    fat: int.parse(meal['Fat']?.toString() ?? '0'),
+                                                                    day: widget.dayIndex + 1))
+                                                                .toList();
 
-                                                        widget
-                                                            .onMealDetailsUpdate(
+                                                            widget.onMealDetailsUpdate(
                                                                 formattedMeals);
                                                           });
                                                         },
@@ -1281,22 +1282,21 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                                             updateMacroDisplay();
 
                                                             List<MealDetails> formattedMeals = mealDetails
-                                                            .map((meal) => MealDetails(
-                                                                mealType: meal['Meal Type'] ?? 'Breakfast',
-                                                                title: meal['Menu Item'] ?? '',
-                                                                description: '', // Add description if available in API
-                                                                imageUrl: meal['Images'] ?? '',
-                                                                ingredients: meal['Ingredients'].toString().split(','),
-                                                                instructions: [], // Add instructions if available in API
-                                                                calories: int.parse(meal['Calories']?.toString() ?? '0'),
-                                                                protein: int.parse(meal['Protein']?.toString() ?? '0'),
-                                                                carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
-                                                                fat: int.parse(meal['Fat']?.toString() ?? '0'),
-                                                                day: widget.dayIndex + 1))
-                                                            .toList();
+                                                                .map((meal) => MealDetails(
+                                                                    mealType: meal['Meal Type'] ?? 'Breakfast',
+                                                                    title: meal['Menu Item'] ?? '',
+                                                                    description: '', // Add description if available in API
+                                                                    imageUrl: meal['Images'] ?? '',
+                                                                    ingredients: meal['Ingredients'].toString().split(','),
+                                                                    instructions: [], // Add instructions if available in API
+                                                                    calories: int.parse(meal['Calories']?.toString() ?? '0'),
+                                                                    protein: int.parse(meal['Protein']?.toString() ?? '0'),
+                                                                    carbs: int.parse(meal['Carbs']?.toString() ?? '0'),
+                                                                    fat: int.parse(meal['Fat']?.toString() ?? '0'),
+                                                                    day: widget.dayIndex + 1))
+                                                                .toList();
 
-                                                        widget
-                                                            .onMealDetailsUpdate(
+                                                            widget.onMealDetailsUpdate(
                                                                 formattedMeals);
                                                           });
                                                         },
