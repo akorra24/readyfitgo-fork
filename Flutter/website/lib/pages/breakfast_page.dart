@@ -357,7 +357,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
     });
     final response = await http.post(
       Uri.parse(
-          'https://script.google.com/macros/s/AKfycbw0S4624QX2mfFH6rgNBgyWaVWnEowUN2_yOXFETipShvpjaK_NwroM_8CNiYzsbFsg/exec'),
+          'https://script.google.com/macros/s/AKfycbyBf2rzDicQoC9LuOL-YG8S4s5XLMqgfpKP8V-Tr5jzroudBQ2cEsvEWe4FLBOL2Vs5/exec'),
       headers: <String, String>{
         "Content-Type": "text/plain;charset=utf-8",
       },
