@@ -620,7 +620,7 @@ class HomePage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                      "1. Start monitoring your food intake for at least a month. Yes, it’s time to count your calories.",
+                                      "1. Start monitoring your food intake for at least a month.",
                                       style: TextStyle(
                                         fontFamily: 'Satoshi',
                                         fontWeight: FontWeight.w600,
@@ -628,18 +628,18 @@ class HomePage extends StatelessWidget {
                                         color: Colors.white,
                                         height: 1.5,
                                       )),
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 20),
-                                    child: Text(
-                                        "• You don’t have to do this forever.",
-                                        style: TextStyle(
-                                          fontFamily: 'Satoshi',
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 16,
-                                          color: Colors.white,
-                                          height: 1.5,
-                                        )),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(left: 20),
+                                  //   child: Text(
+                                  //       "• You don’t have to do this forever.",
+                                  //       style: TextStyle(
+                                  //         fontFamily: 'Satoshi',
+                                  //         fontWeight: FontWeight.w600,
+                                  //         fontSize: 16,
+                                  //         color: Colors.white,
+                                  //         height: 1.5,
+                                  //       )),
+                                  // ),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 20),
                                     child: Text(
@@ -772,7 +772,7 @@ class HomePage extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                          "1. Start monitoring your food intake for at least a month. Yes, it’s time to count your calories.",
+                                          "1. Start monitoring your food intake for at least a month.",
                                           style: TextStyle(
                                             fontFamily: 'Satoshi',
                                             fontWeight: FontWeight.w600,
@@ -780,19 +780,19 @@ class HomePage extends StatelessWidget {
                                             color: Colors.white,
                                             height: 1.5,
                                           )),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(left: 20),
-                                        child: Text(
-                                            "• You don’t have to do this forever.",
-                                            style: TextStyle(
-                                              fontFamily: 'Satoshi',
-                                              fontWeight: FontWeight.w600,
-                                              fontSize: 16,
-                                              color: Colors.white,
-                                              height: 1.5,
-                                            )),
-                                      ),
+                                      // Padding(
+                                      //   padding:
+                                      //       const EdgeInsets.only(left: 20),
+                                      //   child: Text(
+                                      //       "• You don’t have to do this forever.",
+                                      //       style: TextStyle(
+                                      //         fontFamily: 'Satoshi',
+                                      //         fontWeight: FontWeight.w600,
+                                      //         fontSize: 16,
+                                      //         color: Colors.white,
+                                      //         height: 1.5,
+                                      //       )),
+                                      // ),
                                       Padding(
                                         padding:
                                             const EdgeInsets.only(left: 20),
@@ -1246,7 +1246,7 @@ class HomePage extends StatelessWidget {
                                 padding:
                                     const EdgeInsets.only(left: 20, top: 20),
                                 child: Text(
-                                    "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself,\"What would a healthy person do?\"",
+                                    "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself, \"What would a healthy person do?\"",
                                     style: TextStyle(
                                       fontFamily: 'Satoshi',
                                       fontWeight: FontWeight.w600,
@@ -1364,7 +1364,7 @@ class HomePage extends StatelessWidget {
                                     padding: const EdgeInsets.only(
                                         left: 20, top: 20),
                                     child: Text(
-                                        "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself,\"What would a healthy person do?\"",
+                                        "• Your new identity is: “I am a healthy and athletic person.” Just like someone quitting smoking says, “No thanks, I’m trying to quit,” a non-smoker simply says, “I don’t smoke.” When offered seconds or tempted to skip the gym, ask yourself, \"What would a healthy person do?\"",
                                         style: TextStyle(
                                           fontFamily: 'Satoshi',
                                           fontWeight: FontWeight.w600,

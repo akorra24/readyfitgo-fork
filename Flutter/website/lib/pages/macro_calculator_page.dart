@@ -2690,7 +2690,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 15),
                     Text(
                       "Important: most people tend to overestimate their activity level.",
                       style: TextStyle(
@@ -2700,7 +2700,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 25),
                     Text(
                       "This is usually due to them basing their activity level on their number of gym sessions per week. This is not the right way to go about it.",
                       style: TextStyle(
@@ -2709,25 +2709,25 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 25),
                     Text(
-                      "If your only activity outside the office is the gym, put yourself down as “1-3 Days Exercise”. ",
+                      "If your only activity outside the office is the gym, put yourself down as “1-3 Days Exercise”. Your activity level is primarily based on what you do outside the gym. ",
                       style: TextStyle(
                         fontFamily: 'Satoshi',
                         fontSize: 20,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Text(
-                      "Your activity level is primarily based on what you do outside the gym.",
-                      style: TextStyle(
-                        fontFamily: 'Satoshi',
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 10),
+                    // SizedBox(height: 10),
+                    // Text(
+                    //   "Your activity level is primarily based on what you do outside the gym.",
+                    //   style: TextStyle(
+                    //     fontFamily: 'Satoshi',
+                    //     fontSize: 20,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
+                    SizedBox(height: 25),
                     Text(
                       "Four 1 hour strength training sessions at the gym each week is less than 2 hours of actual activity. It does not result in a large number of calories burnt.\nConversely, a teacher on her feet for the lions share of the week is most likely “3-5 Days Exercise”. The intermittent cardio throughout the day adds up.",
                       style: TextStyle(
@@ -2736,7 +2736,7 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 25),
                     Text(
                       "You might be slightly over depending on your intensity and frequency – but more likely you won’t be. You can adjust your estimate based on the first couple of week’s progress. If you think you’re on the line between levels and it could go either way – go with the lower estimate.",
                       style: TextStyle(
@@ -2746,64 +2746,64 @@ class _MacroCalculatorPageState extends State<MacroCalculatorPage> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    Text(
-                      "The Activity Level modifiers are:",
-                      style: TextStyle(
-                        fontFamily: 'Satoshi',
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                          "• 1-3 Days Exercise: Little or no exercise, office job (1.2×)",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                          "• 3-5 Days Exercise: Light daily activity & exercise 1-3 days per week (1.375×)",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                          "• 5-7 Days Exercise: Moderate daily activity & exercise 3-5 days per week (1.55×)",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                          "• Athlete: Physically demanding lifestyle & exercise 6-7 days per week (1.725×)",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: Text(
-                          "• Extremely Active: Hard daily exercise/sports & physical job (1.9×)",
-                          style: TextStyle(
-                            fontFamily: 'Satoshi',
-                            fontSize: 20,
-                            color: Colors.white,
-                          )),
-                    ),
+                    // Text(
+                    //   "The Activity Level modifiers are:",
+                    //   style: TextStyle(
+                    //     fontFamily: 'Satoshi',
+                    //     fontSize: 20,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: Text(
+                    //       "• 1-3 Days Exercise: Little or no exercise, office job (1.2×)",
+                    //       style: TextStyle(
+                    //         fontFamily: 'Satoshi',
+                    //         fontSize: 20,
+                    //         color: Colors.white,
+                    //       )),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: Text(
+                    //       "• 3-5 Days Exercise: Light daily activity & exercise 1-3 days per week (1.375×)",
+                    //       style: TextStyle(
+                    //         fontFamily: 'Satoshi',
+                    //         fontSize: 20,
+                    //         color: Colors.white,
+                    //       )),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: Text(
+                    //       "• 5-7 Days Exercise: Moderate daily activity & exercise 3-5 days per week (1.55×)",
+                    //       style: TextStyle(
+                    //         fontFamily: 'Satoshi',
+                    //         fontSize: 20,
+                    //         color: Colors.white,
+                    //       )),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: Text(
+                    //       "• Athlete: Physically demanding lifestyle & exercise 6-7 days per week (1.725×)",
+                    //       style: TextStyle(
+                    //         fontFamily: 'Satoshi',
+                    //         fontSize: 20,
+                    //         color: Colors.white,
+                    //       )),
+                    // ),
+                    // Padding(
+                    //   padding: const EdgeInsets.only(left: 20),
+                    //   child: Text(
+                    //       "• Extremely Active: Hard daily exercise/sports & physical job (1.9×)",
+                    //       style: TextStyle(
+                    //         fontFamily: 'Satoshi',
+                    //         fontSize: 20,
+                    //         color: Colors.white,
+                    //       )),
+                    // ),
                   ]),
             )
           ],
