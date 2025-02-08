@@ -537,7 +537,7 @@ class HomePage extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             html.window.open(
-                                'https://www.instagram.com/readyfitgo_cali/',
+                                'https://www.instagram.com/readyfitgo__/',
                                 '_blank');
                           },
                           child: Image.asset(
@@ -1477,7 +1477,7 @@ class HomePage extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           html.window.open(
-                              'https://www.instagram.com/readyfitgo_cali/',
+                              'https://www.instagram.com/readyfitgo__/',
                               '_blank');
                         },
                         child: Container(

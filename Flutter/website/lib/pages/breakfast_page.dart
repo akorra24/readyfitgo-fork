@@ -978,7 +978,7 @@ class _MealRecommendationPageState extends State<MealRecommendationPage>
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: mealDetails.map((meal) {
-                                          // print("Ingredients: ${meal['Ingredients ']}");
+                                          print("Ingredients: ${meal}");
                                           return MealDetailCard(
                                             textColor: Colors.white,
                                             title: meal['Menu Item'],

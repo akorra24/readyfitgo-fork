@@ -138,7 +138,7 @@ class _MealGeneratorState extends State<MealGenerator> {
 
   final _formKey = GlobalKey<FormState>();
 
-  String dietaryPreference = 'Vegetarian';
+  String dietaryPreference = 'None';
   int numberOfMeals = 3;
   int numberOfDays = 5;
 
